@@ -52,24 +52,18 @@ void core0_main(void)
 
     init_GPIOs();
 
-    // 1) Initialize ALL peripherals BEFORE enabling interrupts
-    init_ASCLIN_UART();                    // ← Move UART here (no ISR conflict)
+    init_ASCLIN_UART();
 
     initEgtmAtom3phInv();
 
-    IfxEgtm_Atom_Ch_setTriggerOutput(
-        &MODULE_EGTM.CLS[0].ATOM,
-        IfxEgtm_Atom_Ch_0,
-        IfxEgtm_Atom_Ch_OutputTrigger_generate
-    );
+
 
     Adc_MotorSense_init();
     Adc_MotorSense_start();
 
-    // 2) Enable interrupts AFTER all init is done
+
     IfxCpu_enableInterrupts();
 
-    // 3) Start PWM LAST — this is what triggers ADC conversions
     startPWMinEGTM();
 
     while (1)

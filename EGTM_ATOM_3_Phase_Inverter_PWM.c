@@ -251,7 +251,12 @@ void initEgtmAtom3phInv(void)
     g_egtmAtom3phInv.deadTimes[1]= channelConfig[1].dtm->deadTime;
     g_egtmAtom3phInv.deadTimes[2]= channelConfig[2].dtm->deadTime;
 
-    IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);   /* Set pin mode         */
+
+    IfxEgtm_Atom_Ch_setTriggerOutput(
+        &MODULE_EGTM.CLS[0].ATOM,
+        IfxEgtm_Atom_Ch_0,
+        IfxEgtm_Atom_Ch_OutputTrigger_generate
+    );
 }
 
 
