@@ -1,0 +1,18 @@
+/*
+ * UserFunctions.h
+ *
+ *  Created on: 14 Mar 2026
+ *      Author: rezas
+ */
+
+#ifndef USERFUNCTIONS_H_
+#define USERFUNCTIONS_H_
+
+#include "Bsp.h"
+
+
+
+void Delay(Ifx_TickTime time);
+
+
+#endif /* USERFUNCTIONS_H_ */
