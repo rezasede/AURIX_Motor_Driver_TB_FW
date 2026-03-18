@@ -6,9 +6,14 @@
  */
 
 #include "UserFunctions.h"
+#include "IfxApApu.h"
 
-void Delay(Ifx_TickTime time) // Time in ms
+void Delay (Ifx_TickTime time) // Time in ms
 {
     waitTime(IfxStm_getTicksFromMilliseconds(time)); /* Delay of 500ms*/
 }
 
+void grantCpu2PeripheralAccess (void)
+{
+
+}

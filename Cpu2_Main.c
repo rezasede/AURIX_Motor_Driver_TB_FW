@@ -29,16 +29,53 @@
 #include "IfxCpu.h"
 #include "IfxWtu.h"
 
-void core2_main(void)
+#include "Adc_MotorSense.h"
+
+extern IfxCpu_syncEvent g_cpuSyncEvent;
+extern volatile uint16 g_rawCurr[3];
+
+extern volatile boolean g_cpu0InitDone;
+
+void core2_main (void)
 {
-    IfxCpu_enableInterrupts();
-    
     /* !!WATCHDOG2 IS DISABLED HERE!!
      * Enable the watchdog and service it periodically if it is required
      */
     IfxWtu_disableCpuWatchdog(IfxWtu_getCpuWatchdogPassword());
     
-    while(1)
+    /* Wait until CPU0 has finished all peripheral init */
+    IfxCpu_waitEvent(&g_cpuSyncEvent, 1);
+
+    while (g_cpu0InitDone == FALSE) { }
+
+    IfxCpu_enableInterrupts();
+
+    double x_float = 0.0f;
+    double y_float = 0.0f;
+    uint64 t = 0;
+
+    struct
     {
+        uint32 x_raw;
+        uint32 y_raw;
+        uint32 z_raw;
+    } data;
+
+    while (1)
+    {
+
+        x_float = 10.0f * sinf(2.0f * 3.14159f * 0.001f * t + 1000);
+        y_float = 10.0f * sinf(2.0f * 3.14159f * 0.001f * t);
+
+        data.x_raw = (uint32) ((x_float + 10.0f) * 3276.7f);
+        data.y_raw = (uint32) ((y_float + 10.0f) * 3276.7f);
+
+        const volatile uint16 *pRaw = Adc_MotorSense_getRawCurrents();
+        data.z_raw = pRaw[0];
+
+        sendUART_cpu2(&data, sizeof(data));
+   //     sendUART(&data, sizeof(data));
+        t++;
+        Delay(1);
     }
 }

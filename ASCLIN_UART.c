@@ -32,10 +32,12 @@
 #include "IfxCpu_Irq.h"
 #include "pin.h"
 
+#include "IfxAsclin_reg.h"
+
 /*********************************************************************************************************************/
 /*------------------------------------------------------Macros-------------------------------------------------------*/
 /*********************************************************************************************************************/
-#define UART_BAUDRATE           115200                                  /* UART baud rate in bit/s                  */
+#define UART_BAUDRATE           576000                                  /* UART baud rate in bit/s                  */
 
 #define UART_PIN_RX             BOARD_RXD_MB                 /* UART receive port pin                    */
 #define UART_PIN_TX             BOARD_TXD_MB                 /* UART transmit port pin                   */
@@ -52,11 +54,11 @@
 /*-------------------------------------------------Global variables--------------------------------------------------*/
 /*********************************************************************************************************************/
 /* Declaration of the ASC handle */
-static IfxAsclin_Asc g_ascHandle;
+static IfxAsclin_Asc g_ascHandle __attribute__((section(".lmudata")));;
 
 /* Declaration of the FIFOs parameters */
-static uint8 g_ascTxBuffer[UART_TX_BUFFER_SIZE + sizeof(Ifx_Fifo) + 8];
-static uint8 g_ascRxBuffer[UART_RX_BUFFER_SIZE + sizeof(Ifx_Fifo) + 8];
+static uint8 g_ascTxBuffer[UART_TX_BUFFER_SIZE + sizeof(Ifx_Fifo) + 8] __attribute__((section(".lmudata")));;
+static uint8 g_ascRxBuffer[UART_RX_BUFFER_SIZE + sizeof(Ifx_Fifo) + 8] __attribute__((section(".lmudata")));;
 
 /* Definition of txData and rxData */
 uint8 g_txData[] = "Hello World!";
@@ -81,11 +83,32 @@ void asclin1RxISR(void)
     IfxAsclin_Asc_isrReceive(&g_ascHandle);
 }
 
+
+
+/* ── Multi-Core Peripheral Checklist ─────────────────────────────
+ * Peripheral : ASCLIN1 / ETH (RMII) / any other
+ *
+ * [x] 1. Init runs on CPU0 before IfxCpu_emitEvent()
+ * [x] 2. ACCEN_WRA updated for every core that writes registers
+ * [x] 3. Shared data (handles, FIFOs) only touched by ONE core
+ * [x] 4. Other cores use direct register access (no iLLD handle)
+ * [x] 5. Port pin ACCEN updated if another core drives GPIO
+ * ─────────────────────────────────────────────────────────────── */
+
+
+
 /* This function initializes the ASCLIN UART module */
 void init_ASCLIN_UART(void)
 {
+    /* Grant CPU2 write access to ASCLIN1 registers */
+    Ifx_ACCEN_ACCEN_WRA asclin1_accen = {0};
+    asclin1_accen.U  = (1 << IfxApProt_TagId_cpu0d)  | (1 << IfxApProt_TagId_cpu0ds);
+    asclin1_accen.U |= (1 << IfxApProt_TagId_cpu2d)  | (1 << IfxApProt_TagId_cpu2ds);
+    asclin1_accen.U |= (1 << IfxApProt_TagId_cbs);
+    IfxApApu_configWriteRegA((Ifx_ACCEN_ACCEN_WRA*) &ASCLIN1_ACCEN_WRA, asclin1_accen.U);
+
     /* Initialize an instance of IfxAsclin_Asc_Config with default values */
-    IfxAsclin_Asc_Config ascConfig;
+    IfxAsclin_Asc_Config ascConfig ;
     IfxAsclin_Asc_initModuleConfig(&ascConfig, &MODULE_ASCLIN1);
 
     /* Set the desired baud rate */
@@ -94,7 +117,7 @@ void init_ASCLIN_UART(void)
     /* ISR priorities and interrupt target */
     ascConfig.interrupt.txPriority = INTPRIO_ASCLIN1_TX;
     ascConfig.interrupt.rxPriority = INTPRIO_ASCLIN1_RX;
-    ascConfig.interrupt.typeOfService = IfxCpu_Irq_getTos(IfxCpu_getCoreIndex());
+    ascConfig.interrupt.typeOfService = IfxSrc_Tos_cpu0;
 
     /* FIFO configuration */
     ascConfig.txBuffer = &g_ascTxBuffer;
@@ -109,12 +132,33 @@ void init_ASCLIN_UART(void)
         &UART_PIN_RX,   IfxPort_InputMode_pullUp,     /* RX pin           */
         NULL_PTR,       IfxPort_OutputMode_pushPull,  /* RTS pin not used */
         &UART_PIN_TX,   IfxPort_OutputMode_pushPull,  /* TX pin           */
-        IfxPort_PadDriver_cmosAutomotiveSpeed1
+        IfxPort_PadDriver_cmosAutomotiveSpeed3
     };
     ascConfig.pins = &pins;
 
     IfxAsclin_Asc_initModule(&g_ascHandle, &ascConfig); /* Initialize module with above parameters */
 }
+
+
+/**
+ * @brief Transmits raw binary data via UART.
+ * @param pData Pointer to the data buffer (cast to void* for flexibility)
+ * @param length Number of bytes to transmit
+ */
+void sendUART(const void *pData, Ifx_SizeT length)
+{
+    if (pData == NULL || length == 0)
+    {
+        return;
+    }
+
+    /* Use a local variable for the iLLD API which updates the count upon completion */
+    Ifx_SizeT count = length;
+
+    /* Transmit raw bytes from memory */
+    IfxAsclin_Asc_write(&g_ascHandle, (uint8 *)pData, &count, TIME_INFINITE);
+}
+
 
 /* This function sends and receives the string "Hello World!" */
 void send_receive_ASCLIN_UART_message(void)
@@ -122,3 +166,21 @@ void send_receive_ASCLIN_UART_message(void)
     IfxAsclin_Asc_write(&g_ascHandle, g_txData, &g_count, TIME_INFINITE);   /* Transmit data via TX */
     IfxAsclin_Asc_read(&g_ascHandle, g_rxData, &g_count, TIME_INFINITE);    /* Receive data via RX  */
 }
+
+
+
+void sendUART_cpu2(const void *pData, Ifx_SizeT length)
+{
+    const uint8 *bytes = (const uint8 *)pData;
+
+    for (Ifx_SizeT i = 0; i < length; i++)
+    {
+        /* Wait until TX FIFO has space */
+        while (ASCLIN1_TXFIFOCON.B.FILL >= 16) { }
+
+        /* Write one byte */
+        ASCLIN1_TXDATA.U = bytes[i];
+    }
+}
+
+

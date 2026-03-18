@@ -95,7 +95,7 @@ Motor_Driver.elf: $(OBJS) ../Lcf_Gcc_Tricore_Tc.lsl makefile $(OPTIONAL_TOOL_DEP
 	@echo ' '
 
 .Motor_Driver.elf.opt:
-	$(file >$@, -T"../Lcf_Gcc_Tricore_Tc.lsl" -nocrt0 -Wl,--gc-sections -mcpu=tc4DAx -o "Motor_Driver.elf" $(OBJS))
+	$(file >$@, -T"../Lcf_Gcc_Tricore_Tc.lsl" -nocrt0 -Wl,--gc-sections -Wl,-Map,Motor_Driver.map -mcpu=tc4DAx -o "Motor_Driver.elf" $(OBJS))
 
 .PHONY: .Motor_Driver.elf.opt
 

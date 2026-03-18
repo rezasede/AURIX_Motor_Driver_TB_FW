@@ -33,5 +33,9 @@
 /*********************************************************************************************************************/
 void init_ASCLIN_UART(void);                    /* Initialization function                                          */
 void send_receive_ASCLIN_UART_message(void);    /* Send and receive function                                        */
+void sendUART(const void *pData, Ifx_SizeT length);
+
+
+void sendUART_cpu2(const void *pData, Ifx_SizeT length);
 
 #endif /* ASCLIN_UART_H_ */

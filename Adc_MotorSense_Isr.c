@@ -22,18 +22,22 @@
 /* Current group result ISR — higher priority, TIME CRITICAL */
 IFX_INTERRUPT(Adc_MotorSense_currIsr_handler, 0, IFX_INTPRIO_ADC_CURR)
 {
+    IfxPort_togglePin(IfxPort_P33_9.port, IfxPort_P33_9.pinIndex); //Debug GPIO for Scope
+
+
+    /* Read VALID bit — if 0, conversion wasn't done when DMA fired */
+    IFX_ASSERT(IFX_VERBOSE_LEVEL_ERROR,
+        MODULE_ADC.TMADC[0].CH[ADC_CH_IC].RES.B.VF == 1);
+
 
     Adc_MotorSense_currIsr();
-
-    IfxPort_togglePin(IfxPort_P00_1.port, IfxPort_P00_1.pinIndex); //Debug GPIO for Scope
-
-    /* Signal FOC task here if using RTOS */
 }
 
 /* Voltage group result ISR — lower priority */
 IFX_INTERRUPT(Adc_MotorSense_voltIsr_handler, 0, IFX_INTPRIO_ADC_VOLT)
 {
+    IfxPort_togglePin(IfxPort_P33_10.port, IfxPort_P33_10.pinIndex); //Debug GPIO for Scope
+
 
     Adc_MotorSense_voltIsr();
-
 }

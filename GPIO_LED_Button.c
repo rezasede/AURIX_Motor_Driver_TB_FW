@@ -55,8 +55,8 @@ void init_GPIOs(void)
     IfxPort_setPinMode(BUTTON.port, BUTTON.pinIndex, IfxPort_Mode_inputPullUp);
 
 
-     IfxPort_setPinMode(IfxPort_P00_1.port, IfxPort_P00_1.pinIndex, IfxPort_Mode_outputPushPullGeneral); //Debug GPIO for Scope
-
+     IfxPort_setPinMode(IfxPort_P33_9.port, IfxPort_P33_9.pinIndex, IfxPort_Mode_outputPushPullGeneral); //Debug GPIO for Scope
+     IfxPort_setPinMode(IfxPort_P33_10.port, IfxPort_P33_10.pinIndex, IfxPort_Mode_outputPushPullGeneral); //Debug GPIO for Scope
 }
 
 /* Depending on the the state of the "BUTTON" port pin, the LED is turned on or off */

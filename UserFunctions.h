@@ -13,6 +13,6 @@
 
 
 void Delay(Ifx_TickTime time);
-
+void grantCpu2PeripheralAccess (void);
 
 #endif /* USERFUNCTIONS_H_ */

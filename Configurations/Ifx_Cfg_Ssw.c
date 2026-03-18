@@ -32,6 +32,9 @@
 
 #include "Ifx_Cfg_Ssw.h"
 #include "Ifx_Ssw_Infra.h"
+
+#include "IfxAsclin_reg.h"
+
 #if (IFX_CFG_SSW_ENABLE_LBIST == 1)
 #include "IfxApProt.h"
 #include "IfxTriLbist.h"
@@ -440,6 +443,7 @@ void Ifx_Ssw_AP_Init(void)
     INT_TOS3_ACCENSCTRL_WRA.U = 0xFFFFFFFFU;
     INT_TOS4_ACCENSCTRL_WRA.U = 0xFFFFFFFFU;
     INT_TOS5_ACCENSCTRL_WRA.U = 0xFFFFFFFFU;
+
 }
 
 

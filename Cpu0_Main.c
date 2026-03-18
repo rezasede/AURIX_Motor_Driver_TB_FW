@@ -29,6 +29,11 @@
 #include "IfxCpu.h"
 #include "IfxWtu.h"
 #include "Bsp.h"
+#include "IfxApApu.h"
+#include "IfxPort.h"
+
+#include "IfxApProt.h"
+#include "IfxAsclin_reg.h"
 
 #include "EGTM_ATOM_3_Phase_Inverter_PWM.h"
 #include "ASCLIN_UART.h"
@@ -36,38 +41,46 @@
 #include "GPIO_LED_Button.h"
 #include "Adc_MotorSense.h"
 
+#include "ASCLIN_UART.h"
+
 #include "UserFunctions.h"
 
 #include "Egtm/Std/IfxEgtm_Atom.h"
 
+#include "Math.h"
+
 IFX_ALIGN(4) IfxCpu_syncEvent g_cpuSyncEvent = 0;
 
-void core0_main(void)
+volatile boolean g_cpu0InitDone = FALSE;
+
+void core0_main (void)
 {
     IfxWtu_disableCpuWatchdog(IfxWtu_getCpuWatchdogPassword());
     IfxWtu_disableSystemWatchdog(IfxWtu_getSystemWatchdogPassword());
-    
-    IfxCpu_emitEvent(&g_cpuSyncEvent);
-    IfxCpu_waitEvent(&g_cpuSyncEvent, 1);
 
     init_GPIOs();
 
+    initEgtmAtom3phInv();
+    Adc_MotorSense_init();
+
+    grantCpu2PeripheralAccess();
+
+    Adc_MotorSense_start();
+    IfxCpu_enableInterrupts();
+
     init_ASCLIN_UART();
 
-    initEgtmAtom3phInv();
 
 
 
-    Adc_MotorSense_init();
-    Adc_MotorSense_start();
-
-
-    IfxCpu_enableInterrupts();
+    /* Release all cores */
+    IfxCpu_emitEvent(&g_cpuSyncEvent);
+    IfxCpu_waitEvent(&g_cpuSyncEvent, 1);
+    g_cpu0InitDone = TRUE; /* Signal CPU2 */
 
     startPWMinEGTM();
 
     while (1)
-    {
-        Delay(500);
+    { /* hard RT loop only */
     }
 }
