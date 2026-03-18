@@ -74,7 +74,6 @@ void core2_main (void)
         data.z_raw = pRaw[0];
 
         sendUART_cpu2(&data, sizeof(data));
-   //     sendUART(&data, sizeof(data));
         t++;
         Delay(1);
     }
