@@ -15359,8 +15359,6 @@ Discarded input sections
                 0x00000000       0x18 ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Asc/IfxAsclin_Asc.o
  .text.IfxAsclin_Asc_getWriteEvent
                 0x00000000        0xc ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Asc/IfxAsclin_Asc.o
- .text.IfxAsclin_Asc_initiateTransmission
-                0x00000000       0x70 ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Asc/IfxAsclin_Asc.o
  .text.IfxAsclin_Asc_isrError
                 0x00000000       0xf4 ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Asc/IfxAsclin_Asc.o
  .text.IfxAsclin_Asc_read
@@ -15369,8 +15367,6 @@ Discarded input sections
                 0x00000000       0x2a ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Asc/IfxAsclin_Asc.o
  .text.IfxAsclin_Asc_resetSendCount
                 0x00000000        0xa ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Asc/IfxAsclin_Asc.o
- .text.IfxAsclin_Asc_write
-                0x00000000       0x84 ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Asc/IfxAsclin_Asc.o
  .text.IfxAsclin_Asc_blockingWrite
                 0x00000000       0x22 ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Asc/IfxAsclin_Asc.o
  .text.IfxAsclin_Asc_transmitCircularData
@@ -19617,10 +19613,10 @@ Discarded input sections
  .group         0x00000000        0x8 ./ASCLIN_UART.o
  .text          0x00000000        0x0 ./ASCLIN_UART.o
  .bss           0x00000000        0x0 ./ASCLIN_UART.o
- .text.sendUART
-                0x00000000       0x34 ./ASCLIN_UART.o
  .text.send_receive_ASCLIN_UART_message
                 0x00000000       0x40 ./ASCLIN_UART.o
+ .text.sendUART_cpu2
+                0x00000000       0x3e ./ASCLIN_UART.o
  .data.g_count  0x00000000        0x2 ./ASCLIN_UART.o
  .data.g_rxData
                 0x00000000        0xd ./ASCLIN_UART.o
@@ -23400,18 +23396,14 @@ LOAD c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/g
  *(.intvec_tc0_17)
 
 .inttab_tc0_012 memory region -> *default*
-                0x803fe240       0x20
+                0x803fe240        0x0
                 0x803fe240                        . = ALIGN (0x8)
  *(.intvec_tc0_18)
- .intvec_tc0_18
-                0x803fe240       0x20 ./ASCLIN_UART.o
 
 .inttab_tc0_013 memory region -> *default*
-                0x803fe260       0x20
+                0x803fe260        0x0
                 0x803fe260                        . = ALIGN (0x8)
  *(.intvec_tc0_19)
- .intvec_tc0_19
-                0x803fe260       0x20 ./ASCLIN_UART.o
 
 .inttab_tc0_014 memory region -> *default*
                 0x803fe280       0x20
@@ -25972,14 +25964,18 @@ LOAD c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/g
  *(.intvec_tc2_17)
 
 .inttab_tc2_012 memory region -> *default*
-                0x809fe240        0x0
+                0x809fe240       0x20
                 0x809fe240                        . = ALIGN (0x8)
  *(.intvec_tc2_18)
+ .intvec_tc2_18
+                0x809fe240       0x20 ./ASCLIN_UART.o
 
 .inttab_tc2_013 memory region -> *default*
-                0x809fe260        0x0
+                0x809fe260       0x20
                 0x809fe260                        . = ALIGN (0x8)
  *(.intvec_tc2_19)
+ .intvec_tc2_19
+                0x809fe260       0x20 ./ASCLIN_UART.o
 
 .inttab_tc2_014 memory region -> *default*
                 0x809fe280        0x0
@@ -31781,13 +31777,13 @@ LOAD c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/g
                 0x80000eb4        0x4 LONG 0x80000200 LOADADDR (.sdata4)
                 0x80000eb8        0x4 LONG 0x90400000 (0x0 + ADDR (.sdata4))
                 0x80000ebc        0x4 LONG 0x0 SIZEOF (.sdata4)
-                0x80000ec0        0x4 LONG 0x80001448 LOADADDR (.CPU0.psram_text)
+                0x80000ec0        0x4 LONG 0x80001440 LOADADDR (.CPU0.psram_text)
                 0x80000ec4        0x4 LONG 0x70100000 (0x0 + ADDR (.CPU0.psram_text))
                 0x80000ec8        0x4 LONG 0x0 SIZEOF (.CPU0.psram_text)
                 0x80000ecc        0x4 LONG 0x80400374 LOADADDR (.CPU1.psram_text)
                 0x80000ed0        0x4 LONG 0x60100000 (0x0 + ADDR (.CPU1.psram_text))
                 0x80000ed4        0x4 LONG 0x0 SIZEOF (.CPU1.psram_text)
-                0x80000ed8        0x4 LONG 0x80800424 LOADADDR (.CPU2.psram_text)
+                0x80000ed8        0x4 LONG 0x80800428 LOADADDR (.CPU2.psram_text)
                 0x80000edc        0x4 LONG 0x50100000 (0x0 + ADDR (.CPU2.psram_text))
                 0x80000ee0        0x4 LONG 0x0 SIZEOF (.CPU2.psram_text)
                 0x80000ee4        0x4 LONG 0x80a00374 LOADADDR (.CPU3.psram_text)
@@ -31813,7 +31809,7 @@ LOAD c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/g
  *fill*         0x80000f2c        0x4 
 
 .CPU0.text      memory region -> pfls0
-                0x80000f30      0x4fc
+                0x80000f30      0x4f8
                 0x80000f30                        . = ALIGN (0x4)
  *Ifx_Ssw_Tc0.*(.text)
  *Cpu0_Main.*(.text)
@@ -31912,48 +31908,47 @@ LOAD c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/g
                 0x8000129c      0x136 ./Libraries/Infra/Ssw/TC4xx/Tricore/Ifx_Ssw_Tc0.o
  *Cpu0_Main.*(.text.*)
  .text.core0_main
-                0x800013d2       0x5a ./Cpu0_Main.o
+                0x800013d2       0x56 ./Cpu0_Main.o
                 0x800013d2                core0_main
-                0x8000142c                core0_main_end
+                0x80001428                core0_main_end
  *(.text_cpu0)
  *(.text_cpu0.*)
-                0x8000142c                        . = ALIGN (0x4)
+                0x80001428                        . = ALIGN (0x4)
 
 .tspi           memory region -> pfls0
-                0x8000142c        0x4
+                0x80001428        0x0
  *(.tspi)
-                0x80001430                        . = ALIGN (0x8)
- *fill*         0x8000142c        0x4 
+                0x80001428                        . = ALIGN (0x8)
 
 .init           memory region -> pfls0
-                0x80001430       0x10
+                0x80001428       0x10
                 [!provide]                        PROVIDE (__init_start = .)
  *(.init)
- .init          0x80001430        0x0 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crti.o
-                0x80001430                _init
- .init          0x80001430        0x4 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtbegin.o
- .init          0x80001434        0x4 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtend.o
- .init          0x80001438        0x2 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtn.o
+ .init          0x80001428        0x0 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crti.o
+                0x80001428                _init
+ .init          0x80001428        0x4 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtbegin.o
+ .init          0x8000142c        0x4 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtend.o
+ .init          0x80001430        0x2 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtn.o
  *(.init*)
                 [!provide]                        PROVIDE (__init_end = .)
-                0x80001440                        . = ALIGN (0x8)
- *fill*         0x8000143a        0x6 
+                0x80001438                        . = ALIGN (0x8)
+ *fill*         0x80001432        0x6 
 
 .fini           memory region -> pfls0
-                0x80001440        0x8
+                0x80001438        0x8
                 [!provide]                        PROVIDE (__fini_start = .)
  *(.fini)
- .fini          0x80001440        0x0 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crti.o
-                0x80001440                _fini
- .fini          0x80001440        0x4 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtbegin.o
- .fini          0x80001444        0x2 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtn.o
+ .fini          0x80001438        0x0 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crti.o
+                0x80001438                _fini
+ .fini          0x80001438        0x4 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtbegin.o
+ .fini          0x8000143c        0x2 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtn.o
  *(.fini*)
                 [!provide]                        PROVIDE (__fini_end = .)
-                0x80001448                        . = ALIGN (0x8)
- *fill*         0x80001446        0x2 
+                0x80001440                        . = ALIGN (0x8)
+ *fill*         0x8000143e        0x2 
 
 .CPU0.psram_text memory region -> psram0
-                0x70100000        0x0 load address 0x80001448
+                0x70100000        0x0 load address 0x80001440
                 0x70100000                        . = ALIGN (0x4)
  *(.psram_text_cpu0)
  *(.psram_text_cpu0.*)
@@ -31995,7 +31990,7 @@ LOAD c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/g
                 0x60100000                        . = ALIGN (0x4)
 
 .CPU2.text      memory region -> pfls2
-                0x80800200      0x224
+                0x80800200      0x228
                 0x80800200                        . = ALIGN (0x4)
  *Ifx_Ssw_Tc2.*(.text)
  *Cpu2_Main.*(.text)
@@ -32010,15 +32005,15 @@ LOAD c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/g
                 0x8080035e                __Core2_start_end
  *Cpu2_Main.*(.text.*)
  .text.core2_main
-                0x8080035e       0xc6 ./Cpu2_Main.o
+                0x8080035e       0xca ./Cpu2_Main.o
                 0x8080035e                core2_main
-                0x80800424                core2_main_end
+                0x80800428                core2_main_end
  *(.text_cpu2)
  *(.text_cpu2.*)
-                0x80800424                        . = ALIGN (0x4)
+                0x80800428                        . = ALIGN (0x4)
 
 .CPU2.psram_text memory region -> psram2
-                0x50100000        0x0 load address 0x80800424
+                0x50100000        0x0 load address 0x80800428
                 0x50100000                        . = ALIGN (0x4)
  *(.psram_text_cpu2)
  *(.psram_text_cpu2.*)
@@ -32126,7 +32121,7 @@ LOAD c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/g
                 0x20100000                        . = ALIGN (0x4)
 
 .text           memory region -> pfls0
-                0x80001448     0x86c8
+                0x80001440     0x87bc
  *(.text.fast.pfls.cpu0)
  *(.text.slow.pfls.cpu0)
  *(.text.5ms.pfls.cpu0)
@@ -32135,636 +32130,645 @@ LOAD c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/g
  *(.text)
  *(.text.*)
  .text.deregister_tm_clones
-                0x80001448       0x26 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtbegin.o
+                0x80001440       0x26 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtbegin.o
  .text.register_tm_clones
-                0x8000146e       0x3a c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtbegin.o
+                0x80001466       0x3a c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtbegin.o
  .text.__do_global_dtors_aux
-                0x800014a8       0x62 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtbegin.o
+                0x800014a0       0x62 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtbegin.o
  .text.frame_dummy
-                0x8000150a        0x6 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtbegin.o
+                0x80001502        0x6 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtbegin.o
  .text.IfxWtu_getCpuWatchdogPassword
-                0x80001510       0x26 ./Libraries/iLLD/TC4xx/Tricore/Wtu/Std/IfxWtu.o
-                0x80001510                IfxWtu_getCpuWatchdogPassword
-                0x80001536                IfxWtu_getCpuWatchdogPassword_end
+                0x80001508       0x26 ./Libraries/iLLD/TC4xx/Tricore/Wtu/Std/IfxWtu.o
+                0x80001508                IfxWtu_getCpuWatchdogPassword
+                0x8000152e                IfxWtu_getCpuWatchdogPassword_end
  .text.IfxWtu_getSystemWatchdogPassword
-                0x80001536       0x10 ./Libraries/iLLD/TC4xx/Tricore/Wtu/Std/IfxWtu.o
-                0x80001536                IfxWtu_getSystemWatchdogPassword
-                0x80001546                IfxWtu_getSystemWatchdogPassword_end
+                0x8000152e       0x10 ./Libraries/iLLD/TC4xx/Tricore/Wtu/Std/IfxWtu.o
+                0x8000152e                IfxWtu_getSystemWatchdogPassword
+                0x8000153e                IfxWtu_getSystemWatchdogPassword_end
  .text.IfxWtu_disableCpuWatchdog
-                0x80001546       0x7c ./Libraries/iLLD/TC4xx/Tricore/Wtu/Std/IfxWtu.o
-                0x80001546                IfxWtu_disableCpuWatchdog
-                0x800015c2                IfxWtu_disableCpuWatchdog_end
+                0x8000153e       0x7c ./Libraries/iLLD/TC4xx/Tricore/Wtu/Std/IfxWtu.o
+                0x8000153e                IfxWtu_disableCpuWatchdog
+                0x800015ba                IfxWtu_disableCpuWatchdog_end
  .text.IfxWtu_disableSystemWatchdog
-                0x800015c2       0x38 ./Libraries/iLLD/TC4xx/Tricore/Wtu/Std/IfxWtu.o
-                0x800015c2                IfxWtu_disableSystemWatchdog
-                0x800015fa                IfxWtu_disableSystemWatchdog_end
+                0x800015ba       0x38 ./Libraries/iLLD/TC4xx/Tricore/Wtu/Std/IfxWtu.o
+                0x800015ba                IfxWtu_disableSystemWatchdog
+                0x800015f2                IfxWtu_disableSystemWatchdog_end
  .text.IfxWtu_serviceCpuWatchdog
-                0x800015fa       0x94 ./Libraries/iLLD/TC4xx/Tricore/Wtu/Std/IfxWtu.o
-                0x800015fa                IfxWtu_serviceCpuWatchdog
-                0x8000168e                IfxWtu_serviceCpuWatchdog_end
+                0x800015f2       0x94 ./Libraries/iLLD/TC4xx/Tricore/Wtu/Std/IfxWtu.o
+                0x800015f2                IfxWtu_serviceCpuWatchdog
+                0x80001686                IfxWtu_serviceCpuWatchdog_end
  .text.IfxWtu_serviceSystemWatchdog
-                0x8000168e       0x3a ./Libraries/iLLD/TC4xx/Tricore/Wtu/Std/IfxWtu.o
-                0x8000168e                IfxWtu_serviceSystemWatchdog
-                0x800016c8                IfxWtu_serviceSystemWatchdog_end
+                0x80001686       0x3a ./Libraries/iLLD/TC4xx/Tricore/Wtu/Std/IfxWtu.o
+                0x80001686                IfxWtu_serviceSystemWatchdog
+                0x800016c0                IfxWtu_serviceSystemWatchdog_end
  .text.IfxSmu_setSafetyAlarmAction
-                0x800016c8       0x96 ./Libraries/iLLD/TC4xx/Tricore/Smu/Std/IfxSmu.o
-                0x800016c8                IfxSmu_setSafetyAlarmAction
-                0x8000175e                IfxSmu_setSafetyAlarmAction_end
+                0x800016c0       0x96 ./Libraries/iLLD/TC4xx/Tricore/Smu/Std/IfxSmu.o
+                0x800016c0                IfxSmu_setSafetyAlarmAction
+                0x80001756                IfxSmu_setSafetyAlarmAction_end
  .text.IfxSmu_smuSafeClearAlarmStatus
-                0x8000175e       0x42 ./Libraries/iLLD/TC4xx/Tricore/Smu/Std/IfxSmu.o
-                0x8000175e                IfxSmu_smuSafeClearAlarmStatus
-                0x800017a0                IfxSmu_smuSafeClearAlarmStatus_end
+                0x80001756       0x42 ./Libraries/iLLD/TC4xx/Tricore/Smu/Std/IfxSmu.o
+                0x80001756                IfxSmu_smuSafeClearAlarmStatus
+                0x80001798                IfxSmu_smuSafeClearAlarmStatus_end
  .text.IfxCpu_Trap_memoryManagementError
-                0x800017a0       0x2e ./Libraries/iLLD/TC4xx/Tricore/Cpu/Trap/IfxCpu_Trap.o
-                0x800017a0                IfxCpu_Trap_memoryManagementError
-                0x800017ce                IfxCpu_Trap_memoryManagementError_end
+                0x80001798       0x2e ./Libraries/iLLD/TC4xx/Tricore/Cpu/Trap/IfxCpu_Trap.o
+                0x80001798                IfxCpu_Trap_memoryManagementError
+                0x800017c6                IfxCpu_Trap_memoryManagementError_end
  .text.IfxCpu_Trap_internalProtectionError
-                0x800017ce       0x2e ./Libraries/iLLD/TC4xx/Tricore/Cpu/Trap/IfxCpu_Trap.o
-                0x800017ce                IfxCpu_Trap_internalProtectionError
-                0x800017fc                IfxCpu_Trap_internalProtectionError_end
+                0x800017c6       0x2e ./Libraries/iLLD/TC4xx/Tricore/Cpu/Trap/IfxCpu_Trap.o
+                0x800017c6                IfxCpu_Trap_internalProtectionError
+                0x800017f4                IfxCpu_Trap_internalProtectionError_end
  .text.IfxCpu_Trap_instructionError
-                0x800017fc       0x2e ./Libraries/iLLD/TC4xx/Tricore/Cpu/Trap/IfxCpu_Trap.o
-                0x800017fc                IfxCpu_Trap_instructionError
-                0x8000182a                IfxCpu_Trap_instructionError_end
+                0x800017f4       0x2e ./Libraries/iLLD/TC4xx/Tricore/Cpu/Trap/IfxCpu_Trap.o
+                0x800017f4                IfxCpu_Trap_instructionError
+                0x80001822                IfxCpu_Trap_instructionError_end
  .text.IfxCpu_Trap_contextManagementError
-                0x8000182a       0x2e ./Libraries/iLLD/TC4xx/Tricore/Cpu/Trap/IfxCpu_Trap.o
-                0x8000182a                IfxCpu_Trap_contextManagementError
-                0x80001858                IfxCpu_Trap_contextManagementError_end
+                0x80001822       0x2e ./Libraries/iLLD/TC4xx/Tricore/Cpu/Trap/IfxCpu_Trap.o
+                0x80001822                IfxCpu_Trap_contextManagementError
+                0x80001850                IfxCpu_Trap_contextManagementError_end
  .text.IfxCpu_Trap_busError
-                0x80001858       0x2e ./Libraries/iLLD/TC4xx/Tricore/Cpu/Trap/IfxCpu_Trap.o
-                0x80001858                IfxCpu_Trap_busError
-                0x80001886                IfxCpu_Trap_busError_end
+                0x80001850       0x2e ./Libraries/iLLD/TC4xx/Tricore/Cpu/Trap/IfxCpu_Trap.o
+                0x80001850                IfxCpu_Trap_busError
+                0x8000187e                IfxCpu_Trap_busError_end
  .text.IfxCpu_Trap_assertion
-                0x80001886       0x34 ./Libraries/iLLD/TC4xx/Tricore/Cpu/Trap/IfxCpu_Trap.o
-                0x80001886                IfxCpu_Trap_assertion
-                0x800018ba                IfxCpu_Trap_assertion_end
+                0x8000187e       0x34 ./Libraries/iLLD/TC4xx/Tricore/Cpu/Trap/IfxCpu_Trap.o
+                0x8000187e                IfxCpu_Trap_assertion
+                0x800018b2                IfxCpu_Trap_assertion_end
  .text.IfxCpu_Trap_systemCall_Cpu0
-                0x800018ba       0x2c ./Libraries/iLLD/TC4xx/Tricore/Cpu/Trap/IfxCpu_Trap.o
-                0x800018ba                IfxCpu_Trap_systemCall_Cpu0
-                0x800018e6                IfxCpu_Trap_systemCall_Cpu0_end
+                0x800018b2       0x2c ./Libraries/iLLD/TC4xx/Tricore/Cpu/Trap/IfxCpu_Trap.o
+                0x800018b2                IfxCpu_Trap_systemCall_Cpu0
+                0x800018de                IfxCpu_Trap_systemCall_Cpu0_end
  .text.IfxCpu_Trap_systemCall_Cpu1
-                0x800018e6       0x2c ./Libraries/iLLD/TC4xx/Tricore/Cpu/Trap/IfxCpu_Trap.o
-                0x800018e6                IfxCpu_Trap_systemCall_Cpu1
-                0x80001912                IfxCpu_Trap_systemCall_Cpu1_end
+                0x800018de       0x2c ./Libraries/iLLD/TC4xx/Tricore/Cpu/Trap/IfxCpu_Trap.o
+                0x800018de                IfxCpu_Trap_systemCall_Cpu1
+                0x8000190a                IfxCpu_Trap_systemCall_Cpu1_end
  .text.IfxCpu_Trap_systemCall_Cpu2
-                0x80001912       0x2c ./Libraries/iLLD/TC4xx/Tricore/Cpu/Trap/IfxCpu_Trap.o
-                0x80001912                IfxCpu_Trap_systemCall_Cpu2
-                0x8000193e                IfxCpu_Trap_systemCall_Cpu2_end
+                0x8000190a       0x2c ./Libraries/iLLD/TC4xx/Tricore/Cpu/Trap/IfxCpu_Trap.o
+                0x8000190a                IfxCpu_Trap_systemCall_Cpu2
+                0x80001936                IfxCpu_Trap_systemCall_Cpu2_end
  .text.IfxCpu_Trap_systemCall_Cpu3
-                0x8000193e       0x2c ./Libraries/iLLD/TC4xx/Tricore/Cpu/Trap/IfxCpu_Trap.o
-                0x8000193e                IfxCpu_Trap_systemCall_Cpu3
-                0x8000196a                IfxCpu_Trap_systemCall_Cpu3_end
+                0x80001936       0x2c ./Libraries/iLLD/TC4xx/Tricore/Cpu/Trap/IfxCpu_Trap.o
+                0x80001936                IfxCpu_Trap_systemCall_Cpu3
+                0x80001962                IfxCpu_Trap_systemCall_Cpu3_end
  .text.IfxCpu_Trap_systemCall_Cpu4
-                0x8000196a       0x2c ./Libraries/iLLD/TC4xx/Tricore/Cpu/Trap/IfxCpu_Trap.o
-                0x8000196a                IfxCpu_Trap_systemCall_Cpu4
-                0x80001996                IfxCpu_Trap_systemCall_Cpu4_end
+                0x80001962       0x2c ./Libraries/iLLD/TC4xx/Tricore/Cpu/Trap/IfxCpu_Trap.o
+                0x80001962                IfxCpu_Trap_systemCall_Cpu4
+                0x8000198e                IfxCpu_Trap_systemCall_Cpu4_end
  .text.IfxCpu_Trap_systemCall_Cpu5
-                0x80001996       0x2c ./Libraries/iLLD/TC4xx/Tricore/Cpu/Trap/IfxCpu_Trap.o
-                0x80001996                IfxCpu_Trap_systemCall_Cpu5
-                0x800019c2                IfxCpu_Trap_systemCall_Cpu5_end
+                0x8000198e       0x2c ./Libraries/iLLD/TC4xx/Tricore/Cpu/Trap/IfxCpu_Trap.o
+                0x8000198e                IfxCpu_Trap_systemCall_Cpu5
+                0x800019ba                IfxCpu_Trap_systemCall_Cpu5_end
  .text.IfxCpu_Trap_nonMaskableInterrupt
-                0x800019c2       0x2c ./Libraries/iLLD/TC4xx/Tricore/Cpu/Trap/IfxCpu_Trap.o
-                0x800019c2                IfxCpu_Trap_nonMaskableInterrupt
-                0x800019ee                IfxCpu_Trap_nonMaskableInterrupt_end
+                0x800019ba       0x2c ./Libraries/iLLD/TC4xx/Tricore/Cpu/Trap/IfxCpu_Trap.o
+                0x800019ba                IfxCpu_Trap_nonMaskableInterrupt
+                0x800019e6                IfxCpu_Trap_nonMaskableInterrupt_end
  .text.IfxCpu_waitEvent
-                0x800019ee      0x122 ./Libraries/iLLD/TC4xx/Tricore/Cpu/Std/IfxCpu.o
-                0x800019ee                IfxCpu_waitEvent
-                0x80001b10                IfxCpu_waitEvent_end
+                0x800019e6      0x122 ./Libraries/iLLD/TC4xx/Tricore/Cpu/Std/IfxCpu.o
+                0x800019e6                IfxCpu_waitEvent
+                0x80001b08                IfxCpu_waitEvent_end
  .text.IfxCpu_emitEvent
-                0x80001b10       0x16 ./Libraries/iLLD/TC4xx/Tricore/Cpu/Std/IfxCpu.o
-                0x80001b10                IfxCpu_emitEvent
-                0x80001b26                IfxCpu_emitEvent_end
+                0x80001b08       0x16 ./Libraries/iLLD/TC4xx/Tricore/Cpu/Std/IfxCpu.o
+                0x80001b08                IfxCpu_emitEvent
+                0x80001b1e                IfxCpu_emitEvent_end
  .text.IfxEgtm_PinMap_setAtomTout
-                0x80001b26       0x7e ./Libraries/iLLD/TC4xx/CpuGeneric/_PinMap/IfxEgtm_PinMap.o
-                0x80001b26                IfxEgtm_PinMap_setAtomTout
-                0x80001ba4                IfxEgtm_PinMap_setAtomTout_end
+                0x80001b1e       0x7e ./Libraries/iLLD/TC4xx/CpuGeneric/_PinMap/IfxEgtm_PinMap.o
+                0x80001b1e                IfxEgtm_PinMap_setAtomTout
+                0x80001b9c                IfxEgtm_PinMap_setAtomTout_end
  .text.IfxEgtm_PinMap_setTomTout
-                0x80001ba4       0x7e ./Libraries/iLLD/TC4xx/CpuGeneric/_PinMap/IfxEgtm_PinMap.o
-                0x80001ba4                IfxEgtm_PinMap_setTomTout
-                0x80001c22                IfxEgtm_PinMap_setTomTout_end
+                0x80001b9c       0x7e ./Libraries/iLLD/TC4xx/CpuGeneric/_PinMap/IfxEgtm_PinMap.o
+                0x80001b9c                IfxEgtm_PinMap_setTomTout
+                0x80001c1a                IfxEgtm_PinMap_setTomTout_end
  .text.Ifx_CircularBuffer_read8
-                0x80001c22       0x42 ./Libraries/iLLD/TC4xx/CpuGeneric/_Lib/DataHandling/Ifx_CircularBuffer.o
-                0x80001c22                Ifx_CircularBuffer_read8
-                0x80001c64                Ifx_CircularBuffer_read8_end
+                0x80001c1a       0x42 ./Libraries/iLLD/TC4xx/CpuGeneric/_Lib/DataHandling/Ifx_CircularBuffer.o
+                0x80001c1a                Ifx_CircularBuffer_read8
+                0x80001c5c                Ifx_CircularBuffer_read8_end
  .text.Ifx_CircularBuffer_write8
-                0x80001c64       0x42 ./Libraries/iLLD/TC4xx/CpuGeneric/_Lib/DataHandling/Ifx_CircularBuffer.o
-                0x80001c64                Ifx_CircularBuffer_write8
-                0x80001ca6                Ifx_CircularBuffer_write8_end
+                0x80001c5c       0x42 ./Libraries/iLLD/TC4xx/CpuGeneric/_Lib/DataHandling/Ifx_CircularBuffer.o
+                0x80001c5c                Ifx_CircularBuffer_write8
+                0x80001c9e                Ifx_CircularBuffer_write8_end
  .text.Ifx_Fifo_beginRead
-                0x80001ca6       0x4a ./Libraries/iLLD/TC4xx/CpuGeneric/_Lib/DataHandling/Ifx_Fifo.o
+                0x80001c9e       0x4a ./Libraries/iLLD/TC4xx/CpuGeneric/_Lib/DataHandling/Ifx_Fifo.o
  .text.Ifx_Fifo_readEnd
-                0x80001cf0       0x56 ./Libraries/iLLD/TC4xx/CpuGeneric/_Lib/DataHandling/Ifx_Fifo.o
+                0x80001ce8       0x56 ./Libraries/iLLD/TC4xx/CpuGeneric/_Lib/DataHandling/Ifx_Fifo.o
  .text.Ifx_Fifo_beginWrite
-                0x80001d46       0x4e ./Libraries/iLLD/TC4xx/CpuGeneric/_Lib/DataHandling/Ifx_Fifo.o
+                0x80001d3e       0x4e ./Libraries/iLLD/TC4xx/CpuGeneric/_Lib/DataHandling/Ifx_Fifo.o
  .text.Ifx_Fifo_endWrite
-                0x80001d94       0x64 ./Libraries/iLLD/TC4xx/CpuGeneric/_Lib/DataHandling/Ifx_Fifo.o
+                0x80001d8c       0x64 ./Libraries/iLLD/TC4xx/CpuGeneric/_Lib/DataHandling/Ifx_Fifo.o
  .text.Ifx_Fifo_init
-                0x80001df8       0x4c ./Libraries/iLLD/TC4xx/CpuGeneric/_Lib/DataHandling/Ifx_Fifo.o
-                0x80001df8                Ifx_Fifo_init
-                0x80001e44                Ifx_Fifo_init_end
+                0x80001df0       0x4c ./Libraries/iLLD/TC4xx/CpuGeneric/_Lib/DataHandling/Ifx_Fifo.o
+                0x80001df0                Ifx_Fifo_init
+                0x80001e3c                Ifx_Fifo_init_end
  .text.Ifx_Fifo_read
-                0x80001e44      0x15e ./Libraries/iLLD/TC4xx/CpuGeneric/_Lib/DataHandling/Ifx_Fifo.o
-                0x80001e44                Ifx_Fifo_read
-                0x80001fa2                Ifx_Fifo_read_end
+                0x80001e3c      0x15e ./Libraries/iLLD/TC4xx/CpuGeneric/_Lib/DataHandling/Ifx_Fifo.o
+                0x80001e3c                Ifx_Fifo_read
+                0x80001f9a                Ifx_Fifo_read_end
  .text.Ifx_Fifo_write
-                0x80001fa2      0x15e ./Libraries/iLLD/TC4xx/CpuGeneric/_Lib/DataHandling/Ifx_Fifo.o
-                0x80001fa2                Ifx_Fifo_write
-                0x80002100                Ifx_Fifo_write_end
+                0x80001f9a      0x15e ./Libraries/iLLD/TC4xx/CpuGeneric/_Lib/DataHandling/Ifx_Fifo.o
+                0x80001f9a                Ifx_Fifo_write
+                0x800020f8                Ifx_Fifo_write_end
  .text.IfxPort_setPinMode
-                0x80002100       0x3e ./Libraries/iLLD/TC4xx/CpuGeneric/Port/Std/IfxPort.o
-                0x80002100                IfxPort_setPinMode
-                0x8000213e                IfxPort_setPinMode_end
+                0x800020f8       0x3e ./Libraries/iLLD/TC4xx/CpuGeneric/Port/Std/IfxPort.o
+                0x800020f8                IfxPort_setPinMode
+                0x80002136                IfxPort_setPinMode_end
  .text.IfxPort_setPinPadDriver
-                0x8000213e       0x2c ./Libraries/iLLD/TC4xx/CpuGeneric/Port/Std/IfxPort.o
-                0x8000213e                IfxPort_setPinPadDriver
-                0x8000216a                IfxPort_setPinPadDriver_end
+                0x80002136       0x2c ./Libraries/iLLD/TC4xx/CpuGeneric/Port/Std/IfxPort.o
+                0x80002136                IfxPort_setPinPadDriver
+                0x80002162                IfxPort_setPinPadDriver_end
  .text.IfxEgtm_Trigger_trigToAdc
-                0x8000216a       0xa8 ./Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Trigger/IfxEgtm_Trigger.o
-                0x8000216a                IfxEgtm_Trigger_trigToAdc
-                0x80002212                IfxEgtm_Trigger_trigToAdc_end
- *fill*         0x80002212        0x2 
+                0x80002162       0xa8 ./Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Trigger/IfxEgtm_Trigger.o
+                0x80002162                IfxEgtm_Trigger_trigToAdc
+                0x8000220a                IfxEgtm_Trigger_trigToAdc_end
+ *fill*         0x8000220a        0x2 
  .text.IfxEgtm_ConnectToMsc
-                0x80002214      0x2c4 ./Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Std/IfxEgtm.o
-                0x80002214                IfxEgtm_ConnectToMsc
-                0x800024d6                IfxEgtm_ConnectToMsc_end
+                0x8000220c      0x2c4 ./Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Std/IfxEgtm.o
+                0x8000220c                IfxEgtm_ConnectToMsc
+                0x800024ce                IfxEgtm_ConnectToMsc_end
  .text.IfxEgtm_Cmu_getClkFrequency
-                0x800024d8      0x7f0 ./Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Std/IfxEgtm_Cmu.o
-                0x800024d8                IfxEgtm_Cmu_getClkFrequency
-                0x80002cc8                IfxEgtm_Cmu_getClkFrequency_end
+                0x800024d0      0x7f0 ./Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Std/IfxEgtm_Cmu.o
+                0x800024d0                IfxEgtm_Cmu_getClkFrequency
+                0x80002cc0                IfxEgtm_Cmu_getClkFrequency_end
  .text.IfxEgtm_Cmu_getFxClkFrequency
-                0x80002cc8      0x23c ./Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Std/IfxEgtm_Cmu.o
-                0x80002cc8                IfxEgtm_Cmu_getFxClkFrequency
-                0x80002f02                IfxEgtm_Cmu_getFxClkFrequency_end
+                0x80002cc0      0x23c ./Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Std/IfxEgtm_Cmu.o
+                0x80002cc0                IfxEgtm_Cmu_getFxClkFrequency
+                0x80002efa                IfxEgtm_Cmu_getFxClkFrequency_end
  .text.IfxEgtm_Cmu_setClkFrequency
-                0x80002f04      0x1b8 ./Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Std/IfxEgtm_Cmu.o
-                0x80002f04                IfxEgtm_Cmu_setClkFrequency
-                0x800030bc                IfxEgtm_Cmu_setClkFrequency_end
+                0x80002efc      0x1b8 ./Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Std/IfxEgtm_Cmu.o
+                0x80002efc                IfxEgtm_Cmu_setClkFrequency
+                0x800030b4                IfxEgtm_Cmu_setClkFrequency_end
  .text.IfxEgtm_Cmu_setGclkFrequency
-                0x800030bc      0x14c ./Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Std/IfxEgtm_Cmu.o
-                0x800030bc                IfxEgtm_Cmu_setGclkFrequency
-                0x80003208                IfxEgtm_Cmu_setGclkFrequency_end
+                0x800030b4      0x14c ./Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Std/IfxEgtm_Cmu.o
+                0x800030b4                IfxEgtm_Cmu_setGclkFrequency
+                0x80003200                IfxEgtm_Cmu_setGclkFrequency_end
  .text.IfxEgtm_Pwm_initInterrupts
-                0x80003208      0x15c ./Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Pwm/IfxEgtm_Pwm.o
+                0x80003200      0x15c ./Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Pwm/IfxEgtm_Pwm.o
  .text.IfxEgtm_Pwm_updateGlobalControlUnitData
-                0x80003364      0x102 ./Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Pwm/IfxEgtm_Pwm.o
+                0x8000335c      0x102 ./Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Pwm/IfxEgtm_Pwm.o
  .text.IfxEgtm_Pwm_getSubModuleClockFrequency
-                0x80003466       0x1e ./Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Pwm/IfxEgtm_Pwm.o
+                0x8000345e       0x1e ./Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Pwm/IfxEgtm_Pwm.o
  .text.IfxEgtm_Pwm_getDtmClockFrequency
-                0x80003484      0x124 ./Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Pwm/IfxEgtm_Pwm.o
+                0x8000347c      0x124 ./Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Pwm/IfxEgtm_Pwm.o
  .text.IfxEgtm_Pwm_initChannel
-                0x800035a8      0x7e0 ./Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Pwm/IfxEgtm_Pwm.o
+                0x800035a0      0x7e0 ./Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Pwm/IfxEgtm_Pwm.o
  .text.IfxEgtm_Pwm_initConfig
-                0x80003d88       0x48 ./Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Pwm/IfxEgtm_Pwm.o
-                0x80003d88                IfxEgtm_Pwm_initConfig
-                0x80003dd0                IfxEgtm_Pwm_initConfig_end
+                0x80003d80       0x48 ./Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Pwm/IfxEgtm_Pwm.o
+                0x80003d80                IfxEgtm_Pwm_initConfig
+                0x80003dc8                IfxEgtm_Pwm_initConfig_end
  .text.IfxEgtm_Pwm_startSyncedChannels
-                0x80003dd0      0x178 ./Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Pwm/IfxEgtm_Pwm.o
-                0x80003dd0                IfxEgtm_Pwm_startSyncedChannels
-                0x80003f48                IfxEgtm_Pwm_startSyncedChannels_end
+                0x80003dc8      0x178 ./Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Pwm/IfxEgtm_Pwm.o
+                0x80003dc8                IfxEgtm_Pwm_startSyncedChannels
+                0x80003f40                IfxEgtm_Pwm_startSyncedChannels_end
  .text.IfxEgtm_Pwm_init
-                0x80003f48      0x132 ./Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Pwm/IfxEgtm_Pwm.o
-                0x80003f48                IfxEgtm_Pwm_init
-                0x8000407a                IfxEgtm_Pwm_init_end
+                0x80003f40      0x132 ./Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Pwm/IfxEgtm_Pwm.o
+                0x80003f40                IfxEgtm_Pwm_init
+                0x80004072                IfxEgtm_Pwm_init_end
  .text.IfxDma_Dma_configureTransactionSet
-                0x8000407a      0x1e8 ./Libraries/iLLD/TC4xx/CpuGeneric/Dma/Dma/IfxDma_Dma.o
+                0x80004072      0x1e8 ./Libraries/iLLD/TC4xx/CpuGeneric/Dma/Dma/IfxDma_Dma.o
  .text.IfxDma_Dma_createModuleHandle
-                0x80004262        0x6 ./Libraries/iLLD/TC4xx/CpuGeneric/Dma/Dma/IfxDma_Dma.o
-                0x80004262                IfxDma_Dma_createModuleHandle
-                0x80004268                IfxDma_Dma_createModuleHandle_end
+                0x8000425a        0x6 ./Libraries/iLLD/TC4xx/CpuGeneric/Dma/Dma/IfxDma_Dma.o
+                0x8000425a                IfxDma_Dma_createModuleHandle
+                0x80004260                IfxDma_Dma_createModuleHandle_end
  .text.IfxDma_Dma_initChannel
-                0x80004268       0xce ./Libraries/iLLD/TC4xx/CpuGeneric/Dma/Dma/IfxDma_Dma.o
-                0x80004268                IfxDma_Dma_initChannel
-                0x80004336                IfxDma_Dma_initChannel_end
+                0x80004260       0xce ./Libraries/iLLD/TC4xx/CpuGeneric/Dma/Dma/IfxDma_Dma.o
+                0x80004260                IfxDma_Dma_initChannel
+                0x8000432e                IfxDma_Dma_initChannel_end
  .text.IfxDma_Dma_initChannelConfig
-                0x80004336       0x2e ./Libraries/iLLD/TC4xx/CpuGeneric/Dma/Dma/IfxDma_Dma.o
-                0x80004336                IfxDma_Dma_initChannelConfig
-                0x80004364                IfxDma_Dma_initChannelConfig_end
+                0x8000432e       0x2e ./Libraries/iLLD/TC4xx/CpuGeneric/Dma/Dma/IfxDma_Dma.o
+                0x8000432e                IfxDma_Dma_initChannelConfig
+                0x8000435c                IfxDma_Dma_initChannelConfig_end
  .text.IfxDma_Dma_initModule
-                0x80004364       0x1e ./Libraries/iLLD/TC4xx/CpuGeneric/Dma/Dma/IfxDma_Dma.o
-                0x80004364                IfxDma_Dma_initModule
-                0x80004382                IfxDma_Dma_initModule_end
+                0x8000435c       0x1e ./Libraries/iLLD/TC4xx/CpuGeneric/Dma/Dma/IfxDma_Dma.o
+                0x8000435c                IfxDma_Dma_initModule
+                0x8000437a                IfxDma_Dma_initModule_end
  .text.IfxDma_Dma_initModuleConfig
-                0x80004382        0x6 ./Libraries/iLLD/TC4xx/CpuGeneric/Dma/Dma/IfxDma_Dma.o
-                0x80004382                IfxDma_Dma_initModuleConfig
-                0x80004388                IfxDma_Dma_initModuleConfig_end
+                0x8000437a        0x6 ./Libraries/iLLD/TC4xx/CpuGeneric/Dma/Dma/IfxDma_Dma.o
+                0x8000437a                IfxDma_Dma_initModuleConfig
+                0x80004380                IfxDma_Dma_initModuleConfig_end
  .text.IfxClock_calRGainParameters
-                0x80004388      0x110 ./Libraries/iLLD/TC4xx/CpuGeneric/Clock/Std/IfxClock.o
-                0x80004388                IfxClock_calRGainParameters
-                0x80004498                IfxClock_calRGainParameters_end
+                0x80004380      0x110 ./Libraries/iLLD/TC4xx/CpuGeneric/Clock/Std/IfxClock.o
+                0x80004380                IfxClock_calRGainParameters
+                0x80004490                IfxClock_calRGainParameters_end
  .text.IfxClock_perPllCalRGainParameters
-                0x80004498      0x110 ./Libraries/iLLD/TC4xx/CpuGeneric/Clock/Std/IfxClock.o
-                0x80004498                IfxClock_perPllCalRGainParameters
-                0x800045a8                IfxClock_perPllCalRGainParameters_end
+                0x80004490      0x110 ./Libraries/iLLD/TC4xx/CpuGeneric/Clock/Std/IfxClock.o
+                0x80004490                IfxClock_perPllCalRGainParameters
+                0x800045a0                IfxClock_perPllCalRGainParameters_end
  .text.IfxClock_calXCorrParameters
-                0x800045a8      0x126 ./Libraries/iLLD/TC4xx/CpuGeneric/Clock/Std/IfxClock.o
-                0x800045a8                IfxClock_calXCorrParameters
-                0x800046ce                IfxClock_calXCorrParameters_end
+                0x800045a0      0x126 ./Libraries/iLLD/TC4xx/CpuGeneric/Clock/Std/IfxClock.o
+                0x800045a0                IfxClock_calXCorrParameters
+                0x800046c6                IfxClock_calXCorrParameters_end
  .text.IfxClock_getPerPllFrequency1
-                0x800046ce       0xf0 ./Libraries/iLLD/TC4xx/CpuGeneric/Clock/Std/IfxClock.o
-                0x800046ce                IfxClock_getPerPllFrequency1
-                0x800047be                IfxClock_getPerPllFrequency1_end
+                0x800046c6       0xf0 ./Libraries/iLLD/TC4xx/CpuGeneric/Clock/Std/IfxClock.o
+                0x800046c6                IfxClock_getPerPllFrequency1
+                0x800047b6                IfxClock_getPerPllFrequency1_end
  .text.IfxClock_getPerPllFrequency2
-                0x800047be      0x138 ./Libraries/iLLD/TC4xx/CpuGeneric/Clock/Std/IfxClock.o
-                0x800047be                IfxClock_getPerPllFrequency2
-                0x800048f6                IfxClock_getPerPllFrequency2_end
+                0x800047b6      0x138 ./Libraries/iLLD/TC4xx/CpuGeneric/Clock/Std/IfxClock.o
+                0x800047b6                IfxClock_getPerPllFrequency2
+                0x800048ee                IfxClock_getPerPllFrequency2_end
  .text.IfxClock_getPerPllFrequency3
-                0x800048f6       0xf8 ./Libraries/iLLD/TC4xx/CpuGeneric/Clock/Std/IfxClock.o
-                0x800048f6                IfxClock_getPerPllFrequency3
-                0x800049ee                IfxClock_getPerPllFrequency3_end
+                0x800048ee       0xf8 ./Libraries/iLLD/TC4xx/CpuGeneric/Clock/Std/IfxClock.o
+                0x800048ee                IfxClock_getPerPllFrequency3
+                0x800049e6                IfxClock_getPerPllFrequency3_end
  .text.IfxClock_getPerSourceFrequency
-                0x800049ee       0x3c ./Libraries/iLLD/TC4xx/CpuGeneric/Clock/Std/IfxClock.o
-                0x800049ee                IfxClock_getPerSourceFrequency
-                0x80004a2a                IfxClock_getPerSourceFrequency_end
+                0x800049e6       0x3c ./Libraries/iLLD/TC4xx/CpuGeneric/Clock/Std/IfxClock.o
+                0x800049e6                IfxClock_getPerSourceFrequency
+                0x80004a22                IfxClock_getPerSourceFrequency_end
  .text.IfxClock_getAsclinSFrequency
-                0x80004a2a       0x9a ./Libraries/iLLD/TC4xx/CpuGeneric/Clock/Std/IfxClock.o
-                0x80004a2a                IfxClock_getAsclinSFrequency
-                0x80004ac4                IfxClock_getAsclinSFrequency_end
+                0x80004a22       0x9a ./Libraries/iLLD/TC4xx/CpuGeneric/Clock/Std/IfxClock.o
+                0x80004a22                IfxClock_getAsclinSFrequency
+                0x80004abc                IfxClock_getAsclinSFrequency_end
  .text.IfxClock_getPllFrequency
-                0x80004ac4       0xf8 ./Libraries/iLLD/TC4xx/CpuGeneric/Clock/Std/IfxClock.o
-                0x80004ac4                IfxClock_getPllFrequency
-                0x80004bbc                IfxClock_getPllFrequency_end
+                0x80004abc       0xf8 ./Libraries/iLLD/TC4xx/CpuGeneric/Clock/Std/IfxClock.o
+                0x80004abc                IfxClock_getPllFrequency
+                0x80004bb4                IfxClock_getPllFrequency_end
  .text.IfxClock_getSysSourceFrequency
-                0x80004bbc       0x8a ./Libraries/iLLD/TC4xx/CpuGeneric/Clock/Std/IfxClock.o
-                0x80004bbc                IfxClock_getSysSourceFrequency
-                0x80004c46                IfxClock_getSysSourceFrequency_end
+                0x80004bb4       0x8a ./Libraries/iLLD/TC4xx/CpuGeneric/Clock/Std/IfxClock.o
+                0x80004bb4                IfxClock_getSysSourceFrequency
+                0x80004c3e                IfxClock_getSysSourceFrequency_end
  .text.IfxClock_configureCcuPll
-                0x80004c46      0xacc ./Libraries/iLLD/TC4xx/CpuGeneric/Clock/Std/IfxClock.o
-                0x80004c46                IfxClock_configureCcuPll
-                0x80005712                IfxClock_configureCcuPll_end
+                0x80004c3e      0xacc ./Libraries/iLLD/TC4xx/CpuGeneric/Clock/Std/IfxClock.o
+                0x80004c3e                IfxClock_configureCcuPll
+                0x8000570a                IfxClock_configureCcuPll_end
  .text.IfxClock_modulation_init
-                0x80005712      0x1de ./Libraries/iLLD/TC4xx/CpuGeneric/Clock/Std/IfxClock.o
-                0x80005712                IfxClock_modulation_init
-                0x800058f0                IfxClock_modulation_init_end
+                0x8000570a      0x1de ./Libraries/iLLD/TC4xx/CpuGeneric/Clock/Std/IfxClock.o
+                0x8000570a                IfxClock_modulation_init
+                0x800058e8                IfxClock_modulation_init_end
  .text.IfxClock_perPllModulation_init
-                0x800058f0      0x222 ./Libraries/iLLD/TC4xx/CpuGeneric/Clock/Std/IfxClock.o
-                0x800058f0                IfxClock_perPllModulation_init
-                0x80005b12                IfxClock_perPllModulation_init_end
+                0x800058e8      0x222 ./Libraries/iLLD/TC4xx/CpuGeneric/Clock/Std/IfxClock.o
+                0x800058e8                IfxClock_perPllModulation_init
+                0x80005b0a                IfxClock_perPllModulation_init_end
  .text.IfxClock_init
-                0x80005b12      0x186 ./Libraries/iLLD/TC4xx/CpuGeneric/Clock/Std/IfxClock.o
-                0x80005b12                IfxClock_init
-                0x80005c98                IfxClock_init_end
+                0x80005b0a      0x186 ./Libraries/iLLD/TC4xx/CpuGeneric/Clock/Std/IfxClock.o
+                0x80005b0a                IfxClock_init
+                0x80005c90                IfxClock_init_end
  .text.IfxAsclin_enableModule
-                0x80005c98        0xc ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Std/IfxAsclin.o
-                0x80005c98                IfxAsclin_enableModule
-                0x80005ca4                IfxAsclin_enableModule_end
+                0x80005c90        0xc ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Std/IfxAsclin.o
+                0x80005c90                IfxAsclin_enableModule
+                0x80005c9c                IfxAsclin_enableModule_end
  .text.IfxAsclin_getFaFrequency
-                0x80005ca4       0x96 ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Std/IfxAsclin.o
-                0x80005ca4                IfxAsclin_getFaFrequency
-                0x80005d3a                IfxAsclin_getFaFrequency_end
+                0x80005c9c       0x96 ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Std/IfxAsclin.o
+                0x80005c9c                IfxAsclin_getFaFrequency
+                0x80005d32                IfxAsclin_getFaFrequency_end
  .text.IfxAsclin_getIndex
-                0x80005d3a       0x42 ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Std/IfxAsclin.o
-                0x80005d3a                IfxAsclin_getIndex
-                0x80005d7c                IfxAsclin_getIndex_end
+                0x80005d32       0x42 ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Std/IfxAsclin.o
+                0x80005d32                IfxAsclin_getIndex
+                0x80005d74                IfxAsclin_getIndex_end
  .text.IfxAsclin_getPdFrequency
-                0x80005d7c       0x20 ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Std/IfxAsclin.o
-                0x80005d7c                IfxAsclin_getPdFrequency
-                0x80005d9c                IfxAsclin_getPdFrequency_end
+                0x80005d74       0x20 ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Std/IfxAsclin.o
+                0x80005d74                IfxAsclin_getPdFrequency
+                0x80005d94                IfxAsclin_getPdFrequency_end
  .text.IfxAsclin_getSrcPointerEr
-                0x80005d9c       0x1c ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Std/IfxAsclin.o
-                0x80005d9c                IfxAsclin_getSrcPointerEr
-                0x80005db8                IfxAsclin_getSrcPointerEr_end
+                0x80005d94       0x1c ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Std/IfxAsclin.o
+                0x80005d94                IfxAsclin_getSrcPointerEr
+                0x80005db0                IfxAsclin_getSrcPointerEr_end
  .text.IfxAsclin_getSrcPointerRx
-                0x80005db8       0x1a ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Std/IfxAsclin.o
-                0x80005db8                IfxAsclin_getSrcPointerRx
-                0x80005dd2                IfxAsclin_getSrcPointerRx_end
+                0x80005db0       0x1a ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Std/IfxAsclin.o
+                0x80005db0                IfxAsclin_getSrcPointerRx
+                0x80005dca                IfxAsclin_getSrcPointerRx_end
  .text.IfxAsclin_getSrcPointerTx
-                0x80005dd2       0x18 ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Std/IfxAsclin.o
-                0x80005dd2                IfxAsclin_getSrcPointerTx
-                0x80005dea                IfxAsclin_getSrcPointerTx_end
+                0x80005dca       0x18 ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Std/IfxAsclin.o
+                0x80005dca                IfxAsclin_getSrcPointerTx
+                0x80005de2                IfxAsclin_getSrcPointerTx_end
  .text.IfxAsclin_read8
-                0x80005dea       0x1c ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Std/IfxAsclin.o
-                0x80005dea                IfxAsclin_read8
-                0x80005e06                IfxAsclin_read8_end
+                0x80005de2       0x1c ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Std/IfxAsclin.o
+                0x80005de2                IfxAsclin_read8
+                0x80005dfe                IfxAsclin_read8_end
  .text.IfxAsclin_setClockSource
-                0x80005e06       0x28 ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Std/IfxAsclin.o
-                0x80005e06                IfxAsclin_setClockSource
-                0x80005e2e                IfxAsclin_setClockSource_end
+                0x80005dfe       0x28 ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Std/IfxAsclin.o
+                0x80005dfe                IfxAsclin_setClockSource
+                0x80005e26                IfxAsclin_setClockSource_end
  .text.IfxAsclin_setBitTiming
-                0x80005e2e      0x2e6 ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Std/IfxAsclin.o
-                0x80005e2e                IfxAsclin_setBitTiming
-                0x80006114                IfxAsclin_setBitTiming_end
+                0x80005e26      0x2e6 ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Std/IfxAsclin.o
+                0x80005e26                IfxAsclin_setBitTiming
+                0x8000610c                IfxAsclin_setBitTiming_end
  .text.IfxAsclin_write8
-                0x80006114       0x1c ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Std/IfxAsclin.o
-                0x80006114                IfxAsclin_write8
-                0x80006130                IfxAsclin_write8_end
+                0x8000610c       0x1c ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Std/IfxAsclin.o
+                0x8000610c                IfxAsclin_write8
+                0x80006128                IfxAsclin_write8_end
  .text.IfxAsclin_Asc_initModule
-                0x80006130      0x522 ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Asc/IfxAsclin_Asc.o
-                0x80006130                IfxAsclin_Asc_initModule
-                0x80006652                IfxAsclin_Asc_initModule_end
+                0x80006128      0x522 ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Asc/IfxAsclin_Asc.o
+                0x80006128                IfxAsclin_Asc_initModule
+                0x8000664a                IfxAsclin_Asc_initModule_end
  .text.IfxAsclin_Asc_initModuleConfig
-                0x80006652       0xa2 ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Asc/IfxAsclin_Asc.o
-                0x80006652                IfxAsclin_Asc_initModuleConfig
-                0x800066f4                IfxAsclin_Asc_initModuleConfig_end
+                0x8000664a       0xa2 ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Asc/IfxAsclin_Asc.o
+                0x8000664a                IfxAsclin_Asc_initModuleConfig
+                0x800066ec                IfxAsclin_Asc_initModuleConfig_end
+ .text.IfxAsclin_Asc_initiateTransmission
+                0x800066ec       0x70 ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Asc/IfxAsclin_Asc.o
+                0x800066ec                IfxAsclin_Asc_initiateTransmission
+                0x8000675c                IfxAsclin_Asc_initiateTransmission_end
  .text.IfxAsclin_Asc_isrReceive
-                0x800066f4       0xb6 ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Asc/IfxAsclin_Asc.o
-                0x800066f4                IfxAsclin_Asc_isrReceive
-                0x800067aa                IfxAsclin_Asc_isrReceive_end
+                0x8000675c       0xb6 ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Asc/IfxAsclin_Asc.o
+                0x8000675c                IfxAsclin_Asc_isrReceive
+                0x80006812                IfxAsclin_Asc_isrReceive_end
  .text.IfxAsclin_Asc_isrTransmit
-                0x800067aa      0x100 ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Asc/IfxAsclin_Asc.o
-                0x800067aa                IfxAsclin_Asc_isrTransmit
-                0x800068aa                IfxAsclin_Asc_isrTransmit_end
+                0x80006812      0x100 ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Asc/IfxAsclin_Asc.o
+                0x80006812                IfxAsclin_Asc_isrTransmit
+                0x80006912                IfxAsclin_Asc_isrTransmit_end
+ .text.IfxAsclin_Asc_write
+                0x80006912       0x84 ./Libraries/iLLD/TC4xx/CpuGeneric/Asclin/Asc/IfxAsclin_Asc.o
+                0x80006912                IfxAsclin_Asc_write
+                0x80006996                IfxAsclin_Asc_write_end
  .text.IfxAdc_Tmadc_initBuffer
-                0x800068aa       0x78 ./Libraries/iLLD/TC4xx/CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.o
+                0x80006996       0x78 ./Libraries/iLLD/TC4xx/CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.o
  .text.IfxAdc_Tmadc_configureDma
-                0x80006922      0x166 ./Libraries/iLLD/TC4xx/CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.o
+                0x80006a0e      0x166 ./Libraries/iLLD/TC4xx/CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.o
  .text.IfxAdc_Tmadc_configureDmaForGroup
-                0x80006a88      0x126 ./Libraries/iLLD/TC4xx/CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.o
+                0x80006b74      0x126 ./Libraries/iLLD/TC4xx/CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.o
  .text.IfxAdc_Tmadc_initModuleConfig
-                0x80006bae       0x28 ./Libraries/iLLD/TC4xx/CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.o
-                0x80006bae                IfxAdc_Tmadc_initModuleConfig
-                0x80006bd6                IfxAdc_Tmadc_initModuleConfig_end
+                0x80006c9a       0x28 ./Libraries/iLLD/TC4xx/CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.o
+                0x80006c9a                IfxAdc_Tmadc_initModuleConfig
+                0x80006cc2                IfxAdc_Tmadc_initModuleConfig_end
  .text.IfxAdc_Tmadc_initChannel
-                0x80006bd6      0x460 ./Libraries/iLLD/TC4xx/CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.o
-                0x80006bd6                IfxAdc_Tmadc_initChannel
-                0x80007036                IfxAdc_Tmadc_initChannel_end
+                0x80006cc2      0x460 ./Libraries/iLLD/TC4xx/CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.o
+                0x80006cc2                IfxAdc_Tmadc_initChannel
+                0x80007122                IfxAdc_Tmadc_initChannel_end
  .text.IfxAdc_Tmadc_initChannelConfig
-                0x80007036       0x48 ./Libraries/iLLD/TC4xx/CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.o
-                0x80007036                IfxAdc_Tmadc_initChannelConfig
-                0x8000707e                IfxAdc_Tmadc_initChannelConfig_end
+                0x80007122       0x48 ./Libraries/iLLD/TC4xx/CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.o
+                0x80007122                IfxAdc_Tmadc_initChannelConfig
+                0x8000716a                IfxAdc_Tmadc_initChannelConfig_end
  .text.IfxAdc_Tmadc_initGroupConfig
-                0x8000707e       0x22 ./Libraries/iLLD/TC4xx/CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.o
-                0x8000707e                IfxAdc_Tmadc_initGroupConfig
-                0x800070a0                IfxAdc_Tmadc_initGroupConfig_end
+                0x8000716a       0x22 ./Libraries/iLLD/TC4xx/CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.o
+                0x8000716a                IfxAdc_Tmadc_initGroupConfig
+                0x8000718c                IfxAdc_Tmadc_initGroupConfig_end
  .text.IfxAdc_Tmadc_readChannelResult
-                0x800070a0        0xe ./Libraries/iLLD/TC4xx/CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.o
-                0x800070a0                IfxAdc_Tmadc_readChannelResult
-                0x800070ae                IfxAdc_Tmadc_readChannelResult_end
+                0x8000718c        0xe ./Libraries/iLLD/TC4xx/CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.o
+                0x8000718c                IfxAdc_Tmadc_readChannelResult
+                0x8000719a                IfxAdc_Tmadc_readChannelResult_end
  .text.IfxAdc_Tmadc_configureBoundary
-                0x800070ae       0xa4 ./Libraries/iLLD/TC4xx/CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.o
-                0x800070ae                IfxAdc_Tmadc_configureBoundary
-                0x80007152                IfxAdc_Tmadc_configureBoundary_end
+                0x8000719a       0xa4 ./Libraries/iLLD/TC4xx/CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.o
+                0x8000719a                IfxAdc_Tmadc_configureBoundary
+                0x8000723e                IfxAdc_Tmadc_configureBoundary_end
  .text.IfxAdc_Tmadc_configureEmux
-                0x80007152       0x98 ./Libraries/iLLD/TC4xx/CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.o
-                0x80007152                IfxAdc_Tmadc_configureEmux
-                0x800071ea                IfxAdc_Tmadc_configureEmux_end
+                0x8000723e       0x98 ./Libraries/iLLD/TC4xx/CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.o
+                0x8000723e                IfxAdc_Tmadc_configureEmux
+                0x800072d6                IfxAdc_Tmadc_configureEmux_end
  .text.IfxAdc_Tmadc_initModule
-                0x800071ea      0x23a ./Libraries/iLLD/TC4xx/CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.o
-                0x800071ea                IfxAdc_Tmadc_initModule
-                0x80007424                IfxAdc_Tmadc_initModule_end
+                0x800072d6      0x23a ./Libraries/iLLD/TC4xx/CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.o
+                0x800072d6                IfxAdc_Tmadc_initModule
+                0x80007510                IfxAdc_Tmadc_initModule_end
  .text.IfxAdc_Tmadc_initGroup
-                0x80007424       0xa4 ./Libraries/iLLD/TC4xx/CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.o
-                0x80007424                IfxAdc_Tmadc_initGroup
-                0x800074c8                IfxAdc_Tmadc_initGroup_end
+                0x80007510       0xa4 ./Libraries/iLLD/TC4xx/CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.o
+                0x80007510                IfxAdc_Tmadc_initGroup
+                0x800075b4                IfxAdc_Tmadc_initGroup_end
  .text.IfxAdc_Tmadc_runModule
-                0x800074c8      0x268 ./Libraries/iLLD/TC4xx/CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.o
-                0x800074c8                IfxAdc_Tmadc_runModule
-                0x80007730                IfxAdc_Tmadc_runModule_end
+                0x800075b4      0x268 ./Libraries/iLLD/TC4xx/CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.o
+                0x800075b4                IfxAdc_Tmadc_runModule
+                0x8000781c                IfxAdc_Tmadc_runModule_end
  .text.IfxAdc_getTmadcSrcPointer
-                0x80007730       0xb8 ./Libraries/iLLD/TC4xx/CpuGeneric/Adc/Std/IfxAdc.o
-                0x80007730                IfxAdc_getTmadcSrcPointer
-                0x800077e6                IfxAdc_getTmadcSrcPointer_end
+                0x8000781c       0xb8 ./Libraries/iLLD/TC4xx/CpuGeneric/Adc/Std/IfxAdc.o
+                0x8000781c                IfxAdc_getTmadcSrcPointer
+                0x800078d2                IfxAdc_getTmadcSrcPointer_end
  .text.waitTime
-                0x800077e8       0x8a ./Libraries/Service/CpuGeneric/SysSe/Bsp/Bsp.o
-                0x800077e8                waitTime
-                0x80007872                waitTime_end
+                0x800078d4       0x8a ./Libraries/Service/CpuGeneric/SysSe/Bsp/Bsp.o
+                0x800078d4                waitTime
+                0x8000795e                waitTime_end
  .text.software_init_hook
-                0x80007872        0x4 ./Libraries/Infra/Ssw/TC4xx/Tricore/Ifx_Ssw_Infra.o
-                0x80007872                software_init_hook
-                0x80007876                software_init_hook_end
+                0x8000795e        0x4 ./Libraries/Infra/Ssw/TC4xx/Tricore/Ifx_Ssw_Infra.o
+                0x8000795e                software_init_hook
+                0x80007962                software_init_hook_end
  .text.Ifx_Ssw_serviceCpuWatchdog
-                0x80007876       0x3c ./Libraries/Infra/Ssw/TC4xx/Tricore/Ifx_Ssw_Infra.o
-                0x80007876                Ifx_Ssw_serviceCpuWatchdog
-                0x800078b2                Ifx_Ssw_serviceCpuWatchdog_end
+                0x80007962       0x3c ./Libraries/Infra/Ssw/TC4xx/Tricore/Ifx_Ssw_Infra.o
+                0x80007962                Ifx_Ssw_serviceCpuWatchdog
+                0x8000799e                Ifx_Ssw_serviceCpuWatchdog_end
  .text.Ifx_Ssw_serviceSystemWatchdog
-                0x800078b2       0x3a ./Libraries/Infra/Ssw/TC4xx/Tricore/Ifx_Ssw_Infra.o
-                0x800078b2                Ifx_Ssw_serviceSystemWatchdog
-                0x800078ec                Ifx_Ssw_serviceSystemWatchdog_end
+                0x8000799e       0x3a ./Libraries/Infra/Ssw/TC4xx/Tricore/Ifx_Ssw_Infra.o
+                0x8000799e                Ifx_Ssw_serviceSystemWatchdog
+                0x800079d8                Ifx_Ssw_serviceSystemWatchdog_end
  .text.Ifx_Ssw_changeCpuWatchdogReload
-                0x800078ec       0x30 ./Libraries/Infra/Ssw/TC4xx/Tricore/Ifx_Ssw_Infra.o
-                0x800078ec                Ifx_Ssw_changeCpuWatchdogReload
-                0x8000791c                Ifx_Ssw_changeCpuWatchdogReload_end
+                0x800079d8       0x30 ./Libraries/Infra/Ssw/TC4xx/Tricore/Ifx_Ssw_Infra.o
+                0x800079d8                Ifx_Ssw_changeCpuWatchdogReload
+                0x80007a08                Ifx_Ssw_changeCpuWatchdogReload_end
  .text.Ifx_Ssw_changeSystemWatchdogReload
-                0x8000791c       0x38 ./Libraries/Infra/Ssw/TC4xx/Tricore/Ifx_Ssw_Infra.o
-                0x8000791c                Ifx_Ssw_changeSystemWatchdogReload
-                0x80007954                Ifx_Ssw_changeSystemWatchdogReload_end
+                0x80007a08       0x38 ./Libraries/Infra/Ssw/TC4xx/Tricore/Ifx_Ssw_Infra.o
+                0x80007a08                Ifx_Ssw_changeSystemWatchdogReload
+                0x80007a40                Ifx_Ssw_changeSystemWatchdogReload_end
  .text.Ifx_Ssw_startCore
-                0x80007954       0x3e ./Libraries/Infra/Ssw/TC4xx/Tricore/Ifx_Ssw_Infra.o
-                0x80007954                Ifx_Ssw_startCore
-                0x80007992                Ifx_Ssw_startCore_end
+                0x80007a40       0x3e ./Libraries/Infra/Ssw/TC4xx/Tricore/Ifx_Ssw_Infra.o
+                0x80007a40                Ifx_Ssw_startCore
+                0x80007a7e                Ifx_Ssw_startCore_end
  .text.Ifx_Ssw_getStmFrequency
-                0x80007992      0x120 ./Libraries/Infra/Ssw/TC4xx/Tricore/Ifx_Ssw_Infra.o
-                0x80007992                Ifx_Ssw_getStmFrequency
-                0x80007ab2                Ifx_Ssw_getStmFrequency_end
+                0x80007a7e      0x120 ./Libraries/Infra/Ssw/TC4xx/Tricore/Ifx_Ssw_Infra.o
+                0x80007a7e                Ifx_Ssw_getStmFrequency
+                0x80007b9e                Ifx_Ssw_getStmFrequency_end
  .text.Ifx_Ssw_delay
-                0x80007ab2       0x4a ./Libraries/Infra/Ssw/TC4xx/Tricore/Ifx_Ssw_Infra.o
-                0x80007ab2                Ifx_Ssw_delay
-                0x80007afc                Ifx_Ssw_delay_end
+                0x80007b9e       0x4a ./Libraries/Infra/Ssw/TC4xx/Tricore/Ifx_Ssw_Infra.o
+                0x80007b9e                Ifx_Ssw_delay
+                0x80007be8                Ifx_Ssw_delay_end
  .text.Ifx_Ssw_doCppInit
-                0x80007afc      0x13e ./Libraries/Infra/Ssw/TC4xx/Tricore/Ifx_Ssw_Infra.o
-                0x80007afc                Ifx_Ssw_doCppInit
-                0x80007c3a                Ifx_Ssw_doCppInit_end
+                0x80007be8      0x13e ./Libraries/Infra/Ssw/TC4xx/Tricore/Ifx_Ssw_Infra.o
+                0x80007be8                Ifx_Ssw_doCppInit
+                0x80007d26                Ifx_Ssw_doCppInit_end
  .text.IfxSsw_clearSram
-                0x80007c3a      0x116 ./Libraries/Infra/Ssw/TC4xx/Tricore/Ifx_Ssw_Infra.o
-                0x80007c3a                IfxSsw_clearSram
-                0x80007d50                IfxSsw_clearSram_end
+                0x80007d26      0x116 ./Libraries/Infra/Ssw/TC4xx/Tricore/Ifx_Ssw_Infra.o
+                0x80007d26                IfxSsw_clearSram
+                0x80007e3c                IfxSsw_clearSram_end
  .text.Ifx_Ssw_PowerOnCrystalOsc
-                0x80007d50       0x42 ./Configurations/Ifx_Cfg_Ssw.o
-                0x80007d50                Ifx_Ssw_PowerOnCrystalOsc
-                0x80007d92                Ifx_Ssw_PowerOnCrystalOsc_end
+                0x80007e3c       0x42 ./Configurations/Ifx_Cfg_Ssw.o
+                0x80007e3c                Ifx_Ssw_PowerOnCrystalOsc
+                0x80007e7e                Ifx_Ssw_PowerOnCrystalOsc_end
  .text.Ifx_Ssw_PllInit
-                0x80007d92       0x16 ./Configurations/Ifx_Cfg_Ssw.o
-                0x80007d92                Ifx_Ssw_PllInit
-                0x80007da8                Ifx_Ssw_PllInit_end
+                0x80007e7e       0x16 ./Configurations/Ifx_Cfg_Ssw.o
+                0x80007e7e                Ifx_Ssw_PllInit
+                0x80007e94                Ifx_Ssw_PllInit_end
  .text.Ifx_Ssw_AP_Init
-                0x80007da8      0x31a ./Configurations/Ifx_Cfg_Ssw.o
-                0x80007da8                Ifx_Ssw_AP_Init
-                0x800080c2                Ifx_Ssw_AP_Init_end
+                0x80007e94      0x31a ./Configurations/Ifx_Cfg_Ssw.o
+                0x80007e94                Ifx_Ssw_AP_Init
+                0x800081ae                Ifx_Ssw_AP_Init_end
  .text.Ifx_Ssw_MultiCore_Sync_Cpu0
-                0x800080c2        0x4 ./Configurations/Ifx_Cfg_Ssw.o
-                0x800080c2                Ifx_Ssw_MultiCore_Sync_Cpu0
-                0x800080c6                Ifx_Ssw_MultiCore_Sync_Cpu0_end
+                0x800081ae        0x4 ./Configurations/Ifx_Cfg_Ssw.o
+                0x800081ae                Ifx_Ssw_MultiCore_Sync_Cpu0
+                0x800081b2                Ifx_Ssw_MultiCore_Sync_Cpu0_end
  .text.Ifx_Ssw_MultiCore_Sync_Cpu1
-                0x800080c6        0x4 ./Configurations/Ifx_Cfg_Ssw.o
-                0x800080c6                Ifx_Ssw_MultiCore_Sync_Cpu1
-                0x800080ca                Ifx_Ssw_MultiCore_Sync_Cpu1_end
+                0x800081b2        0x4 ./Configurations/Ifx_Cfg_Ssw.o
+                0x800081b2                Ifx_Ssw_MultiCore_Sync_Cpu1
+                0x800081b6                Ifx_Ssw_MultiCore_Sync_Cpu1_end
  .text.Ifx_Ssw_MultiCore_Sync_Cpu2
-                0x800080ca        0x4 ./Configurations/Ifx_Cfg_Ssw.o
-                0x800080ca                Ifx_Ssw_MultiCore_Sync_Cpu2
-                0x800080ce                Ifx_Ssw_MultiCore_Sync_Cpu2_end
+                0x800081b6        0x4 ./Configurations/Ifx_Cfg_Ssw.o
+                0x800081b6                Ifx_Ssw_MultiCore_Sync_Cpu2
+                0x800081ba                Ifx_Ssw_MultiCore_Sync_Cpu2_end
  .text.Ifx_Ssw_MultiCore_Sync_Cpu3
-                0x800080ce        0x4 ./Configurations/Ifx_Cfg_Ssw.o
-                0x800080ce                Ifx_Ssw_MultiCore_Sync_Cpu3
-                0x800080d2                Ifx_Ssw_MultiCore_Sync_Cpu3_end
+                0x800081ba        0x4 ./Configurations/Ifx_Cfg_Ssw.o
+                0x800081ba                Ifx_Ssw_MultiCore_Sync_Cpu3
+                0x800081be                Ifx_Ssw_MultiCore_Sync_Cpu3_end
  .text.Ifx_Ssw_MultiCore_Sync_Cpu4
-                0x800080d2        0x4 ./Configurations/Ifx_Cfg_Ssw.o
-                0x800080d2                Ifx_Ssw_MultiCore_Sync_Cpu4
-                0x800080d6                Ifx_Ssw_MultiCore_Sync_Cpu4_end
+                0x800081be        0x4 ./Configurations/Ifx_Cfg_Ssw.o
+                0x800081be                Ifx_Ssw_MultiCore_Sync_Cpu4
+                0x800081c2                Ifx_Ssw_MultiCore_Sync_Cpu4_end
  .text.Ifx_Ssw_MultiCore_Sync_Cpu5
-                0x800080d6        0x4 ./Configurations/Ifx_Cfg_Ssw.o
-                0x800080d6                Ifx_Ssw_MultiCore_Sync_Cpu5
-                0x800080da                Ifx_Ssw_MultiCore_Sync_Cpu5_end
+                0x800081c2        0x4 ./Configurations/Ifx_Cfg_Ssw.o
+                0x800081c2                Ifx_Ssw_MultiCore_Sync_Cpu5
+                0x800081c6                Ifx_Ssw_MultiCore_Sync_Cpu5_end
  .text.Ifx_Ssw_CsrmSync_B
-                0x800080da        0x4 ./Configurations/Ifx_Cfg_Ssw.o
-                0x800080da                Ifx_Ssw_CsrmSync_B
-                0x800080de                Ifx_Ssw_CsrmSync_B_end
+                0x800081c6        0x4 ./Configurations/Ifx_Cfg_Ssw.o
+                0x800081c6                Ifx_Ssw_CsrmSync_B
+                0x800081ca                Ifx_Ssw_CsrmSync_B_end
  .text.Ifx_Ssw_CsrmSync_C
-                0x800080de        0x4 ./Configurations/Ifx_Cfg_Ssw.o
-                0x800080de                Ifx_Ssw_CsrmSync_C
-                0x800080e2                Ifx_Ssw_CsrmSync_C_end
+                0x800081ca        0x4 ./Configurations/Ifx_Cfg_Ssw.o
+                0x800081ca                Ifx_Ssw_CsrmSync_C
+                0x800081ce                Ifx_Ssw_CsrmSync_C_end
  .text.Ifx_Ssw_CsrmSync_D
-                0x800080e2        0x4 ./Configurations/Ifx_Cfg_Ssw.o
-                0x800080e2                Ifx_Ssw_CsrmSync_D
-                0x800080e6                Ifx_Ssw_CsrmSync_D_end
+                0x800081ce        0x4 ./Configurations/Ifx_Cfg_Ssw.o
+                0x800081ce                Ifx_Ssw_CsrmSync_D
+                0x800081d2                Ifx_Ssw_CsrmSync_D_end
  .text.hardware_init_hook
-                0x800080e6       0x82 ./Configurations/Ifx_Cfg_Ssw.o
-                0x800080e6                hardware_init_hook
-                0x80008168                hardware_init_hook_end
+                0x800081d2       0x82 ./Configurations/Ifx_Cfg_Ssw.o
+                0x800081d2                hardware_init_hook
+                0x80008254                hardware_init_hook_end
  .text.asclin1TxISR
-                0x80008168       0x14 ./ASCLIN_UART.o
-                0x80008168                asclin1TxISR
-                0x8000817c                asclin1TxISR_end
+                0x80008254       0x14 ./ASCLIN_UART.o
+                0x80008254                asclin1TxISR
+                0x80008268                asclin1TxISR_end
  .text.asclin1RxISR
-                0x8000817c       0x14 ./ASCLIN_UART.o
-                0x8000817c                asclin1RxISR
-                0x80008190                asclin1RxISR_end
+                0x80008268       0x14 ./ASCLIN_UART.o
+                0x80008268                asclin1RxISR
+                0x8000827c                asclin1RxISR_end
  .text.init_ASCLIN_UART
-                0x80008190       0xa4 ./ASCLIN_UART.o
-                0x80008190                init_ASCLIN_UART
-                0x80008234                init_ASCLIN_UART_end
- .text.sendUART_cpu2
-                0x80008234       0x3e ./ASCLIN_UART.o
-                0x80008234                sendUART_cpu2
-                0x80008272                sendUART_cpu2_end
+                0x8000827c       0xae ./ASCLIN_UART.o
+                0x8000827c                init_ASCLIN_UART
+                0x8000832a                init_ASCLIN_UART_end
+ .text.sendUART
+                0x8000832a       0x34 ./ASCLIN_UART.o
+                0x8000832a                sendUART
+                0x8000835e                sendUART_end
  .text.prv_initModule
-                0x80008272       0x94 ./Adc_MotorSense.o
+                0x8000835e       0x94 ./Adc_MotorSense.o
  .text.prv_initCurrentGroup
-                0x80008306      0x188 ./Adc_MotorSense.o
+                0x800083f2      0x188 ./Adc_MotorSense.o
  .text.prv_initVoltageGroup
-                0x8000848e      0x1c6 ./Adc_MotorSense.o
+                0x8000857a      0x1c6 ./Adc_MotorSense.o
  .text.prv_connectEgtmTrigger
-                0x80008654       0x10 ./Adc_MotorSense.o
+                0x80008740       0x10 ./Adc_MotorSense.o
  .text.Adc_MotorSense_init
-                0x80008664       0x84 ./Adc_MotorSense.o
-                0x80008664                Adc_MotorSense_init
-                0x800086e8                Adc_MotorSense_init_end
+                0x80008750       0x84 ./Adc_MotorSense.o
+                0x80008750                Adc_MotorSense_init
+                0x800087d4                Adc_MotorSense_init_end
  .text.Adc_MotorSense_start
-                0x800086e8       0x20 ./Adc_MotorSense.o
-                0x800086e8                Adc_MotorSense_start
-                0x80008708                Adc_MotorSense_start_end
+                0x800087d4       0x20 ./Adc_MotorSense.o
+                0x800087d4                Adc_MotorSense_start
+                0x800087f4                Adc_MotorSense_start_end
  .text.Adc_MotorSense_getRawCurrents
-                0x80008708        0xc ./Adc_MotorSense.o
-                0x80008708                Adc_MotorSense_getRawCurrents
-                0x80008714                Adc_MotorSense_getRawCurrents_end
+                0x800087f4        0xc ./Adc_MotorSense.o
+                0x800087f4                Adc_MotorSense_getRawCurrents
+                0x80008800                Adc_MotorSense_getRawCurrents_end
  .text.Adc_MotorSense_voltIsr
-                0x80008714       0x84 ./Adc_MotorSense.o
-                0x80008714                Adc_MotorSense_voltIsr
-                0x80008798                Adc_MotorSense_voltIsr_end
+                0x80008800       0x84 ./Adc_MotorSense.o
+                0x80008800                Adc_MotorSense_voltIsr
+                0x80008884                Adc_MotorSense_voltIsr_end
  .text.Adc_MotorSense_currIsr
-                0x80008798       0x74 ./Adc_MotorSense.o
-                0x80008798                Adc_MotorSense_currIsr
-                0x8000880c                Adc_MotorSense_currIsr_end
+                0x80008884       0x74 ./Adc_MotorSense.o
+                0x80008884                Adc_MotorSense_currIsr
+                0x800088f8                Adc_MotorSense_currIsr_end
  .text.Adc_MotorSense_currIsr_handler
-                0x8000880c       0x2a ./Adc_MotorSense_Isr.o
-                0x8000880c                Adc_MotorSense_currIsr_handler
-                0x80008836                Adc_MotorSense_currIsr_handler_end
+                0x800088f8       0x2a ./Adc_MotorSense_Isr.o
+                0x800088f8                Adc_MotorSense_currIsr_handler
+                0x80008922                Adc_MotorSense_currIsr_handler_end
  .text.Adc_MotorSense_voltIsr_handler
-                0x80008836       0x2a ./Adc_MotorSense_Isr.o
-                0x80008836                Adc_MotorSense_voltIsr_handler
-                0x80008860                Adc_MotorSense_voltIsr_handler_end
+                0x80008922       0x2a ./Adc_MotorSense_Isr.o
+                0x80008922                Adc_MotorSense_voltIsr_handler
+                0x8000894c                Adc_MotorSense_voltIsr_handler_end
  .text.IfxEgtm_periodEventFunction
-                0x80008860        0x4 ./EGTM_ATOM_3_Phase_Inverter_PWM.o
-                0x80008860                IfxEgtm_periodEventFunction
-                0x80008864                IfxEgtm_periodEventFunction_end
+                0x8000894c        0x4 ./EGTM_ATOM_3_Phase_Inverter_PWM.o
+                0x8000894c                IfxEgtm_periodEventFunction
+                0x80008950                IfxEgtm_periodEventFunction_end
  .text.interruptEgtmAtom
-                0x80008864        0x8 ./EGTM_ATOM_3_Phase_Inverter_PWM.o
-                0x80008864                interruptEgtmAtom
-                0x8000886c                interruptEgtmAtom_end
+                0x80008950        0x8 ./EGTM_ATOM_3_Phase_Inverter_PWM.o
+                0x80008950                interruptEgtmAtom
+                0x80008958                interruptEgtmAtom_end
  .text.initEgtmAtom3phInv
-                0x8000886c      0x304 ./EGTM_ATOM_3_Phase_Inverter_PWM.o
-                0x8000886c                initEgtmAtom3phInv
-                0x80008b70                initEgtmAtom3phInv_end
+                0x80008958      0x304 ./EGTM_ATOM_3_Phase_Inverter_PWM.o
+                0x80008958                initEgtmAtom3phInv
+                0x80008c5c                initEgtmAtom3phInv_end
  .text.startPWMinEGTM
-                0x80008b70       0x54 ./EGTM_ATOM_3_Phase_Inverter_PWM.o
-                0x80008b70                startPWMinEGTM
-                0x80008bc4                startPWMinEGTM_end
+                0x80008c5c       0x54 ./EGTM_ATOM_3_Phase_Inverter_PWM.o
+                0x80008c5c                startPWMinEGTM
+                0x80008cb0                startPWMinEGTM_end
  .text.init_GPIOs
-                0x80008bc4       0x5e ./GPIO_LED_Button.o
-                0x80008bc4                init_GPIOs
-                0x80008c22                init_GPIOs_end
- .text.dmaISR   0x80008c22       0x16 ./TMADC_Single_Channel.o
-                0x80008c22                dmaISR
-                0x80008c38                dmaISR_end
- .text.Delay    0x80008c38       0xba ./UserFunctions.o
-                0x80008c38                Delay
-                0x80008cf2                Delay_end
+                0x80008cb0       0x5e ./GPIO_LED_Button.o
+                0x80008cb0                init_GPIOs
+                0x80008d0e                init_GPIOs_end
+ .text.dmaISR   0x80008d0e       0x16 ./TMADC_Single_Channel.o
+                0x80008d0e                dmaISR
+                0x80008d24                dmaISR_end
+ .text.Delay    0x80008d24       0xba ./UserFunctions.o
+                0x80008d24                Delay
+                0x80008dde                Delay_end
  .text.grantCpu2PeripheralAccess
-                0x80008cf2        0x4 ./UserFunctions.o
-                0x80008cf2                grantCpu2PeripheralAccess
-                0x80008cf6                grantCpu2PeripheralAccess_end
- .text.libgcc   0x80008cf6       0x12 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18\libgcc.a(memset.o)
-                0x80008cf6                memset
+                0x80008dde        0x4 ./UserFunctions.o
+                0x80008dde                grantCpu2PeripheralAccess
+                0x80008de2                grantCpu2PeripheralAccess_end
+ .text.libgcc   0x80008de2       0x12 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18\libgcc.a(memset.o)
+                0x80008de2                memset
  .text.__floatundisf
-                0x80008d08       0x3c c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18\libgcc.a(_floatundisf.o)
-                0x80008d08                __floatundisf
-                0x80008d44                __floatundisf_end
- .text.sinf     0x80008d44       0x7c c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_sin.o)
-                0x80008d44                sinf
-                0x80008dc0                sinf_end
+                0x80008df4       0x3c c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18\libgcc.a(_floatundisf.o)
+                0x80008df4                __floatundisf
+                0x80008e30                __floatundisf_end
+ .text.sinf     0x80008e30       0x7c c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_sin.o)
+                0x80008e30                sinf
+                0x80008eac                sinf_end
  .text.__kernel_cosf
-                0x80008dc0      0x118 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-kf_cos.o)
-                0x80008dc0                __kernel_cosf
-                0x80008ed8                __kernel_cosf_end
+                0x80008eac      0x118 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-kf_cos.o)
+                0x80008eac                __kernel_cosf
+                0x80008fc4                __kernel_cosf_end
  .text.__kernel_sinf
-                0x80008ed8       0x92 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-kf_sin.o)
-                0x80008ed8                __kernel_sinf
-                0x80008f6a                __kernel_sinf_end
+                0x80008fc4       0x92 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-kf_sin.o)
+                0x80008fc4                __kernel_sinf
+                0x80009056                __kernel_sinf_end
  .text.__ieee754_rem_pio2f
-                0x80008f6a      0x2b4 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-ef_rem_pio2.o)
-                0x80008f6a                __ieee754_rem_pio2f
-                0x8000921e                __ieee754_rem_pio2f_end
- .text.fabsf    0x8000921e        0x6 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_fabs.o)
-                0x8000921e                fabsf
-                0x80009224                fabsf_end
+                0x80009056      0x2b4 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-ef_rem_pio2.o)
+                0x80009056                __ieee754_rem_pio2f
+                0x8000930a                __ieee754_rem_pio2f_end
+ .text.fabsf    0x8000930a        0x6 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_fabs.o)
+                0x8000930a                fabsf
+                0x80009310                fabsf_end
  .text.__kernel_rem_pio2f
-                0x80009224      0x766 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-kf_rem_pio2.o)
-                0x80009224                __kernel_rem_pio2f
-                0x8000998a                __kernel_rem_pio2f_end
- .text.floorf   0x8000998a       0xa6 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_floor.o)
-                0x8000998a                floorf
-                0x80009a30                floorf_end
- .text.scalbnf  0x80009a30       0xbc c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_scalbn.o)
-                0x80009a30                scalbnf
-                0x80009aec                scalbnf_end
+                0x80009310      0x766 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-kf_rem_pio2.o)
+                0x80009310                __kernel_rem_pio2f
+                0x80009a76                __kernel_rem_pio2f_end
+ .text.floorf   0x80009a76       0xa6 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_floor.o)
+                0x80009a76                floorf
+                0x80009b1c                floorf_end
+ .text.scalbnf  0x80009b1c       0xbc c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_scalbn.o)
+                0x80009b1c                scalbnf
+                0x80009bd8                scalbnf_end
  .text.__do_global_ctors_aux
-                0x80009aec       0x24 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtend.o
+                0x80009bd8       0x24 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtend.o
  *(.gnu.linkonce.t.*)
  *(.gnu.warning)
-                0x80009b10                        . = ALIGN (0x4)
+                0x80009bfc                        . = ALIGN (0x4)
 
 .eh_frame       memory region -> pfls0
-                0x80009b10        0x0
-                0x80009b10                        __eh_frame_start = .
+                0x80009c00        0x0
+                0x80009c00                        __eh_frame_start = .
  *(.eh_frame)
-                0x80009b10                        __eh_frame_end = .
-                0x80009b10                        . = ALIGN (0x8)
+                0x80009c00                        __eh_frame_end = .
+                0x80009c00                        . = ALIGN (0x8)
 
 .ctors          memory region -> pfls0
-                0x80009b10       0x10
-                0x80009b10                        __CTOR_LIST__ = .
-                0x80009b10        0x4 LONG 0x2 (((__CTOR_END__ - __CTOR_LIST__) / 0x4) - 0x2)
+                0x80009bfc       0x14
+                0x80009bfc                        __CTOR_LIST__ = .
+                0x80009bfc        0x4 LONG 0x2 (((__CTOR_END__ - __CTOR_LIST__) / 0x4) - 0x2)
  *crtbegin.o(.ctors)
- .ctors         0x80009b14        0x4 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtbegin.o
+ .ctors         0x80009c00        0x4 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtbegin.o
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT_BY_NAME(.ctors.*))
  *(.ctors)
- .ctors         0x80009b18        0x4 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtend.o
-                0x80009b1c        0x4 LONG 0x0
-                0x80009b20                        __CTOR_END__ = .
-                0x80009b20                        . = ALIGN (0x8)
+ .ctors         0x80009c04        0x4 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtend.o
+                0x80009c08        0x4 LONG 0x0
+                0x80009c0c                        __CTOR_END__ = .
+                0x80009c10                        . = ALIGN (0x8)
+ *fill*         0x80009c0c        0x4 
 
 .dtors          memory region -> pfls0
-                0x80009b20       0x10
-                0x80009b20                        __DTOR_LIST__ = .
-                0x80009b20        0x4 LONG 0x2 (((__DTOR_END__ - __DTOR_LIST__) / 0x4) - 0x2)
+                0x80009c10       0x10
+                0x80009c10                        __DTOR_LIST__ = .
+                0x80009c10        0x4 LONG 0x2 (((__DTOR_END__ - __DTOR_LIST__) / 0x4) - 0x2)
  *crtbegin.o(.dtors)
- .dtors         0x80009b24        0x4 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtbegin.o
+ .dtors         0x80009c14        0x4 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtbegin.o
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT_BY_NAME(.dtors.*))
  *(.dtors)
- .dtors         0x80009b28        0x4 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtend.o
-                0x80009b2c        0x4 LONG 0x0
-                0x80009b30                        __DTOR_END__ = .
-                0x80009b30                        . = ALIGN (0x8)
+ .dtors         0x80009c18        0x4 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtend.o
+                0x80009c1c        0x4 LONG 0x0
+                0x80009c20                        __DTOR_END__ = .
+                0x80009c20                        . = ALIGN (0x8)
 
 .comment        memory region -> *default*
                 0x00000000       0xc3
@@ -32977,7 +32981,7 @@ LOAD c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/g
  *(.debug_pubnames)
 
 .debug_info     memory region -> *default*
-                0x00000000   0x202c52
+                0x00000000   0x202c9f
  *(.debug_info)
  .debug_info    0x00000000     0x30f7 ./Libraries/iLLD/TC4xx/Tricore/Wtu/Std/IfxWtu.o
  .debug_info    0x000030f7    0x16610 ./Libraries/iLLD/TC4xx/Tricore/Smu/Std/IfxSmu.o
@@ -33013,30 +33017,30 @@ LOAD c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/g
  .debug_info    0x001a8f4f      0x6f3 ./Libraries/Infra/Ssw/TC4xx/Tricore/Ifx_Ssw_Tc5.o
  .debug_info    0x001a9642     0x8c71 ./Configurations/Ifx_Cfg_Ssw.o
  .debug_info    0x001b22b3      0x539 ./Configurations/Ifx_Cfg_SswBmhd.o
- .debug_info    0x001b27ec     0x9275 ./ASCLIN_UART.o
- .debug_info    0x001bba61    0x10fe8 ./Adc_MotorSense.o
- .debug_info    0x001cca49     0x3363 ./Adc_MotorSense_Isr.o
- .debug_info    0x001cfdac      0xa06 ./Cpu0_Main.o
- .debug_info    0x001d07b2      0x2a0 ./Cpu1_Main.o
- .debug_info    0x001d0a52      0x52a ./Cpu2_Main.o
- .debug_info    0x001d0f7c      0x2a0 ./Cpu3_Main.o
- .debug_info    0x001d121c      0x2a0 ./Cpu4_Main.o
- .debug_info    0x001d14bc      0x2a0 ./Cpu5_Main.o
- .debug_info    0x001d175c    0x17a5a ./EGTM_ATOM_3_Phase_Inverter_PWM.o
- .debug_info    0x001e91b6     0x3865 ./GPIO_LED_Button.o
- .debug_info    0x001eca1b    0x13613 ./TMADC_Single_Channel.o
- .debug_info    0x0020002e      0x5d7 ./UserFunctions.o
- .debug_info    0x00200605       0x35 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18\libgcc.a(memset.o)
- .debug_info    0x0020063a      0x34d c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18\libgcc.a(_floatundisf.o)
- .debug_info    0x00200987      0x440 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_sin.o)
- .debug_info    0x00200dc7      0x3f5 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-kf_cos.o)
- .debug_info    0x002011bc      0x3d6 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-kf_sin.o)
- .debug_info    0x00201592      0x628 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-ef_rem_pio2.o)
- .debug_info    0x00201bba      0x31b c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_fabs.o)
- .debug_info    0x00201ed5      0x5e3 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-kf_rem_pio2.o)
- .debug_info    0x002024b8      0x368 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_floor.o)
- .debug_info    0x00202820      0x410 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_scalbn.o)
- .debug_info    0x00202c30       0x22 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtn.o
+ .debug_info    0x001b27ec     0x92ae ./ASCLIN_UART.o
+ .debug_info    0x001bba9a    0x10fe8 ./Adc_MotorSense.o
+ .debug_info    0x001cca82     0x3363 ./Adc_MotorSense_Isr.o
+ .debug_info    0x001cfde5      0x9e5 ./Cpu0_Main.o
+ .debug_info    0x001d07ca      0x2a0 ./Cpu1_Main.o
+ .debug_info    0x001d0a6a      0x55f ./Cpu2_Main.o
+ .debug_info    0x001d0fc9      0x2a0 ./Cpu3_Main.o
+ .debug_info    0x001d1269      0x2a0 ./Cpu4_Main.o
+ .debug_info    0x001d1509      0x2a0 ./Cpu5_Main.o
+ .debug_info    0x001d17a9    0x17a5a ./EGTM_ATOM_3_Phase_Inverter_PWM.o
+ .debug_info    0x001e9203     0x3865 ./GPIO_LED_Button.o
+ .debug_info    0x001eca68    0x13613 ./TMADC_Single_Channel.o
+ .debug_info    0x0020007b      0x5d7 ./UserFunctions.o
+ .debug_info    0x00200652       0x35 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18\libgcc.a(memset.o)
+ .debug_info    0x00200687      0x34d c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18\libgcc.a(_floatundisf.o)
+ .debug_info    0x002009d4      0x440 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_sin.o)
+ .debug_info    0x00200e14      0x3f5 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-kf_cos.o)
+ .debug_info    0x00201209      0x3d6 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-kf_sin.o)
+ .debug_info    0x002015df      0x628 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-ef_rem_pio2.o)
+ .debug_info    0x00201c07      0x31b c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_fabs.o)
+ .debug_info    0x00201f22      0x5e3 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-kf_rem_pio2.o)
+ .debug_info    0x00202505      0x368 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_floor.o)
+ .debug_info    0x0020286d      0x410 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_scalbn.o)
+ .debug_info    0x00202c7d       0x22 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtn.o
 
 .debug_abbrev   memory region -> *default*
                 0x00000000     0x94dd
@@ -33101,7 +33105,7 @@ LOAD c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/g
  .debug_abbrev  0x000094cb       0x12 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtn.o
 
 .debug_line     memory region -> *default*
-                0x00000000    0x34b50
+                0x00000000    0x34b63
  *(.debug_line)
  .debug_line    0x00000000     0x1518 ./Libraries/iLLD/TC4xx/Tricore/Wtu/Std/IfxWtu.o
  .debug_line    0x00001518     0x1554 ./Libraries/iLLD/TC4xx/Tricore/Smu/Std/IfxSmu.o
@@ -33137,30 +33141,30 @@ LOAD c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/g
  .debug_line    0x00023315      0x6fa ./Libraries/Infra/Ssw/TC4xx/Tricore/Ifx_Ssw_Tc5.o
  .debug_line    0x00023a0f     0x1139 ./Configurations/Ifx_Cfg_Ssw.o
  .debug_line    0x00024b48      0x433 ./Configurations/Ifx_Cfg_SswBmhd.o
- .debug_line    0x00024f7b     0x1624 ./ASCLIN_UART.o
- .debug_line    0x0002659f     0x1737 ./Adc_MotorSense.o
- .debug_line    0x00027cd6     0x179c ./Adc_MotorSense_Isr.o
- .debug_line    0x00029472     0x1485 ./Cpu0_Main.o
- .debug_line    0x0002a8f7      0x9d4 ./Cpu1_Main.o
- .debug_line    0x0002b2cb     0x12ab ./Cpu2_Main.o
- .debug_line    0x0002c576      0x9d4 ./Cpu3_Main.o
- .debug_line    0x0002cf4a      0x9d4 ./Cpu4_Main.o
- .debug_line    0x0002d91e      0x9d4 ./Cpu5_Main.o
- .debug_line    0x0002e2f2     0x1277 ./EGTM_ATOM_3_Phase_Inverter_PWM.o
- .debug_line    0x0002f569     0x127e ./GPIO_LED_Button.o
- .debug_line    0x000307e7     0x13fa ./TMADC_Single_Channel.o
- .debug_line    0x00031be1      0xcc0 ./UserFunctions.o
- .debug_line    0x000328a1       0xb3 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18\libgcc.a(memset.o)
- .debug_line    0x00032954       0xed c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18\libgcc.a(_floatundisf.o)
- .debug_line    0x00032a41      0x2e1 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_sin.o)
- .debug_line    0x00032d22      0x292 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-kf_cos.o)
- .debug_line    0x00032fb4      0x249 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-kf_sin.o)
- .debug_line    0x000331fd      0x5be c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-ef_rem_pio2.o)
- .debug_line    0x000337bb      0x26d c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_fabs.o)
- .debug_line    0x00033a28      0xb18 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-kf_rem_pio2.o)
- .debug_line    0x00034540      0x2fc c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_floor.o)
- .debug_line    0x0003483c      0x2d2 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_scalbn.o)
- .debug_line    0x00034b0e       0x42 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtn.o
+ .debug_line    0x00024f7b     0x1639 ./ASCLIN_UART.o
+ .debug_line    0x000265b4     0x1737 ./Adc_MotorSense.o
+ .debug_line    0x00027ceb     0x179c ./Adc_MotorSense_Isr.o
+ .debug_line    0x00029487     0x1484 ./Cpu0_Main.o
+ .debug_line    0x0002a90b      0x9d4 ./Cpu1_Main.o
+ .debug_line    0x0002b2df     0x12aa ./Cpu2_Main.o
+ .debug_line    0x0002c589      0x9d4 ./Cpu3_Main.o
+ .debug_line    0x0002cf5d      0x9d4 ./Cpu4_Main.o
+ .debug_line    0x0002d931      0x9d4 ./Cpu5_Main.o
+ .debug_line    0x0002e305     0x1277 ./EGTM_ATOM_3_Phase_Inverter_PWM.o
+ .debug_line    0x0002f57c     0x127e ./GPIO_LED_Button.o
+ .debug_line    0x000307fa     0x13fa ./TMADC_Single_Channel.o
+ .debug_line    0x00031bf4      0xcc0 ./UserFunctions.o
+ .debug_line    0x000328b4       0xb3 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18\libgcc.a(memset.o)
+ .debug_line    0x00032967       0xed c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18\libgcc.a(_floatundisf.o)
+ .debug_line    0x00032a54      0x2e1 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_sin.o)
+ .debug_line    0x00032d35      0x292 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-kf_cos.o)
+ .debug_line    0x00032fc7      0x249 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-kf_sin.o)
+ .debug_line    0x00033210      0x5be c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-ef_rem_pio2.o)
+ .debug_line    0x000337ce      0x26d c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_fabs.o)
+ .debug_line    0x00033a3b      0xb18 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-kf_rem_pio2.o)
+ .debug_line    0x00034553      0x2fc c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_floor.o)
+ .debug_line    0x0003484f      0x2d2 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_scalbn.o)
+ .debug_line    0x00034b21       0x42 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtn.o
 
 .debug_frame    memory region -> *default*
                 0x00000000     0x3328
@@ -33216,7 +33220,7 @@ LOAD c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/g
  .debug_frame   0x00003308       0x20 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_scalbn.o)
 
 .debug_str      memory region -> *default*
-                0x00000000     0x5162
+                0x00000000     0x516e
  *(.debug_str)
  .debug_str     0x00000000       0x5a ./Libraries/iLLD/TC4xx/Tricore/Wtu/Std/IfxWtu.o
  .debug_str     0x0000005a      0x23a ./Libraries/iLLD/TC4xx/Tricore/Smu/Std/IfxSmu.o
@@ -33257,29 +33261,29 @@ LOAD c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/g
  .debug_str     0x0000477e        0x9 ./Adc_MotorSense_Isr.o
  .debug_str     0x00004787        0x0 ./Cpu0_Main.o
  .debug_str     0x00004787        0x0 ./Cpu1_Main.o
- .debug_str     0x00004787       0x1c ./Cpu2_Main.o
- .debug_str     0x000047a3        0x0 ./Cpu3_Main.o
- .debug_str     0x000047a3        0x0 ./Cpu4_Main.o
- .debug_str     0x000047a3        0x0 ./Cpu5_Main.o
- .debug_str     0x000047a3      0x619 ./EGTM_ATOM_3_Phase_Inverter_PWM.o
- .debug_str     0x00004dbc        0x9 ./GPIO_LED_Button.o
- .debug_str     0x00004dc5      0x281 ./TMADC_Single_Channel.o
- .debug_str     0x00005046        0x0 ./UserFunctions.o
- .debug_str     0x00005046      0x11c c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18\libgcc.a(memset.o)
+ .debug_str     0x00004787       0x28 ./Cpu2_Main.o
+ .debug_str     0x000047af        0x0 ./Cpu3_Main.o
+ .debug_str     0x000047af        0x0 ./Cpu4_Main.o
+ .debug_str     0x000047af        0x0 ./Cpu5_Main.o
+ .debug_str     0x000047af      0x619 ./EGTM_ATOM_3_Phase_Inverter_PWM.o
+ .debug_str     0x00004dc8        0x9 ./GPIO_LED_Button.o
+ .debug_str     0x00004dd1      0x281 ./TMADC_Single_Channel.o
+ .debug_str     0x00005052        0x0 ./UserFunctions.o
+ .debug_str     0x00005052      0x11c c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18\libgcc.a(memset.o)
                                 0x115 (size before relaxing)
- .debug_str     0x00005162        0x0 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18\libgcc.a(_floatundisf.o)
- .debug_str     0x00005162        0x0 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_sin.o)
- .debug_str     0x00005162        0x0 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-kf_cos.o)
- .debug_str     0x00005162        0x0 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-kf_sin.o)
- .debug_str     0x00005162        0x0 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-ef_rem_pio2.o)
- .debug_str     0x00005162        0x0 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_fabs.o)
- .debug_str     0x00005162        0x0 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-kf_rem_pio2.o)
- .debug_str     0x00005162        0x0 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_floor.o)
- .debug_str     0x00005162        0x0 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_scalbn.o)
- .debug_str     0x00005162       0x95 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtn.o
+ .debug_str     0x0000516e        0x0 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18\libgcc.a(_floatundisf.o)
+ .debug_str     0x0000516e        0x0 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_sin.o)
+ .debug_str     0x0000516e        0x0 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-kf_cos.o)
+ .debug_str     0x0000516e        0x0 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-kf_sin.o)
+ .debug_str     0x0000516e        0x0 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-ef_rem_pio2.o)
+ .debug_str     0x0000516e        0x0 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_fabs.o)
+ .debug_str     0x0000516e        0x0 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-kf_rem_pio2.o)
+ .debug_str     0x0000516e        0x0 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_floor.o)
+ .debug_str     0x0000516e        0x0 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_scalbn.o)
+ .debug_str     0x0000516e       0x95 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18/crtn.o
 
 .debug_loc      memory region -> *default*
-                0x00000000    0x1657a
+                0x00000000    0x165aa
  *(.debug_loc)
  .debug_loc     0x00000000      0x5cd ./Libraries/iLLD/TC4xx/Tricore/Wtu/Std/IfxWtu.o
  .debug_loc     0x000005cd     0x1247 ./Libraries/iLLD/TC4xx/Tricore/Smu/Std/IfxSmu.o
@@ -33308,23 +33312,23 @@ LOAD c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/g
  .debug_loc     0x00014573       0xbd ./Libraries/Infra/Ssw/TC4xx/Tricore/Ifx_Ssw_Tc4.o
  .debug_loc     0x00014630       0xbd ./Libraries/Infra/Ssw/TC4xx/Tricore/Ifx_Ssw_Tc5.o
  .debug_loc     0x000146ed       0xb5 ./Configurations/Ifx_Cfg_Ssw.o
- .debug_loc     0x000147a2      0x104 ./ASCLIN_UART.o
- .debug_loc     0x000148a6      0x175 ./Adc_MotorSense.o
- .debug_loc     0x00014a1b       0x94 ./Adc_MotorSense_Isr.o
- .debug_loc     0x00014aaf       0xa7 ./Cpu2_Main.o
- .debug_loc     0x00014b56      0x1b2 ./EGTM_ATOM_3_Phase_Inverter_PWM.o
- .debug_loc     0x00014d08       0xa8 ./GPIO_LED_Button.o
- .debug_loc     0x00014db0      0x1b7 ./TMADC_Single_Channel.o
- .debug_loc     0x00014f67      0x140 ./UserFunctions.o
- .debug_loc     0x000150a7       0x5c c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18\libgcc.a(_floatundisf.o)
- .debug_loc     0x00015103       0x7c c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_sin.o)
- .debug_loc     0x0001517f      0x177 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-kf_cos.o)
- .debug_loc     0x000152f6      0x143 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-kf_sin.o)
- .debug_loc     0x00015439      0x49b c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-ef_rem_pio2.o)
- .debug_loc     0x000158d4       0x29 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_fabs.o)
- .debug_loc     0x000158fd      0x8b7 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-kf_rem_pio2.o)
- .debug_loc     0x000161b4      0x18b c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_floor.o)
- .debug_loc     0x0001633f      0x23b c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_scalbn.o)
+ .debug_loc     0x000147a2      0x134 ./ASCLIN_UART.o
+ .debug_loc     0x000148d6      0x175 ./Adc_MotorSense.o
+ .debug_loc     0x00014a4b       0x94 ./Adc_MotorSense_Isr.o
+ .debug_loc     0x00014adf       0xa7 ./Cpu2_Main.o
+ .debug_loc     0x00014b86      0x1b2 ./EGTM_ATOM_3_Phase_Inverter_PWM.o
+ .debug_loc     0x00014d38       0xa8 ./GPIO_LED_Button.o
+ .debug_loc     0x00014de0      0x1b7 ./TMADC_Single_Channel.o
+ .debug_loc     0x00014f97      0x140 ./UserFunctions.o
+ .debug_loc     0x000150d7       0x5c c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/tc18\libgcc.a(_floatundisf.o)
+ .debug_loc     0x00015133       0x7c c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_sin.o)
+ .debug_loc     0x000151af      0x177 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-kf_cos.o)
+ .debug_loc     0x00015326      0x143 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-kf_sin.o)
+ .debug_loc     0x00015469      0x49b c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-ef_rem_pio2.o)
+ .debug_loc     0x00015904       0x29 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_fabs.o)
+ .debug_loc     0x0001592d      0x8b7 c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-kf_rem_pio2.o)
+ .debug_loc     0x000161e4      0x18b c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_floor.o)
+ .debug_loc     0x0001636f      0x23b c:/infineon/aurix-studio-1.10.28/tools/compilers/tricore-gcc11/bin/../lib/gcc/tricore-elf/11.3.1/../../../../tricore-elf/lib/tc18\libm.a(libm_a-sf_scalbn.o)
 
 .debug_macinfo
  *(.debug_macinfo)

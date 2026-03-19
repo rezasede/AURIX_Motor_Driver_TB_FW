@@ -68,11 +68,6 @@ void core0_main (void)
     Adc_MotorSense_start();
     IfxCpu_enableInterrupts();
 
-    init_ASCLIN_UART();
-
-
-
-
     /* Release all cores */
     IfxCpu_emitEvent(&g_cpuSyncEvent);
     IfxCpu_waitEvent(&g_cpuSyncEvent, 1);

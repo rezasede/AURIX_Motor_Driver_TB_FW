@@ -46,7 +46,11 @@ void core2_main (void)
     /* Wait until CPU0 has finished all peripheral init */
     IfxCpu_waitEvent(&g_cpuSyncEvent, 1);
 
-    while (g_cpu0InitDone == FALSE) { }
+    while (g_cpu0InitDone == FALSE)
+    {
+    }
+
+    init_ASCLIN_UART();
 
     IfxCpu_enableInterrupts();
 
@@ -73,7 +77,8 @@ void core2_main (void)
         const volatile uint16 *pRaw = Adc_MotorSense_getRawCurrents();
         data.z_raw = pRaw[0];
 
-        sendUART_cpu2(&data, sizeof(data));
+//        sendUART_cpu2(&data, sizeof(data));
+        sendUART(&data, sizeof(data));
         t++;
         Delay(1);
     }
