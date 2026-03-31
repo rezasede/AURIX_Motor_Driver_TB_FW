@@ -37,7 +37,7 @@
 
 #include "EGTM_ATOM_3_Phase_Inverter_PWM.h"
 #include "ASCLIN_UART.h"
-#include "TMADC_Single_Channel.h"
+
 #include "GPIO_LED_Button.h"
 #include "Adc_MotorSense.h"
 

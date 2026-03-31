@@ -31,8 +31,12 @@
 
 #include "Adc_MotorSense.h"
 
+#include "ASCLIN_UART.h"
+#include "UserFunctions.h"
+#include <math.h>
+
 extern IfxCpu_syncEvent g_cpuSyncEvent;
-extern volatile uint16 g_rawCurr[3];
+//extern volatile uint16 g_rawCurr[3];
 
 extern volatile boolean g_cpu0InitDone;
 
@@ -74,8 +78,8 @@ void core2_main (void)
         data.x_raw = (uint32) ((x_float + 10.0f) * 3276.7f);
         data.y_raw = (uint32) ((y_float + 10.0f) * 3276.7f);
 
-        const volatile uint16 *pRaw = Adc_MotorSense_getRawCurrents();
-        data.z_raw = pRaw[0];
+        const Adc_PhaseCurrents *pCurr = Adc_MotorSense_getCurrents();
+        data.z_raw = (uint32)pCurr->raw_diff[0];
 
 //        sendUART_cpu2(&data, sizeof(data));
         sendUART(&data, sizeof(data));

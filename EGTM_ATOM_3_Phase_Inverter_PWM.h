@@ -12,7 +12,7 @@
 #define PHASE_W_HS              &IfxEgtm_ATOM0_2_TOUT68_P20_12_OUT
 #define PHASE_W_LS              &IfxEgtm_ATOM0_2N_TOUT69_P20_13_OUT
 
-#define PHASE_U_DUTY            (1.0f)
+#define PHASE_U_DUTY            (4.0f)
 #define PHASE_V_DUTY            (50.0f)
 #define PHASE_W_DUTY            (95.0f)
 
