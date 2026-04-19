@@ -69,4 +69,10 @@ Libraries/iLLD/TC4xx/Tricore/Wtu/Std \
 Libraries/iLLD/TC4xx/Tricore/_Impl \
 Libraries/iLLD/TC4xx/Tricore/_Impl/TC4Dx \
 Libraries/iLLD/TC4xx/Tricore/_PinMap/TC4Dx \
+Libraries/oneeye_lib/arduino \
+Libraries/oneeye_lib/aurix/illd \
+Libraries/oneeye_lib/cy/pdl \
+Libraries/oneeye_lib \
+Libraries/oneeye_lib/xmc/xmcdaveapp \
+Libraries/oneeye_lib/xmc/xmclib \
 

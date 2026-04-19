@@ -1,12 +1,58 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<root version="2.46.0">
-    <layout/>
+<root version="2.66.0">
+    <signals>
+        <var name="bb" type="group" offset="0" access="read-write">
+            <item-configuration>
+                <title><![CDATA[BB in]]></title>
+            </item-configuration>
+            <var name="in" type="uint32" offset="0" access="read-write" default="0">
+                <item-configuration>
+                    <title><![CDATA[BB in]]></title>
+                </item-configuration>
+            </var>
+            <var name="out" type="uint32" offset="0" access="read-write" default="0">
+                <item-configuration>
+                    <title><![CDATA[BB out]]></title>
+                </item-configuration>
+            </var>
+        </var>
+    </signals>
+    <layout>
+        <pushButton>
+            <item-configuration>
+                <title><![CDATA[UDP Interface]]></title>
+                <on-click><![CDATA[{show.connection.ui}]]></on-click>
+            </item-configuration>
+        </pushButton>
+        <barGraph title="Graph" bar-width-percent="25" min="0" max="25" tick-inc-major="2" tick-inc-minor="1" marker-threshold-1="0.5" marker-title-1="TR1" marker-threshold-2="2" marker-title-2="TR2">
+            <item-configuration>
+                <title><![CDATA[Graph]]></title>
+            </item-configuration>
+        </barGraph>
+    </layout>
     <interface>
         <item-configuration>
-            <id>das-itf</id>
+            <id><![CDATA[das-itf]]></id>
         </item-configuration>
-        <port plugin="PCom_DAS::DAS" connect="true" system-key="{ADS}"/>
+        <port plugin="PCom_Core::udpClient" bind-address="" bind-port="65000" address="192.168.178.198" port="65000" connect="true"/>
+        <messages>
+            <message dir="tx" stream="true" interval="0.001" send-on-new-data="true">
+                <item-configuration>
+                    <title><![CDATA[0xFE]]></title>
+                </item-configuration>
+                <field name="bb.out" bit-pos="0" buffer="512"/>
+            </message>
+            <message stream="true">
+                <item-configuration>
+                    <title><![CDATA[0xFF]]></title>
+                </item-configuration>
+                <field name="bb.in" bit-pos="0"/>
+            </message>
+        </messages>
     </interface>
     <config/>
-    <debugBox elf-path=""com-interface-id="das-itf" id="elf"/>
+    <protocolEngine>
+        <protocol name="BB-core" plugin="PProtocol_Core::bb" data-in="bb.in" data-out="bb.out" timeout="2000" min-message-send-interval="0">
+            <target local-port="255" remote-port="255" signal-in="" signal-out="" tx-buffer-length="100" forward="true" send-parent-value="false"/>
+        </protocol>
+    </protocolEngine>
 </root>

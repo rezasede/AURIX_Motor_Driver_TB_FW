@@ -8,6 +8,12 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include Libraries/oneeye_lib/xmc/xmclib/subdir.mk
+-include Libraries/oneeye_lib/xmc/xmcdaveapp/subdir.mk
+-include Libraries/oneeye_lib/cy/pdl/subdir.mk
+-include Libraries/oneeye_lib/aurix/illd/subdir.mk
+-include Libraries/oneeye_lib/arduino/subdir.mk
+-include Libraries/oneeye_lib/subdir.mk
 -include Libraries/iLLD/TC4xx/Tricore/_PinMap/TC4Dx/subdir.mk
 -include Libraries/iLLD/TC4xx/Tricore/_Impl/TC4Dx/subdir.mk
 -include Libraries/iLLD/TC4xx/Tricore/_Impl/subdir.mk
