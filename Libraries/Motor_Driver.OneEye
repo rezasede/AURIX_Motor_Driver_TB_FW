@@ -8,5 +8,5 @@
         <port plugin="PCom_DAS::DAS" connect="true" system-key="{ADS}"/>
     </interface>
     <config/>
-    <debugBox elf-path="..\TriCore Debug (GCC)\Motor_Driver.elf"com-interface-id="das-itf" id="elf"/>
+    <debugBox elf-path=""com-interface-id="das-itf" id="elf"/>
 </root>

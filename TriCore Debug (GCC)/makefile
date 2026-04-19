@@ -16,6 +16,8 @@ RM := rm -rf
 -include Libraries/iLLD/TC4xx/Tricore/Stm/Timer/subdir.mk
 -include Libraries/iLLD/TC4xx/Tricore/Stm/Std/subdir.mk
 -include Libraries/iLLD/TC4xx/Tricore/Smu/Std/subdir.mk
+-include Libraries/iLLD/TC4xx/Tricore/Smm/Std/subdir.mk
+-include Libraries/iLLD/TC4xx/Tricore/Pms/Std/subdir.mk
 -include Libraries/iLLD/TC4xx/Tricore/Cpu/Trap/subdir.mk
 -include Libraries/iLLD/TC4xx/Tricore/Cpu/Std/subdir.mk
 -include Libraries/iLLD/TC4xx/Tricore/Cpu/Irq/subdir.mk
@@ -26,7 +28,10 @@ RM := rm -rf
 -include Libraries/iLLD/TC4xx/CpuGeneric/_Impl/subdir.mk
 -include Libraries/iLLD/TC4xx/CpuGeneric/Src/Std/subdir.mk
 -include Libraries/iLLD/TC4xx/CpuGeneric/Port/Std/subdir.mk
+-include Libraries/iLLD/TC4xx/CpuGeneric/Leth/Std/subdir.mk
+-include Libraries/iLLD/TC4xx/CpuGeneric/Hsphy/Std/subdir.mk
 -include Libraries/iLLD/TC4xx/CpuGeneric/Geth/Std/subdir.mk
+-include Libraries/iLLD/TC4xx/CpuGeneric/Geth/Eth/subdir.mk
 -include Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Trigger/subdir.mk
 -include Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Std/subdir.mk
 -include Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Pwm/subdir.mk
@@ -48,6 +53,8 @@ RM := rm -rf
 -include Libraries/Infra/Ssw/TC4xx/Tricore/subdir.mk
 -include Libraries/Infra/Platform/Compilers/subdir.mk
 -include Libraries/Infra/Ipc/Tricore/ipc/src/subdir.mk
+-include External/phy/subdir.mk
+-include External/pdl/subdir.mk
 -include Configurations/subdir.mk
 -include subdir.mk
 ifneq ($(MAKECMDGOALS),clean)

@@ -22,6 +22,8 @@ SECONDARY_SIZE :=
 SUBDIRS := \
 . \
 Configurations \
+External/pdl \
+External/phy \
 Libraries/Infra/Ipc/Tricore/ipc/src \
 Libraries/Infra/Platform/Compilers \
 Libraries/Infra/Ssw/TC4xx/Tricore \
@@ -43,7 +45,10 @@ Libraries/iLLD/TC4xx/CpuGeneric/Dma/Std \
 Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Pwm \
 Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Std \
 Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Trigger \
+Libraries/iLLD/TC4xx/CpuGeneric/Geth/Eth \
 Libraries/iLLD/TC4xx/CpuGeneric/Geth/Std \
+Libraries/iLLD/TC4xx/CpuGeneric/Hsphy/Std \
+Libraries/iLLD/TC4xx/CpuGeneric/Leth/Std \
 Libraries/iLLD/TC4xx/CpuGeneric/Port/Std \
 Libraries/iLLD/TC4xx/CpuGeneric/Src/Std \
 Libraries/iLLD/TC4xx/CpuGeneric/_Impl \
@@ -54,6 +59,8 @@ Libraries/iLLD/TC4xx/CpuGeneric/_PinMap/TC4Dx \
 Libraries/iLLD/TC4xx/Tricore/Cpu/Irq \
 Libraries/iLLD/TC4xx/Tricore/Cpu/Std \
 Libraries/iLLD/TC4xx/Tricore/Cpu/Trap \
+Libraries/iLLD/TC4xx/Tricore/Pms/Std \
+Libraries/iLLD/TC4xx/Tricore/Smm/Std \
 Libraries/iLLD/TC4xx/Tricore/Smu/Std \
 Libraries/iLLD/TC4xx/Tricore/Stm/Std \
 Libraries/iLLD/TC4xx/Tricore/Stm/Timer \
