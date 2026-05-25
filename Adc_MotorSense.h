@@ -67,11 +67,11 @@
  *   N-side (VOUTN) → Core-1 → channels 1, 3, 5  (odd)
  *══════════════════════════════════════════════════════════════════════════*/
 #define ADC_CH_IA_P                 IfxAdc_TmadcChannel_0
-#define ADC_CH_IA_N                 IfxAdc_TmadcChannel_1
-#define ADC_CH_IB_P                 IfxAdc_TmadcChannel_2
-#define ADC_CH_IB_N                 IfxAdc_TmadcChannel_3
-#define ADC_CH_IC_P                 IfxAdc_TmadcChannel_4
-#define ADC_CH_IC_N                 IfxAdc_TmadcChannel_5
+#define ADC_CH_IA_N                 IfxAdc_TmadcChannel_2
+#define ADC_CH_IB_P                 IfxAdc_TmadcChannel_6
+#define ADC_CH_IB_N                 IfxAdc_TmadcChannel_4
+#define ADC_CH_IC_P                 IfxAdc_TmadcChannel_12
+#define ADC_CH_IC_N                 IfxAdc_TmadcChannel_13
 
 #define ADC_CORE_IA_P               IfxAdc_TmadcSarCore_0
 #define ADC_CORE_IA_N               IfxAdc_TmadcSarCore_1
@@ -85,10 +85,10 @@
  *   Core-0: Va(6), Vc(8)
  *   Core-1: Vb(7), Vdc(9)
  *══════════════════════════════════════════════════════════════════════════*/
-#define ADC_CH_VA                   IfxAdc_TmadcChannel_6
-#define ADC_CH_VB                   IfxAdc_TmadcChannel_7
-#define ADC_CH_VC                   IfxAdc_TmadcChannel_8
-#define ADC_CH_VDC                  IfxAdc_TmadcChannel_9
+#define ADC_CH_VA                   IfxAdc_TmadcChannel_7
+#define ADC_CH_VB                   IfxAdc_TmadcChannel_5
+#define ADC_CH_VC                   IfxAdc_TmadcChannel_3
+#define ADC_CH_VDC                  IfxAdc_TmadcChannel_1
 
 #define ADC_CORE_VA                 IfxAdc_TmadcSarCore_0
 #define ADC_CORE_VB                 IfxAdc_TmadcSarCore_1

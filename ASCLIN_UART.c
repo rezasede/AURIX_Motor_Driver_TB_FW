@@ -39,12 +39,12 @@
 /*********************************************************************************************************************/
 #define UART_BAUDRATE           576000                                  /* UART baud rate in bit/s                  */
 
-#define UART_PIN_RX             BOARD_RXD_MB                 /* UART receive port pin                    */
-#define UART_PIN_TX             BOARD_TXD_MB                 /* UART transmit port pin                   */
+#define UART_PIN_RX             IfxAsclin14_RXA_F_P33_3_IN // BOARD_RXD_MB                 /* UART receive port pin                    */
+#define UART_PIN_TX             IfxAsclin14_TX_F_P33_2_OUT // BOARD_TXD_MB                 /* UART transmit port pin                   */
 
 /* Definition of the interrupt priorities */
-#define INTPRIO_ASCLIN1_RX      18
-#define INTPRIO_ASCLIN1_TX      19
+#define INTPRIO_ASCLIN14_RX      18
+#define INTPRIO_ASCLIN14_TX      19
 
 #define UART_RX_BUFFER_SIZE     64                                      /* Definition of the receive buffer size    */
 #define UART_TX_BUFFER_SIZE     64                                      /* Definition of the transmit buffer size   */
@@ -74,14 +74,14 @@ Ifx_SizeT g_count = sizeof(g_txData);
 /*---------------------------------------------Function Implementations----------------------------------------------*/
 /*********************************************************************************************************************/
 /* Adding of the interrupt service routines */
-IFX_INTERRUPT(asclin1TxISR, 2, INTPRIO_ASCLIN1_TX);
-void asclin1TxISR (void)
+IFX_INTERRUPT(asclin14TxISR, 2, INTPRIO_ASCLIN14_TX);
+void asclin14TxISR (void)
 {
     IfxAsclin_Asc_isrTransmit(&g_ascHandle);
 }
 
-IFX_INTERRUPT(asclin1RxISR, 2, INTPRIO_ASCLIN1_RX);
-void asclin1RxISR (void)
+IFX_INTERRUPT(asclin14RxISR, 2, INTPRIO_ASCLIN14_RX);
+void asclin14RxISR (void)
 {
     IfxAsclin_Asc_isrReceive(&g_ascHandle);
 }
@@ -89,28 +89,28 @@ void asclin1RxISR (void)
 /* This function initializes the ASCLIN UART module */
 void init_ASCLIN_UART (void)
 {
-    /* CPU2 will own ASCLIN1 — grant write access accordingly */
-    Ifx_ACCEN_ACCEN_WRA asclin1_accen = {0};
-    asclin1_accen.U = (1 << IfxApProt_TagId_cpu2d) | (1 << IfxApProt_TagId_cpu2ds);
-    asclin1_accen.U |= (1 << IfxApProt_TagId_cbs);
-    IfxApApu_configWriteRegA((Ifx_ACCEN_ACCEN_WRA*) &ASCLIN1_ACCEN_WRA, asclin1_accen.U);
+    /* CPU2 will own ASCLIN14 — grant write access accordingly */
+    Ifx_ACCEN_ACCEN_WRA asclin14_accen = {0};
+    asclin14_accen.U = (1 << IfxApProt_TagId_cpu2d) | (1 << IfxApProt_TagId_cpu2ds);
+    asclin14_accen.U |= (1 << IfxApProt_TagId_cbs);
+    IfxApApu_configWriteRegA((Ifx_ACCEN_ACCEN_WRA*) &ASCLIN14_ACCEN_WRA, asclin14_accen.U);
 
     /* Same for P15 port pins */
-    Ifx_ACCEN_ACCEN_WRA p15_accen = {0};
-    p15_accen.U = (1 << IfxApProt_TagId_cpu2d) | (1 << IfxApProt_TagId_cpu2ds);
-    p15_accen.U |= (1 << IfxApProt_TagId_cbs);
-    IfxApApu_configWriteRegA((Ifx_ACCEN_ACCEN_WRA*) &MODULE_P15.ACCGRP[0].WRA, p15_accen.U);
+    Ifx_ACCEN_ACCEN_WRA p33_accen = {0};
+    p33_accen.U = (1 << IfxApProt_TagId_cpu2d) | (1 << IfxApProt_TagId_cpu2ds);
+    p33_accen.U |= (1 << IfxApProt_TagId_cbs);
+    IfxApApu_configWriteRegA((Ifx_ACCEN_ACCEN_WRA*) &MODULE_P33.ACCGRP[0].WRA, p33_accen.U);
 
     /* Initialize an instance of IfxAsclin_Asc_Config with default values */
     IfxAsclin_Asc_Config ascConfig;
-    IfxAsclin_Asc_initModuleConfig(&ascConfig, &MODULE_ASCLIN1);
+    IfxAsclin_Asc_initModuleConfig(&ascConfig, &MODULE_ASCLIN14);
 
     /* Set the desired baud rate */
     ascConfig.baudrate.baudrate = UART_BAUDRATE;
 
     /* ISR priorities and interrupt target */
-    ascConfig.interrupt.txPriority = INTPRIO_ASCLIN1_TX;
-    ascConfig.interrupt.rxPriority = INTPRIO_ASCLIN1_RX;
+    ascConfig.interrupt.txPriority = INTPRIO_ASCLIN14_TX;
+    ascConfig.interrupt.rxPriority = INTPRIO_ASCLIN14_RX;
     ascConfig.interrupt.typeOfService = IfxSrc_Tos_cpu2;
 
     /* FIFO configuration */
@@ -164,12 +164,12 @@ void sendUART_cpu2 (const void *pData, Ifx_SizeT length)
     for (Ifx_SizeT i = 0; i < length; i++)
     {
         /* Wait until TX FIFO has space */
-        while (ASCLIN1_TXFIFOCON.B.FILL >= 16)
+        while (ASCLIN14_TXFIFOCON.B.FILL >= 16)
         {
         }
 
         /* Write one byte */
-        ASCLIN1_TXDATA.U = bytes[i];
+        ASCLIN14_TXDATA.U = bytes[i];
     }
 }
 

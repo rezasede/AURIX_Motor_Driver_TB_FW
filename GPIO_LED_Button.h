@@ -33,5 +33,6 @@
 /*********************************************************************************************************************/
 void init_GPIOs(void);
 void control_LED(void);
+void status_LED (void);
 
 #endif /* GPIO_LED_BUTTON_H_ */

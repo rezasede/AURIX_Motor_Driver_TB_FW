@@ -35,47 +35,60 @@
 /*********************************************************************************************************************/
 /*-----------------------------------------------------Macros--------------------------------------------------------*/
 /*********************************************************************************************************************/
-#define LED     LED_1   /* Port pin for the LED     */
-#define BUTTON  BUTTON_1   /* Port pin for the button  */
+#define LEDOB     LED_1   /* Port pin for the LED     */
+#define BUTTONOB  BUTTON_1   /* Port pin for the button  */
+
+#define LED1     IfxPort_P33_10   /* Port pin for the LED     */
+#define LED2    IfxPort_P33_9   /* Port pin for the LED     */
+#define LED3     IfxPort_P33_8   /* Port pin for the LED     */
+#define LED4     IfxPort_P33_15   /* Port pin for the LED     */
+
+#define DEBUG1     IfxPort_P33_9   /* Port pin for the DEBUG*/
+#define DEBUG2     IfxPort_P33_10   /* Port pin for the DEBUG*/
 
 /*********************************************************************************************************************/
 /*---------------------------------------------Function Implementations----------------------------------------------*/
 /*********************************************************************************************************************/
 /* Function to configure the port pins for the push button and the LED */
-void init_GPIOs(void)
+void init_GPIOs (void)
 {
-    /* Setup the port pin connected to the LED to general output mode push-pull. This function can be used
-     * to initialize any port pin by specifying the port number, pin number and port pin mode.
-     */
-    IfxPort_setPinMode(LED.port, LED.pinIndex, IfxPort_Mode_outputPushPullGeneral);
 
-    /* Setup the port pin connected to the push button to input mode. This function can be used to initialize any
-     * port to input mode by just specifying the port number as illustrated.
-     */
-    IfxPort_setPinMode(BUTTON.port, BUTTON.pinIndex, IfxPort_Mode_inputPullUp);
+    IfxPort_setPinMode(LEDOB.port, LEDOB.pinIndex, IfxPort_Mode_outputPushPullGeneral); // LED 1 On board
 
+    //Button
+    IfxPort_setPinMode(BUTTONOB.port, BUTTONOB.pinIndex, IfxPort_Mode_inputPullUp);
 
-     IfxPort_setPinMode(IfxPort_P33_9.port, IfxPort_P33_9.pinIndex, IfxPort_Mode_outputPushPullGeneral); //Debug GPIO for Scope
-     IfxPort_setPinMode(IfxPort_P33_10.port, IfxPort_P33_10.pinIndex, IfxPort_Mode_outputPushPullGeneral); //Debug GPIO for Scope
+    //DEBUG
+//    IfxPort_setPinMode(DEBUG1.port, DEBUG1.pinIndex, IfxPort_Mode_outputPushPullGeneral); //Debug GPIO for Scope
+//    IfxPort_setPinMode(DEBUG2.port, DEBUG2.pinIndex, IfxPort_Mode_outputPushPullGeneral); //Debug GPIO for Scope
 }
 
 /* Depending on the the state of the "BUTTON" port pin, the LED is turned on or off */
-void control_LED(void)
+void control_LED (void)
 {
-    /* With the routine getPinState() the value of a particular pin can be retrieved. This
-     * function can be used to retrieve any port state by just specifying the port number
-     * as illustrated.
-     */
-    if(IfxPort_getPinState(BUTTON.port, BUTTON.pinIndex) == 0)
+    if (IfxPort_getPinState(BUTTONOB.port, BUTTONOB.pinIndex) == 0)
     {
-        /* With the routine setPinState() the state of the port can be set to drive either
-         * LOW or HIGH. This function can be used to retrieve any port state by just
-         * specifying the port number as illustrated.
-         */
-        IfxPort_setPinState(LED.port, LED.pinIndex, IfxPort_State_low);
+        IfxPort_setPinState(LEDOB.port, LEDOB.pinIndex, IfxPort_State_low);
     }
     else
     {
-        IfxPort_setPinState(LED.port, LED.pinIndex, IfxPort_State_high);
+        IfxPort_setPinState(LEDOB.port, LEDOB.pinIndex, IfxPort_State_high);
     }
+}
+
+void status_LED (void)
+{
+
+    //LEDs
+    IfxPort_setPinMode(LED1.port, LED1.pinIndex, IfxPort_Mode_outputPushPullGeneral); // LED1
+    IfxPort_setPinMode(LED2.port, LED2.pinIndex, IfxPort_Mode_outputPushPullGeneral); // LED2
+    IfxPort_setPinMode(LED3.port, LED3.pinIndex, IfxPort_Mode_outputPushPullGeneral); // LED3
+    IfxPort_setPinMode(LED4.port, LED4.pinIndex, IfxPort_Mode_outputPushPullGeneral); // LED4
+
+
+    IfxPort_setPinState(LED1.port, LED1.pinIndex, IfxPort_State_high);
+    IfxPort_setPinState(LED2.port, LED2.pinIndex, IfxPort_State_high);
+    IfxPort_setPinState(LED3.port, LED3.pinIndex, IfxPort_State_high);
+    IfxPort_setPinState(LED4.port, LED4.pinIndex, IfxPort_State_high);
+
 }

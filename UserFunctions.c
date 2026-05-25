@@ -6,7 +6,7 @@
 #include "Hsphy/Std/IfxHsphy.h"
 #include "pin.h"
 
-static void allowTagRw (IfxApApu_ApuConfig *cfg, IfxApProt_TagId tagId)
+void allowTagRw (IfxApApu_ApuConfig *cfg, IfxApProt_TagId tagId)
 {
     if ((uint32) tagId < 32u)
     {
