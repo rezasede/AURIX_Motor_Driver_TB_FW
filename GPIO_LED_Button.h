@@ -28,11 +28,45 @@
 #ifndef GPIO_LED_BUTTON_H_
 #define GPIO_LED_BUTTON_H_
 
+#include "IfxPort.h"
+#include "pin.h"
+
+#include <stdbool.h>
+#include "Ifx_Types.h"
+
+/*********************************************************************************************************************/
+/*-----------------------------------------------------Macros--------------------------------------------------------*/
+/*********************************************************************************************************************/
+#define LEDOB     LED_1   /* Port pin for the LED     */
+#define BUTTONOB  BUTTON_1   /* Port pin for the button  */
+
+#define LED1     IfxPort_P33_10   /* Port pin for the LED     */
+#define LED2    IfxPort_P33_9   /* Port pin for the LED     */
+#define LED3     IfxPort_P33_8   /* Port pin for the LED     */
+#define LED4     IfxPort_P33_15   /* Port pin for the LED     */
+
+#define DEBUG1     IfxPort_P33_9   /* Port pin for the DEBUG*/
+#define DEBUG2     IfxPort_P33_10   /* Port pin for the DEBUG*/
+
+typedef enum
+{
+    LED_OFF, LED_ON
+} LedCommand;
+
+typedef enum
+{
+    LED_1s = 0,
+    LED_2s, LED_3s, LED_4s, LED_MAX
+} LedId;
+
 /*********************************************************************************************************************/
 /*------------------------------------------------Function Prototypes------------------------------------------------*/
 /*********************************************************************************************************************/
-void init_GPIOs(void);
-void control_LED(void);
-void status_LED (void);
+void init_GPIOs (void);
+void control_LED (void);
+void initLED (void);
+void writeLedHardware (LedId id, boolean state);
+void setLed (LedId led, boolean state);
+void toggleLed (LedId led);
 
 #endif /* GPIO_LED_BUTTON_H_ */

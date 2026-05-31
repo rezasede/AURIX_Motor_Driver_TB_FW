@@ -1,4 +1,4 @@
-GPIO_LED_Button.o: ../GPIO_LED_Button.c \
+GPIO_LED_Button.o: ../GPIO_LED_Button.c ../GPIO_LED_Button.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\Port\Std/IfxPort.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/_Impl/IfxPort_cfg.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Configurations/Ifx_Cfg.h \
@@ -116,6 +116,7 @@ GPIO_LED_Button.o: ../GPIO_LED_Button.c \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Egtm/Std/IfxEgtm_Tom.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Egtm/Std/IfxEgtm_Tim.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/TC4Dx/IfxEgtm_PinMap_TC4Dx_BGA292_COM.h
+../GPIO_LED_Button.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\Port\Std/IfxPort.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/_Impl/IfxPort_cfg.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Configurations/Ifx_Cfg.h:

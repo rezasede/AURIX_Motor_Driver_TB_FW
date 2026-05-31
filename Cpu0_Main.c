@@ -42,13 +42,9 @@
 #include "Adc_MotorSense.h"
 
 #include "ASCLIN_UART.h"
-
 #include "UserFunctions.h"
-
 #include "Egtm/Std/IfxEgtm_Atom.h"
-
 #include "Math.h"
-
 #include "pin.h"
 
 #include "Pms/Std/IfxPmsEvr.h"
@@ -58,63 +54,12 @@
 #include "pdl/ifx_hsphy.h"
 #include "phy/dp83825i.h"
 
+#include "EthernetLib.h"
+
 IFX_ALIGN(4) IfxCpu_syncEvent g_cpuSyncEvent = 0;
 
 volatile boolean g_cpu0InitDone = FALSE;
 long long int timeoutwhile = 0;
-
-/* ---------- Local MDIO helpers for CPU0 pre-sequence ---------- */
-
-#define CPU0_ETH_MDIO_CMD_READ   VAL2FLD(IFX_GETH_PORT_CORE_MDIO_SINGLE_COMMAND_CONTROL_DATA_CMD, 3)
-#define CPU0_ETH_MDIO_CMD_WRITE  VAL2FLD(IFX_GETH_PORT_CORE_MDIO_SINGLE_COMMAND_CONTROL_DATA_CMD, 1)
-#define CPU0_ETH_MDIO_CMD_BUSY   GENMASK(IFX_GETH_PORT_CORE_MDIO_SINGLE_COMMAND_CONTROL_DATA_SBUSY)
-
-static void Cpu0_PrepareEthernetForCpu2 (void)
-{
-    /* 1. Power rails */
-    IfxPmsEvr_enableVoltageRail(&MODULE_PMS, IfxPmsEvr_PrimaryMonitorVoltageSource_vddphphy0);
-    IfxPmsEvr_enableVoltageRail(&MODULE_PMS, IfxPmsEvr_PrimaryMonitorVoltageSource_vddphy0);
-    IfxPmsEvr_enableVoltageRail(&MODULE_PMS, IfxPmsEvr_PrimaryMonitorVoltageSource_vddphphy1);
-    IfxPmsEvr_enableVoltageRail(&MODULE_PMS, IfxPmsEvr_PrimaryMonitorVoltageSource_vddphy1);
-    IfxPmsEvr_enableVoltageRail(&MODULE_PMS, IfxPmsEvr_PrimaryMonitorVoltageSource_vddphphy2);
-    IfxPmsEvr_enableVoltageRail(&MODULE_PMS, IfxPmsEvr_PrimaryMonitorVoltageSource_vddphy2);
-    IfxPmsEvr_enableVoltageRail(&MODULE_PMS, IfxPmsEvr_PrimaryMonitorVoltageSource_vddhsif);
-
-    /* 2. HSPHY init */
-    HSPHY_Init();
-
-    const Ifx_HSPHY_ETH_Bits hsphyEthCfg = {.EPR = HSPHY_ETH_EPR_RMII, .MDIOEN = TRUE, .MDIO =
-    BOARD_GETH0_P0_MDIO.inSelect};
-    HSPHY_ETH_Init(0u, hsphyEthCfg);
-
-    /* 3. Enable GETH module */
-    IfxGeth_enableModule(&MODULE_GETH0);
-
-    /* 4. Skip VMT SRAM clears for now — version mismatch with iLLD v2.4.0 */
-
-    /* 5. Grant CPU2 access */
-    grantCpu2PeripheralAccess();
-}
-
-static void grantCpu0PortAccess (void)
-{
-    IfxApApu_ApuConfig apuCfg;
-    IfxApApu_initConfig(&apuCfg);
-
-    /* Start from zero — explicit about what's allowed */
-    apuCfg.wraTagId = 0u;
-    apuCfg.wrbTagId = 0u;
-    apuCfg.rdaTagId = 0u;
-    apuCfg.rdbTagId = 0u;
-
-    /* Allow CPU0 data and program masters */
-    allowTagRw(&apuCfg, IfxApProt_TagId_cpu0d);
-    allowTagRw(&apuCfg, IfxApProt_TagId_cpu0p);
-
-    /* Configure access for each port you use */
-    IfxPort_configureAccessToPort(&MODULE_P33, (IfxPort_PadAccessGroup) 0, &apuCfg);
-    IfxPort_configureAccessToPort(&MODULE_P00, (IfxPort_PadAccessGroup) 0, &apuCfg); /* adjust for LEDOB */
-}
 
 void core0_main (void)
 {
@@ -137,13 +82,10 @@ void core0_main (void)
 
     startPWMinEGTM();
 
-//    grantCpu0PortAccess();   // ← must be first, before any IfxPort_* call
     init_GPIOs();
 
     while (1)
-    { /* hard RT loop only */
-
-        control_LED();
+    {
 
     }
 }

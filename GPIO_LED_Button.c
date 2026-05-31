@@ -29,22 +29,10 @@
 /*********************************************************************************************************************/
 /*-----------------------------------------------------Includes------------------------------------------------------*/
 /*********************************************************************************************************************/
-#include "IfxPort.h"
-#include "pin.h"
 
-/*********************************************************************************************************************/
-/*-----------------------------------------------------Macros--------------------------------------------------------*/
-/*********************************************************************************************************************/
-#define LEDOB     LED_1   /* Port pin for the LED     */
-#define BUTTONOB  BUTTON_1   /* Port pin for the button  */
+#include "GPIO_LED_Button.h"
 
-#define LED1     IfxPort_P33_10   /* Port pin for the LED     */
-#define LED2    IfxPort_P33_9   /* Port pin for the LED     */
-#define LED3     IfxPort_P33_8   /* Port pin for the LED     */
-#define LED4     IfxPort_P33_15   /* Port pin for the LED     */
-
-#define DEBUG1     IfxPort_P33_9   /* Port pin for the DEBUG*/
-#define DEBUG2     IfxPort_P33_10   /* Port pin for the DEBUG*/
+static boolean ledState[LED_MAX] = {FALSE};
 
 /*********************************************************************************************************************/
 /*---------------------------------------------Function Implementations----------------------------------------------*/
@@ -76,19 +64,55 @@ void control_LED (void)
     }
 }
 
-void status_LED (void)
+void initLED (void)
 {
-
     //LEDs
     IfxPort_setPinMode(LED1.port, LED1.pinIndex, IfxPort_Mode_outputPushPullGeneral); // LED1
     IfxPort_setPinMode(LED2.port, LED2.pinIndex, IfxPort_Mode_outputPushPullGeneral); // LED2
     IfxPort_setPinMode(LED3.port, LED3.pinIndex, IfxPort_Mode_outputPushPullGeneral); // LED3
     IfxPort_setPinMode(LED4.port, LED4.pinIndex, IfxPort_Mode_outputPushPullGeneral); // LED4
-
-
-    IfxPort_setPinState(LED1.port, LED1.pinIndex, IfxPort_State_high);
-    IfxPort_setPinState(LED2.port, LED2.pinIndex, IfxPort_State_high);
-    IfxPort_setPinState(LED3.port, LED3.pinIndex, IfxPort_State_high);
-    IfxPort_setPinState(LED4.port, LED4.pinIndex, IfxPort_State_high);
-
 }
+
+void writeLedHardware (LedId id, boolean state)
+{
+    switch (id)
+    {
+        case LED_1s :
+            IfxPort_setPinState(LED1.port, LED1.pinIndex, state ? IfxPort_State_high : IfxPort_State_low);
+            break;
+
+        case LED_2s :
+            IfxPort_setPinState(LED2.port, LED2.pinIndex, state ? IfxPort_State_high : IfxPort_State_low);
+            break;
+
+        case LED_3s :
+            IfxPort_setPinState(LED3.port, LED3.pinIndex, state ? IfxPort_State_high : IfxPort_State_low);
+            break;
+
+        case LED_4s :
+            IfxPort_setPinState(LED4.port, LED4.pinIndex, state ? IfxPort_State_high : IfxPort_State_low);
+            break;
+
+        default :
+            break;
+    }
+}
+
+void setLed (LedId led, boolean state)
+{
+    if (led >= LED_MAX)
+        return;
+
+    ledState[led] = state;
+    writeLedHardware(led, state);
+}
+
+void toggleLed (LedId led)
+{
+    if (led >= LED_MAX)
+        return;
+
+    ledState[led] = !ledState[led];
+    writeLedHardware(led, ledState[led]);
+}
+

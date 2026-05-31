@@ -24,18 +24,20 @@
 //#define TEST_RAW_UDP
 #define TEST_BB_DIAG
 
+double x_float = 0.0f;
+double y_float = 0.0f;
+uint64 t = 0;
+
 extern IfxCpu_syncEvent g_cpuSyncEvent;
 extern volatile boolean g_cpu0InitDone;
 
 void core2_main (void)
 {
     IfxWtu_disableCpuWatchdog(IfxWtu_getCpuWatchdogPassword());
-
     IfxCpu_waitEvent(&g_cpuSyncEvent, 1);
 
     while (g_cpu0InitDone == FALSE)
-    {
-    }
+        ;
 
     init_ASCLIN_UART();
 
@@ -47,8 +49,7 @@ void core2_main (void)
     {
         sendUART("ETH FAIL\r\n", 10);
         while (1)
-        {
-        }
+            ;
     }
 
     sendUART("ETH OK\r\n", 8);
@@ -60,16 +61,10 @@ void core2_main (void)
 
     IfxCpu_enableInterrupts();
 
-    double x_float = 0.0f;
-    double y_float = 0.0f;
-    uint64 t = 0;
-
     OneEye_MotorData motorData;
 
     while (1)
     {
-        status_LED();
-
         x_float = 10.0f * sinf(2.0f * 3.14159f * 0.001f * t + 1000);
         y_float = 10.0f * sinf(2.0f * 3.14159f * 0.001f * t);
 
@@ -83,35 +78,13 @@ void core2_main (void)
 
         Eth_Core2_service1ms();
 
-#if defined(TEST_RAW_UDP)
-        /*--- Raw UDP test (Hercules port 50001) ---*/
-        if (Eth_Core2_isLinkUp())
-        {
-            Eth_Core2_sendUdp(&motorData, sizeof(motorData));
-        }
+//        /*--- Raw UDP test (Hercules port 50001) ---*/
+//        if (Eth_Core2_isLinkUp())
+//        {
+//            Eth_Core2_sendUdp(&motorData, sizeof(motorData));
+//        }
 
-#elif defined(TEST_BB_DIAG)
-        /*--- Diagnostic BB mode ---
-         *
-         * Watch UART output to see where it stops:
-         *   "ETH OK"   -> Ethernet init passed
-         *   "OE OK"    -> OneEye init passed (no assert crash)
-         *   "L"        -> link is up
-         *   "Q"        -> message queued successfully
-         *   "Txxx"     -> TX ring has xxx bytes after execute
-         *   "S"        -> UDP packet was sent
-         *
-         * If you see "ETH OK" but NOT "OE OK":
-         *   -> OneEye_init() crashed, likely an ASSERT in SyncProtocol_init
-         *      or addClient (memory allocation failure)
-         *
-         * If you see "Q" but T is always 000:
-         *   -> SyncProtocol_execute() runs but never writes to DPipe
-         *
-         * If you see "Txxx" with non-zero but NO "S":
-         *   -> sendUdpTo() is failing
-         */
-
+        /*--- Production mode ---*/
         if (Eth_Core2_isLinkUp())
         {
             OneEye_sendMotorData(&motorData);
@@ -163,16 +136,6 @@ void core2_main (void)
             sendUART(buf, 20);
         }
 
-#else
-        /*--- Production mode ---*/
-        if (Eth_Core2_isLinkUp())
-        {
-            OneEye_sendMotorData(&motorData);
-        }
-
-        OneEye_service();
-#endif
-
-        Delay(100);
+        Delay(1);
     }
 }

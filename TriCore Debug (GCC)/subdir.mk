@@ -7,6 +7,7 @@ C_SRCS += \
 ../ASCLIN_UART.c \
 ../Adc_MotorSense.c \
 ../Adc_MotorSense_Isr.c \
+../Control_Loops.c \
 ../Cpu0_Main.c \
 ../Cpu1_Main.c \
 ../Cpu2_Main.c \
@@ -16,6 +17,7 @@ C_SRCS += \
 ../EGTM_ATOM_3_Phase_Inverter_PWM.c \
 ../Eth_Core.c \
 ../Eth_OneEye.c \
+../EthernetLib.c \
 ../GPIO_LED_Button.c \
 ../UserFunctions.c 
 
@@ -26,6 +28,7 @@ C_DEPS += \
 ./ASCLIN_UART.d \
 ./Adc_MotorSense.d \
 ./Adc_MotorSense_Isr.d \
+./Control_Loops.d \
 ./Cpu0_Main.d \
 ./Cpu1_Main.d \
 ./Cpu2_Main.d \
@@ -35,6 +38,7 @@ C_DEPS += \
 ./EGTM_ATOM_3_Phase_Inverter_PWM.d \
 ./Eth_Core.d \
 ./Eth_OneEye.d \
+./EthernetLib.d \
 ./GPIO_LED_Button.d \
 ./UserFunctions.d 
 
@@ -42,6 +46,7 @@ OBJS += \
 ./ASCLIN_UART.o \
 ./Adc_MotorSense.o \
 ./Adc_MotorSense_Isr.o \
+./Control_Loops.o \
 ./Cpu0_Main.o \
 ./Cpu1_Main.o \
 ./Cpu2_Main.o \
@@ -51,6 +56,7 @@ OBJS += \
 ./EGTM_ATOM_3_Phase_Inverter_PWM.o \
 ./Eth_Core.o \
 ./Eth_OneEye.o \
+./EthernetLib.o \
 ./GPIO_LED_Button.o \
 ./UserFunctions.o 
 
@@ -67,7 +73,7 @@ OBJS += \
 clean: clean--2e-
 
 clean--2e-:
-	-$(RM) ./ASCLIN_UART.d ./ASCLIN_UART.o ./Adc_MotorSense.d ./Adc_MotorSense.o ./Adc_MotorSense_Isr.d ./Adc_MotorSense_Isr.o ./Cpu0_Main.d ./Cpu0_Main.o ./Cpu1_Main.d ./Cpu1_Main.o ./Cpu2_Main.d ./Cpu2_Main.o ./Cpu3_Main.d ./Cpu3_Main.o ./Cpu4_Main.d ./Cpu4_Main.o ./Cpu5_Main.d ./Cpu5_Main.o ./EGTM_ATOM_3_Phase_Inverter_PWM.d ./EGTM_ATOM_3_Phase_Inverter_PWM.o ./Eth_Core.d ./Eth_Core.o ./Eth_OneEye.d ./Eth_OneEye.o ./GPIO_LED_Button.d ./GPIO_LED_Button.o ./UserFunctions.d ./UserFunctions.o
+	-$(RM) ./ASCLIN_UART.d ./ASCLIN_UART.o ./Adc_MotorSense.d ./Adc_MotorSense.o ./Adc_MotorSense_Isr.d ./Adc_MotorSense_Isr.o ./Control_Loops.d ./Control_Loops.o ./Cpu0_Main.d ./Cpu0_Main.o ./Cpu1_Main.d ./Cpu1_Main.o ./Cpu2_Main.d ./Cpu2_Main.o ./Cpu3_Main.d ./Cpu3_Main.o ./Cpu4_Main.d ./Cpu4_Main.o ./Cpu5_Main.d ./Cpu5_Main.o ./EGTM_ATOM_3_Phase_Inverter_PWM.d ./EGTM_ATOM_3_Phase_Inverter_PWM.o ./Eth_Core.d ./Eth_Core.o ./Eth_OneEye.d ./Eth_OneEye.o ./EthernetLib.d ./EthernetLib.o ./GPIO_LED_Button.d ./GPIO_LED_Button.o ./UserFunctions.d ./UserFunctions.o
 
 .PHONY: clean--2e-
 

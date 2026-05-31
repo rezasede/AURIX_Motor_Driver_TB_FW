@@ -1,6 +1,10 @@
 #ifndef EGTM_ATOM_3_PHASE_INVERTER_PWM_H_
 #define EGTM_ATOM_3_PHASE_INVERTER_PWM_H_
 
+
+#include "Ifx_Types.h"
+
+
 #define NUM_OF_CHANNELS         (3)
 #define PWM_FREQUENCY           (20.0E3)
 #define ISR_PRIORITY_ATOM       (20)
@@ -17,7 +21,7 @@
 #define PHASE_W_DUTY            (50.0f)
 
 void initEgtmAtom3phInv(void);
-void updateEgtmAtom3phInvDuty(void);
+void updateEgtmAtom3phInvDuty (uint32 Duty_R, uint32 Duty_S, uint32 Duty_W);
 void startPWMinEGTM(void);
 
 #endif
