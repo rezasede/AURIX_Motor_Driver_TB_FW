@@ -66,27 +66,29 @@ void core0_main (void)
     IfxWtu_disableCpuWatchdog(IfxWtu_getCpuWatchdogPassword());
     IfxWtu_disableSystemWatchdog(IfxWtu_getSystemWatchdogPassword());
 
-    initEgtmAtom3phInv();
-    Adc_MotorSense_init();
+    initEgtmAtom3phInv();           // PWM initial
+    Adc_MotorSense_init();          // ADC initial
 
-    Adc_MotorSense_start();
+    Adc_MotorSense_start();         // ADC start
 
-    Cpu0_PrepareEthernetForCpu2();
+    Cpu0_PrepareEthernetForCpu2();  // Ethernet power and port initial on CPU0 for CPU2
 
-    IfxCpu_enableInterrupts();
+    char d[40];
+    int n = sprintf(d, "C0 BIV=%08lX\r\n", (unsigned long) __mfcr(CPU_BIV));
+
+    IfxCpu_enableInterrupts();      // Enable Interrupts
 
     /* Release all cores */
     IfxCpu_emitEvent(&g_cpuSyncEvent);
     IfxCpu_waitEvent(&g_cpuSyncEvent, 1);
     g_cpu0InitDone = TRUE; /* Signal CPU2 */
 
-    startPWMinEGTM();
+    startPWMinEGTM();               // PWM start
 
-    init_GPIOs();
+    init_GPIOs();                   // GPIO initial
 
     while (1)
     {
-
     }
 }
 

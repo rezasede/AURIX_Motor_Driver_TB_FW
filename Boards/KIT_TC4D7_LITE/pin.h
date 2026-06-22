@@ -30,7 +30,7 @@
 #ifndef KIT_TC4D7_LITE_PIN_H
 #define KIT_TC4D7_LITE_PIN_H
 
-#define IFX_PIN_PACKAGE_BGA292_COM
+
 
 #include "IfxPort_PinMap.h"
 #include "IfxAsclin_PinMap.h"

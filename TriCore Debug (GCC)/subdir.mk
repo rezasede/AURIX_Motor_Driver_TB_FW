@@ -16,9 +16,10 @@ C_SRCS += \
 ../Cpu5_Main.c \
 ../EGTM_ATOM_3_Phase_Inverter_PWM.c \
 ../Eth_Core.c \
-../Eth_OneEye.c \
 ../EthernetLib.c \
 ../GPIO_LED_Button.c \
+../Monitor_Json.c \
+../Stm_Monitor.c \
 ../UserFunctions.c 
 
 LSL_SRCS += \
@@ -37,9 +38,10 @@ C_DEPS += \
 ./Cpu5_Main.d \
 ./EGTM_ATOM_3_Phase_Inverter_PWM.d \
 ./Eth_Core.d \
-./Eth_OneEye.d \
 ./EthernetLib.d \
 ./GPIO_LED_Button.d \
+./Monitor_Json.d \
+./Stm_Monitor.d \
 ./UserFunctions.d 
 
 OBJS += \
@@ -55,9 +57,10 @@ OBJS += \
 ./Cpu5_Main.o \
 ./EGTM_ATOM_3_Phase_Inverter_PWM.o \
 ./Eth_Core.o \
-./Eth_OneEye.o \
 ./EthernetLib.o \
 ./GPIO_LED_Button.o \
+./Monitor_Json.o \
+./Stm_Monitor.o \
 ./UserFunctions.o 
 
 
@@ -73,7 +76,7 @@ OBJS += \
 clean: clean--2e-
 
 clean--2e-:
-	-$(RM) ./ASCLIN_UART.d ./ASCLIN_UART.o ./Adc_MotorSense.d ./Adc_MotorSense.o ./Adc_MotorSense_Isr.d ./Adc_MotorSense_Isr.o ./Control_Loops.d ./Control_Loops.o ./Cpu0_Main.d ./Cpu0_Main.o ./Cpu1_Main.d ./Cpu1_Main.o ./Cpu2_Main.d ./Cpu2_Main.o ./Cpu3_Main.d ./Cpu3_Main.o ./Cpu4_Main.d ./Cpu4_Main.o ./Cpu5_Main.d ./Cpu5_Main.o ./EGTM_ATOM_3_Phase_Inverter_PWM.d ./EGTM_ATOM_3_Phase_Inverter_PWM.o ./Eth_Core.d ./Eth_Core.o ./Eth_OneEye.d ./Eth_OneEye.o ./EthernetLib.d ./EthernetLib.o ./GPIO_LED_Button.d ./GPIO_LED_Button.o ./UserFunctions.d ./UserFunctions.o
+	-$(RM) ./ASCLIN_UART.d ./ASCLIN_UART.o ./Adc_MotorSense.d ./Adc_MotorSense.o ./Adc_MotorSense_Isr.d ./Adc_MotorSense_Isr.o ./Control_Loops.d ./Control_Loops.o ./Cpu0_Main.d ./Cpu0_Main.o ./Cpu1_Main.d ./Cpu1_Main.o ./Cpu2_Main.d ./Cpu2_Main.o ./Cpu3_Main.d ./Cpu3_Main.o ./Cpu4_Main.d ./Cpu4_Main.o ./Cpu5_Main.d ./Cpu5_Main.o ./EGTM_ATOM_3_Phase_Inverter_PWM.d ./EGTM_ATOM_3_Phase_Inverter_PWM.o ./Eth_Core.d ./Eth_Core.o ./EthernetLib.d ./EthernetLib.o ./GPIO_LED_Button.d ./GPIO_LED_Button.o ./Monitor_Json.d ./Monitor_Json.o ./Stm_Monitor.d ./Stm_Monitor.o ./UserFunctions.d ./UserFunctions.o
 
 .PHONY: clean--2e-
 

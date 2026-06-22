@@ -8,6 +8,8 @@
 
 void Cpu0_PrepareEthernetForCpu2 (void)
 {
+
+
     /* 1. Power rails */
     IfxPmsEvr_enableVoltageRail(&MODULE_PMS, IfxPmsEvr_PrimaryMonitorVoltageSource_vddphphy0);
     IfxPmsEvr_enableVoltageRail(&MODULE_PMS, IfxPmsEvr_PrimaryMonitorVoltageSource_vddphy0);
@@ -33,9 +35,7 @@ void Cpu0_PrepareEthernetForCpu2 (void)
     grantCpu2PeripheralAccess();
 }
 
-
-
-void grantCpu2PeripheralAccess(void)
+void grantCpu2PeripheralAccess (void)
 {
     IfxApApu_ApuConfig periphApu;
     IfxApApu_ApuConfig memApu;
@@ -54,8 +54,8 @@ void grantCpu2PeripheralAccess(void)
     IfxGeth_configureAccessToGeth(&periphApu);
 
     /* RMII data pins: CRSDV, RXD0, RXD1, REFCLK, TXEN, TXD0, TXD1 → P16 */
-    IfxPort_configureAccessToPort(&MODULE_P16, (IfxPort_PadAccessGroup)0, &periphApu);
-    IfxPort_configureAccessToPort(&MODULE_P21, (IfxPort_PadAccessGroup)0, &periphApu);
+    IfxPort_configureAccessToPort(&MODULE_P16, (IfxPort_PadAccessGroup) 0, &periphApu);
+    IfxPort_configureAccessToPort(&MODULE_P21, (IfxPort_PadAccessGroup) 0, &periphApu);
 
     /* LMU / DLMU access for DMA descriptors and buffers */
     IfxApApu_initConfig(&memApu);
@@ -69,8 +69,8 @@ void grantCpu2PeripheralAccess(void)
     allowTagRw(&memApu, IfxApProt_TagId_gethc0);
 
     memCfg.apuConfig = &memApu;
-    memCfg.rgnlaVal  = 0u;
-    memCfg.rgnuaVal  = 0u;
+    memCfg.rgnlaVal = 0u;
+    memCfg.rgnuaVal = 0u;
 
     IfxApApu_configureAccessToLmus(&memCfg);
     IfxApApu_configureAccessToDlmus(&memCfg);

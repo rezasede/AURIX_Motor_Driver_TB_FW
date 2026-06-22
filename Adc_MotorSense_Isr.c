@@ -42,7 +42,6 @@ IFX_INTERRUPT(Adc_MotorSense_allIsr_handler, 0, IFX_INTPRIO_ADC_ALL)
      * Debug toggle — measures ISR period and jitter on a scope.
      * Remove in production to save ~10 ns per cycle.
      */
-    IfxPort_togglePin(IfxPort_P33_9.port, IfxPort_P33_9.pinIndex);
 
     Adc_MotorSense_allIsr();
 }

@@ -100,7 +100,7 @@ Cpu2_Main.o: ../Cpu2_Main.c \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxEgtm_regdef.h \
  ../EGTM_ATOM_3_Phase_Inverter_PWM.h ../ASCLIN_UART.h ../UserFunctions.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Service\CpuGeneric\SysSe\Bsp/Bsp.h \
- ../Eth_Core.h ../Eth_OneEye.h ../GPIO_LED_Button.h \
+ ../Eth_Core.h ../Monitor_Json.h ../Stm_Monitor.h ../GPIO_LED_Button.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\Port\Std/IfxPort.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Boards\KIT_TC4D7_LITE/pin.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/IfxPort_PinMap.h \
@@ -248,7 +248,8 @@ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/I
 ../UserFunctions.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Service\CpuGeneric\SysSe\Bsp/Bsp.h:
 ../Eth_Core.h:
-../Eth_OneEye.h:
+../Monitor_Json.h:
+../Stm_Monitor.h:
 ../GPIO_LED_Button.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\Port\Std/IfxPort.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Boards\KIT_TC4D7_LITE/pin.h:

@@ -64,12 +64,11 @@ IFX_ALIGN(8) static ETH_CPU2_LMU_BSS IfxGeth_RxDescr g_rxDesc[IFXGETH_MAX_RX_DES
 IFX_ALIGN(8) static ETH_CPU2_LMU_BSS uint8 g_txBuffer[IFXGETH_MAX_TX_DESCRIPTORS][ETH_CORE2_TX_BUFFER_SIZE];
 IFX_ALIGN(8) static ETH_CPU2_LMU_BSS uint8 g_rxBuffer[IFXGETH_MAX_RX_DESCRIPTORS][ETH_CORE2_RX_BUFFER_SIZE];
 
-
 /*=============================================================================
  *  MDIO (unchanged from original)
  *===========================================================================*/
 
-static sint32 Eth_Core2_initMdio(void)
+static sint32 Eth_Core2_initMdio (void)
 {
     uint32 divider;
     IfxGeth_Mdc_Out *mdc;
@@ -117,85 +116,88 @@ static sint32 Eth_Core2_initMdio(void)
     return 0;
 }
 
-
-static uint16 Eth_Core2_mdioRead(uint8 phyAddr, uint8 devAddr, uint16 regAddr)
+static uint16 Eth_Core2_mdioRead (uint8 phyAddr, uint8 devAddr, uint16 regAddr)
 {
     uint32 commandAddr;
     uint32 commandData;
 
-    while (MODULE_GETH0.PORT[IfxGeth_PortIndex_0].CORE.MDIO.SINGLE_COMMAND_CONTROL_DATA.B.SBUSY) {}
+    while (MODULE_GETH0.PORT[IfxGeth_PortIndex_0].CORE.MDIO.SINGLE_COMMAND_CONTROL_DATA.B.SBUSY)
+    {
+    }
 
     MODULE_GETH0.PORT[IfxGeth_PortIndex_0].CORE.MDIO.CLAUSE_22_PORT.U |= BIT(phyAddr);
 
-    commandAddr = ((uint32)phyAddr << IFX_GETH_PORT_CORE_MDIO_SINGLE_COMMAND_ADDRESS_PA_OFF)
-                | ((uint32)regAddr << IFX_GETH_PORT_CORE_MDIO_SINGLE_COMMAND_ADDRESS_RA_OFF)
-                | ((uint32)devAddr << IFX_GETH_PORT_CORE_MDIO_SINGLE_COMMAND_ADDRESS_DA_OFF);
+    commandAddr = ((uint32) phyAddr << IFX_GETH_PORT_CORE_MDIO_SINGLE_COMMAND_ADDRESS_PA_OFF)
+            | ((uint32) regAddr << IFX_GETH_PORT_CORE_MDIO_SINGLE_COMMAND_ADDRESS_RA_OFF)
+            | ((uint32) devAddr << IFX_GETH_PORT_CORE_MDIO_SINGLE_COMMAND_ADDRESS_DA_OFF);
 
     commandData = MODULE_GETH0.PORT[IfxGeth_PortIndex_0].CORE.MDIO.SINGLE_COMMAND_CONTROL_DATA.U
-                & (uint32)~GENMASK(IFX_GETH_PORT_CORE_MDIO_SINGLE_COMMAND_CONTROL_DATA_CMD);
+            & (uint32) ~GENMASK(IFX_GETH_PORT_CORE_MDIO_SINGLE_COMMAND_CONTROL_DATA_CMD);
 
     commandData |= ETH_CORE2_MDIO_CMD_READ | ETH_CORE2_MDIO_CMD_BUSY;
 
     MODULE_GETH0.PORT[IfxGeth_PortIndex_0].CORE.MDIO.SINGLE_COMMAND_ADDRESS.U = commandAddr;
     MODULE_GETH0.PORT[IfxGeth_PortIndex_0].CORE.MDIO.SINGLE_COMMAND_CONTROL_DATA.U = commandData;
 
-    while (MODULE_GETH0.PORT[IfxGeth_PortIndex_0].CORE.MDIO.SINGLE_COMMAND_CONTROL_DATA.B.SBUSY) {}
+    while (MODULE_GETH0.PORT[IfxGeth_PortIndex_0].CORE.MDIO.SINGLE_COMMAND_CONTROL_DATA.B.SBUSY)
+    {
+    }
 
-    return (uint16)MODULE_GETH0.PORT[IfxGeth_PortIndex_0].CORE.MDIO.SINGLE_COMMAND_CONTROL_DATA.B.SDATA;
+    return (uint16) MODULE_GETH0.PORT[IfxGeth_PortIndex_0].CORE.MDIO.SINGLE_COMMAND_CONTROL_DATA.B.SDATA;
 }
 
-
-static void Eth_Core2_mdioWrite(uint8 phyAddr, uint8 devAddr, uint16 regAddr, uint16 regVal)
+static void Eth_Core2_mdioWrite (uint8 phyAddr, uint8 devAddr, uint16 regAddr, uint16 regVal)
 {
     uint32 commandAddr;
     uint32 commandData;
 
-    while (MODULE_GETH0.PORT[IfxGeth_PortIndex_0].CORE.MDIO.SINGLE_COMMAND_CONTROL_DATA.B.SBUSY) {}
+    while (MODULE_GETH0.PORT[IfxGeth_PortIndex_0].CORE.MDIO.SINGLE_COMMAND_CONTROL_DATA.B.SBUSY)
+    {
+    }
 
     MODULE_GETH0.PORT[IfxGeth_PortIndex_0].CORE.MDIO.CLAUSE_22_PORT.U |= BIT(phyAddr);
 
-    commandAddr = ((uint32)phyAddr << IFX_GETH_PORT_CORE_MDIO_SINGLE_COMMAND_ADDRESS_PA_OFF)
-                | ((uint32)regAddr << IFX_GETH_PORT_CORE_MDIO_SINGLE_COMMAND_ADDRESS_RA_OFF)
-                | ((uint32)devAddr << IFX_GETH_PORT_CORE_MDIO_SINGLE_COMMAND_ADDRESS_DA_OFF);
+    commandAddr = ((uint32) phyAddr << IFX_GETH_PORT_CORE_MDIO_SINGLE_COMMAND_ADDRESS_PA_OFF)
+            | ((uint32) regAddr << IFX_GETH_PORT_CORE_MDIO_SINGLE_COMMAND_ADDRESS_RA_OFF)
+            | ((uint32) devAddr << IFX_GETH_PORT_CORE_MDIO_SINGLE_COMMAND_ADDRESS_DA_OFF);
 
     commandData = MODULE_GETH0.PORT[IfxGeth_PortIndex_0].CORE.MDIO.SINGLE_COMMAND_CONTROL_DATA.U
-                & ((uint32)~GENMASK(IFX_GETH_PORT_CORE_MDIO_SINGLE_COMMAND_CONTROL_DATA_CMD)
-                 & (uint32)~GENMASK(IFX_GETH_PORT_CORE_MDIO_SINGLE_COMMAND_CONTROL_DATA_SDATA));
+            & ((uint32) ~GENMASK(IFX_GETH_PORT_CORE_MDIO_SINGLE_COMMAND_CONTROL_DATA_CMD)
+                    & (uint32) ~GENMASK(IFX_GETH_PORT_CORE_MDIO_SINGLE_COMMAND_CONTROL_DATA_SDATA));
 
     commandData |= ETH_CORE2_MDIO_CMD_WRITE | ETH_CORE2_MDIO_CMD_BUSY | regVal;
 
     MODULE_GETH0.PORT[IfxGeth_PortIndex_0].CORE.MDIO.SINGLE_COMMAND_ADDRESS.U = commandAddr;
     MODULE_GETH0.PORT[IfxGeth_PortIndex_0].CORE.MDIO.SINGLE_COMMAND_CONTROL_DATA.U = commandData;
 
-    while (MODULE_GETH0.PORT[IfxGeth_PortIndex_0].CORE.MDIO.SINGLE_COMMAND_CONTROL_DATA.B.SBUSY) {}
+    while (MODULE_GETH0.PORT[IfxGeth_PortIndex_0].CORE.MDIO.SINGLE_COMMAND_CONTROL_DATA.B.SBUSY)
+    {
+    }
 }
-
 
 /*=============================================================================
  *  Helpers (unchanged)
  *===========================================================================*/
 
-static void Eth_Core2_writeU16Be(uint8 *dst, uint16 value)
+static void Eth_Core2_writeU16Be (uint8 *dst, uint16 value)
 {
-    dst[0] = (uint8)((value >> 8) & 0xFFu);
-    dst[1] = (uint8)(value & 0xFFu);
+    dst[0] = (uint8) ((value >> 8) & 0xFFu);
+    dst[1] = (uint8) (value & 0xFFu);
 }
 
-
-static uint16 Eth_Core2_readU16Be(const uint8 *src)
+static uint16 Eth_Core2_readU16Be (const uint8 *src)
 {
-    return (uint16)(((uint16)src[0] << 8) | (uint16)src[1]);
+    return (uint16) (((uint16) src[0] << 8) | (uint16) src[1]);
 }
 
-
-static uint16 Eth_Core2_ipv4Checksum(const uint8 *data, uint16 len)
+static uint16 Eth_Core2_ipv4Checksum (const uint8 *data, uint16 len)
 {
     uint32 sum = 0u;
     uint16 i;
 
     for (i = 0u; i < len; i += 2u)
     {
-        uint16 word = (uint16)(((uint16)data[i] << 8) | (uint16)data[i + 1u]);
+        uint16 word = (uint16) (((uint16) data[i] << 8) | (uint16) data[i + 1u]);
         sum += word;
 
         while ((sum >> 16u) != 0u)
@@ -204,9 +206,8 @@ static uint16 Eth_Core2_ipv4Checksum(const uint8 *data, uint16 len)
         }
     }
 
-    return (uint16)(~sum);
+    return (uint16) (~sum);
 }
-
 
 /*=============================================================================
  *  RX Processing (NEW - replaces discardPendingRxFrames)
@@ -221,8 +222,14 @@ static uint16 Eth_Core2_ipv4Checksum(const uint8 *data, uint16 len)
  * Replaces the original Eth_Core2_discardPendingRxFrames() which threw
  * away all received data.
  */
-static void Eth_Core2_processRxFrames(void)
+static void Eth_Core2_processRxFrames (void)
 {
+
+    if (g_udpRxCallback == NULL)
+    {
+        return;
+    }
+
     volatile IfxGeth_RxDescr *rxDesc;
 
     rxDesc = IfxGeth_Eth_getActualRxDescriptor(&g_eth, IfxGeth_RxDmaChannel_0);
@@ -233,10 +240,10 @@ static void Eth_Core2_processRxFrames(void)
         if (g_udpRxCallback != NULL)
         {
             /* Get packet length from descriptor (bits [14:0] of RDES3) */
-            uint16 frameLen = (uint16)(rxDesc->RDES3.U & 0x7FFFu);
+            uint16 frameLen = (uint16) (rxDesc->RDES3.U & 0x7FFFu);
 
             /* Calculate which RX buffer this descriptor corresponds to */
-            uint32 descIdx = (uint32)(((uint32)rxDesc - (uint32)g_rxDesc) / sizeof(IfxGeth_RxDescr));
+            uint32 descIdx = (uint32) (((uint32) rxDesc - (uint32) g_rxDesc) / sizeof(IfxGeth_RxDescr));
 
             if (descIdx < IFXGETH_MAX_RX_DESCRIPTORS)
             {
@@ -248,19 +255,19 @@ static void Eth_Core2_processRxFrames(void)
                     /* Parse Ethernet header */
                     uint16 etherType = Eth_Core2_readU16Be(&frame[12]);
 
-                    if (etherType == 0x0800u)  /* IPv4 */
+                    if (etherType == 0x0800u) /* IPv4 */
                     {
                         const uint8 *ipHdr = &frame[ETH_CORE2_ETH_HEADER_LEN];
 
                         /* IP header length from IHL field (lower nibble of byte 0) × 4 */
-                        uint8  ipHdrLen  = (uint8)((ipHdr[0] & 0x0Fu) * 4u);
-                        uint8  protocol  = ipHdr[9];   /* 17 = UDP */
+                        uint8 ipHdrLen = (uint8) ((ipHdr[0] & 0x0Fu) * 4u);
+                        uint8 protocol = ipHdr[9]; /* 17 = UDP */
 
                         if ((protocol == 17u) && (ipHdrLen >= ETH_CORE2_IPV4_HEADER_LEN))
                         {
                             const uint8 *udpHdr = &ipHdr[ipHdrLen];
-                            uint16 srcPort    = Eth_Core2_readU16Be(&udpHdr[0]);
-                            uint16 dstPort    = Eth_Core2_readU16Be(&udpHdr[2]);
+                            uint16 srcPort = Eth_Core2_readU16Be(&udpHdr[0]);
+                            uint16 dstPort = Eth_Core2_readU16Be(&udpHdr[2]);
                             uint16 udpTotalLen = Eth_Core2_readU16Be(&udpHdr[4]);
 
                             if (udpTotalLen > ETH_CORE2_UDP_HEADER_LEN)
@@ -269,8 +276,8 @@ static void Eth_Core2_processRxFrames(void)
                                 const uint8 *payload = &udpHdr[ETH_CORE2_UDP_HEADER_LEN];
 
                                 /* Sanity check: payload must fit within frame */
-                                uint16 expectedLen = ETH_CORE2_ETH_HEADER_LEN + ipHdrLen
-                                                   + ETH_CORE2_UDP_HEADER_LEN + payloadLen;
+                                uint16 expectedLen = ETH_CORE2_ETH_HEADER_LEN + ipHdrLen + ETH_CORE2_UDP_HEADER_LEN
+                                        + payloadLen;
 
                                 if (expectedLen <= frameLen)
                                 {
@@ -289,8 +296,7 @@ static void Eth_Core2_processRxFrames(void)
     }
 }
 
-
-static void Eth_Core2_updateLinkState(void)
+static void Eth_Core2_updateLinkState (void)
 {
     if (dp83825i_update_link(&g_phy0))
     {
@@ -309,8 +315,7 @@ static void Eth_Core2_updateLinkState(void)
     }
 }
 
-
-static void Eth_Core2_initGethModule(void)
+static void Eth_Core2_initGethModule (void)
 {
     IfxGeth_Eth_Config cfg;
 
@@ -337,15 +342,15 @@ static void Eth_Core2_initGethModule(void)
 
     cfg.dma.txChannel[0].channelEnable = TRUE;
     cfg.dma.txChannel[0].maxBurstLength = IfxGeth_TxBurstLength_16;
-    cfg.dma.txChannel[0].txDescrList = (IfxGeth_TxDescrList*)g_txDesc;
+    cfg.dma.txChannel[0].txDescrList = (IfxGeth_TxDescrList*) g_txDesc;
     cfg.dma.txChannel[0].txBuffer1Size = ETH_CORE2_TX_BUFFER_SIZE;
-    cfg.dma.txChannel[0].txBuffer1StartAddress = (uint32*)g_txBuffer;
+    cfg.dma.txChannel[0].txBuffer1StartAddress = (uint32*) g_txBuffer;
 
     cfg.dma.rxChannel[0].channelEnable = TRUE;
     cfg.dma.rxChannel[0].maxBurstLength = IfxGeth_RxBurstLength_16;
-    cfg.dma.rxChannel[0].rxDescrList = (IfxGeth_RxDescrList*)g_rxDesc;
+    cfg.dma.rxChannel[0].rxDescrList = (IfxGeth_RxDescrList*) g_rxDesc;
     cfg.dma.rxChannel[0].rxBuffer1Size = ETH_CORE2_RX_BUFFER_SIZE;
-    cfg.dma.rxChannel[0].rxBuffer1StartAddress = (uint32*)g_rxBuffer;
+    cfg.dma.rxChannel[0].rxBuffer1StartAddress = (uint32*) g_rxBuffer;
 
     cfg.dma.rxInterrupt[IfxGeth_DmaChannel_0].priority = 0u;
     cfg.dma.txInterrupt[IfxGeth_DmaChannel_0].priority = 0u;
@@ -356,7 +361,8 @@ static void Eth_Core2_initGethModule(void)
 
     if (MODULE_GETH0.CLC.B.DISS != 0u)
     {
-        while (1) ;
+        while (1)
+            ;
     }
 
     /* Accept all packets (promiscuous) — needed since we don't have ARP */
@@ -368,21 +374,15 @@ static void Eth_Core2_initGethModule(void)
     IfxHsphy_Geth_setupRmiiOutputPins(&MODULE_HSPHY, &g_geth0RmiiPins);
 }
 
-
 /*=============================================================================
  *  Public API
  *===========================================================================*/
 
-void Eth_Core2_getDefaultConfig(Eth_Core2_Config *cfg)
+void Eth_Core2_getDefaultConfig (Eth_Core2_Config *cfg)
 {
-    static const Eth_Core2_Config defaultCfg = {
-        .localMac   = { 0x02u, 0x00u, 0x00u, 0x00u, 0x4Du, 0x70u },
-        .remoteMac  = { 0xFFu, 0xFFu, 0xFFu, 0xFFu, 0xFFu, 0xFFu },
-        .localIp    = { 192u, 168u, 178u, 198u },
-        .remoteIp   = { 255u, 255u, 255u, 255u },
-        .localPort  = 50001u,
-        .remotePort = 50001u,
-    };
+    static const Eth_Core2_Config defaultCfg = {.localMac = {0x02u, 0x00u, 0x00u, 0x00u, 0x4Du, 0x70u}, .remoteMac = {
+            0xFFu, 0xFFu, 0xFFu, 0xFFu, 0xFFu, 0xFFu}, .localIp = {192u, 168u, 178u, 100u}, .remoteIp = {255u, 255u,
+            255u, 255u}, .localPort = 9870u, .remotePort = 9870u, };
 
     if (cfg != NULL_PTR)
     {
@@ -390,8 +390,7 @@ void Eth_Core2_getDefaultConfig(Eth_Core2_Config *cfg)
     }
 }
 
-
-boolean Eth_Core2_init(const Eth_Core2_Config *cfg)
+boolean Eth_Core2_init (const Eth_Core2_Config *cfg)
 {
     if (cfg == NULL_PTR)
     {
@@ -403,7 +402,7 @@ boolean Eth_Core2_init(const Eth_Core2_Config *cfg)
     g_ipIdent = 0u;
     g_linkUp = FALSE;
     g_initialized = FALSE;
-    g_udpRxCallback = NULL;   /* NEW */
+    g_udpRxCallback = NULL; /* NEW */
 
     Eth_Core2_initGethModule();
 
@@ -413,7 +412,7 @@ boolean Eth_Core2_init(const Eth_Core2_Config *cfg)
     }
 
     if (dp83825i_init(&g_phy0,
-            BOARD_GETH0_P0_PHYADR, Eth_Core2_mdioRead, Eth_Core2_mdioWrite, 0u) != 0)
+    BOARD_GETH0_P0_PHYADR, Eth_Core2_mdioRead, Eth_Core2_mdioWrite, 0u) != 0)
     {
         return FALSE;
     }
@@ -430,8 +429,7 @@ boolean Eth_Core2_init(const Eth_Core2_Config *cfg)
     return TRUE;
 }
 
-
-void Eth_Core2_service1ms(void)
+void Eth_Core2_service1ms (void)
 {
     if (!g_initialized)
     {
@@ -449,24 +447,20 @@ void Eth_Core2_service1ms(void)
     Eth_Core2_processRxFrames();
 }
 
-
-boolean Eth_Core2_isLinkUp(void)
+boolean Eth_Core2_isLinkUp (void)
 {
-    return (boolean)(g_initialized && g_linkUp);
+    return (boolean) (g_initialized && g_linkUp);
 }
 
-
-void Eth_Core2_registerUdpRxCallback(Eth_Core2_UdpRxCallback callback)
+void Eth_Core2_registerUdpRxCallback (Eth_Core2_UdpRxCallback callback)
 {
     g_udpRxCallback = callback;
 }
 
-
 /*-----------------------------------------------------------------------------
  *  Internal: build and send a UDP frame with explicit ports
  *---------------------------------------------------------------------------*/
-static boolean Eth_Core2_sendUdpInternal(const void *payload, uint16 payloadLength,
-                                          uint16 srcPort, uint16 dstPort)
+static boolean Eth_Core2_sendUdpInternal (const void *payload, uint16 payloadLength, uint16 srcPort, uint16 dstPort)
 {
     uint8 *txBuf;
     uint16 ipTotalLength;
@@ -484,7 +478,7 @@ static boolean Eth_Core2_sendUdpInternal(const void *payload, uint16 payloadLeng
         return FALSE;
     }
 
-    txBuf = (uint8*)IfxGeth_Eth_getTransmitBuffer(&g_eth, IfxGeth_TxDmaChannel_0);
+    txBuf = (uint8*) IfxGeth_Eth_getTransmitBuffer(&g_eth, IfxGeth_TxDmaChannel_0);
 
     if (txBuf == NULL_PTR)
     {
@@ -500,7 +494,7 @@ static boolean Eth_Core2_sendUdpInternal(const void *payload, uint16 payloadLeng
 
     /* IPv4 header */
     ipHeader = &txBuf[ETH_CORE2_ETH_HEADER_LEN];
-    ipTotalLength = (uint16)(ETH_CORE2_IPV4_HEADER_LEN + ETH_CORE2_UDP_HEADER_LEN + payloadLength);
+    ipTotalLength = (uint16) (ETH_CORE2_IPV4_HEADER_LEN + ETH_CORE2_UDP_HEADER_LEN + payloadLength);
 
     ipHeader[0] = 0x45u;
     ipHeader[1] = 0x00u;
@@ -518,13 +512,13 @@ static boolean Eth_Core2_sendUdpInternal(const void *payload, uint16 payloadLeng
     udpHeader = &ipHeader[ETH_CORE2_IPV4_HEADER_LEN];
     Eth_Core2_writeU16Be(&udpHeader[0], srcPort);
     Eth_Core2_writeU16Be(&udpHeader[2], dstPort);
-    Eth_Core2_writeU16Be(&udpHeader[4], (uint16)(ETH_CORE2_UDP_HEADER_LEN + payloadLength));
+    Eth_Core2_writeU16Be(&udpHeader[4], (uint16) (ETH_CORE2_UDP_HEADER_LEN + payloadLength));
     Eth_Core2_writeU16Be(&udpHeader[6], 0u);
 
     /* Payload */
     memcpy(&udpHeader[ETH_CORE2_UDP_HEADER_LEN], payload, payloadLength);
 
-    frameLength = (uint16)(ETH_CORE2_ETH_HEADER_LEN + ipTotalLength);
+    frameLength = (uint16) (ETH_CORE2_ETH_HEADER_LEN + ipTotalLength);
 
     if (frameLength < ETH_CORE2_MIN_FRAME_LEN)
     {
@@ -535,17 +529,13 @@ static boolean Eth_Core2_sendUdpInternal(const void *payload, uint16 payloadLeng
     return TRUE;
 }
 
-
-boolean Eth_Core2_sendUdp(const void *payload, uint16 payloadLength)
+boolean Eth_Core2_sendUdp (const void *payload, uint16 payloadLength)
 {
     /* Original behavior: use config ports */
-    return Eth_Core2_sendUdpInternal(payload, payloadLength,
-                                      g_cfg.localPort, g_cfg.remotePort);
+    return Eth_Core2_sendUdpInternal(payload, payloadLength, g_cfg.localPort, g_cfg.remotePort);
 }
 
-
-boolean Eth_Core2_sendUdpTo(const void *payload, uint16 payloadLength,
-                             uint16 srcPort, uint16 dstPort)
+boolean Eth_Core2_sendUdpTo (const void *payload, uint16 payloadLength, uint16 srcPort, uint16 dstPort)
 {
     return Eth_Core2_sendUdpInternal(payload, payloadLength, srcPort, dstPort);
 }
