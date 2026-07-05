@@ -48,10 +48,8 @@ void core2_main (void)
     uint32 lcx = __mfcr(CPU_LCX); /* CSA list limit      (0xFE3C) */
     uint32 biv = __mfcr(CPU_BIV); /* interrupt vector base (0xFE20) */
 
-    char dbg[80];
-    int n = sprintf(dbg, "C2 FCX=%08lX LCX=%08lX BIV=%08lX\r\n", (unsigned long) fcx, (unsigned long) lcx,
-            (unsigned long) biv);
-    sendUART(dbg, (uint32) n);
+
+    initLED();
 
     IfxCpu_enableInterrupts();
 

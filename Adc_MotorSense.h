@@ -176,42 +176,6 @@
 #define ADC_GET_TRE(word)     (((word) >> 31U) & 0x0001U)        /* bit 31 */
 
 /*══════════════════════════════════════════════════════════════════════════
- * TLE4972 DIFFERENTIAL CURRENT SCALING
- *
- *   The TLE4972 outputs are ratiometric to VDDA:
- *     VOUTP = VDDA/2 + ΔV/2
- *     VOUTN = VDDA/2 - ΔV/2
- *
- *   After subtraction:
- *     DIFF = VOUTP_raw - VOUTN_raw
- *     At  0 A: DIFF =    0  (both outputs at mid-scale 2048)
- *     At +Imax: DIFF = +4095 (VOUTP at full scale, VOUTN at zero)
- *     At -Imax: DIFF = -4095 (VOUTP at zero,       VOUTN at full scale)
- *
- *   Sensitivity (differential):
- *     ADC_CURR_SENS_MV_PER_A = 2 × single-ended sensitivity of the TLE4972.
- *     Example: TLE4972-AE35D5 single-ended ~40 mV/A → differential 80 mV/A.
- *     *** CALIBRATE THIS VALUE against your specific TLE4972 variant ***
- *
- *   Conversion:
- *     counts_per_amp = (sensitivity_mV_per_A / Vref_mV) × 4095
- *     amps = diff_counts / counts_per_amp
- *══════════════════════════════════════════════════════════════════════════*/
-#define ADC_CURRENT_FULL_SCALE_A    (50.0f)
-#define ADC_VREF_MV                 (5000.0f)
-#define ADC_CURR_SENS_MV_PER_A      (80.0f)     /* Calibrate per TLE4972 variant */
-#define ADC_CURR_COUNTS_PER_AMP     ((ADC_CURR_SENS_MV_PER_A / ADC_VREF_MV) * 4095.0f)
-#define ADC_DIFF_TO_AMPS(diff)      ((float32)(diff) / ADC_CURR_COUNTS_PER_AMP)
-
-/*══════════════════════════════════════════════════════════════════════════
- * VOLTAGE SCALING — single-ended, set by external voltage divider ratios
- *══════════════════════════════════════════════════════════════════════════*/
-#define ADC_VPHASE_FULL_SCALE_V     (800.0f)
-#define ADC_VDC_FULL_SCALE_V        (800.0f)
-#define ADC_RAW_TO_VOLTS_PHASE(raw) ((float32)(raw) * (ADC_VPHASE_FULL_SCALE_V / 4095.0f))
-#define ADC_RAW_TO_VOLTS_DC(raw)    ((float32)(raw) * (ADC_VDC_FULL_SCALE_V    / 4095.0f))
-
-/*══════════════════════════════════════════════════════════════════════════
  * DATA TYPES
  *══════════════════════════════════════════════════════════════════════════*/
 
@@ -220,13 +184,13 @@
  */
 typedef struct
 {
-    float32  ia;                    /**< Phase-A current [A]                            */
-    float32  ib;                    /**< Phase-B current [A]                            */
-    float32  ic;                    /**< Phase-C current [A]                            */
-    float32  kirchhoff_err;         /**< ia+ib+ic — should be ~0 A (fault indicator)   */
-    sint16    raw_p[3];              /**< Raw P-side counts [0..4095], index=phase       */
-    sint16    raw_n[3];              /**< Raw N-side counts [0..4095], common-mode debug */
-    sint16    raw_diff[3];           /**< P-N difference  [−4095..+4095]                */
+    float32 ia; /**< Phase-A current [A]                            */
+    float32 ib; /**< Phase-B current [A]                            */
+    float32 ic; /**< Phase-C current [A]                            */
+    float32 kirchhoff_err; /**< ia+ib+ic — should be ~0 A (fault indicator)   */
+    sint16 raw_p[3]; /**< Raw P-side counts [0..4095], index=phase       */
+    sint16 raw_n[3]; /**< Raw N-side counts [0..4095], common-mode debug */
+    sint16 raw_diff[3]; /**< P-N difference  [−4095..+4095]                */
 } Adc_PhaseCurrents;
 
 /**
@@ -234,19 +198,19 @@ typedef struct
  */
 typedef struct
 {
-    float32  va;                    /**< Phase-A voltage [V] */
-    float32  vb;                    /**< Phase-B voltage [V] */
-    float32  vc;                    /**< Phase-C voltage [V] */
-    float32  vdc;                   /**< DC link voltage [V] */
+    float32 va; /**< Phase-A voltage [V] */
+    float32 vb; /**< Phase-B voltage [V] */
+    float32 vc; /**< Phase-C voltage [V] */
+    float32 vdc; /**< DC link voltage [V] */
 } Adc_PhaseVoltages;
 
 /*══════════════════════════════════════════════════════════════════════════
  * PUBLIC API
  *══════════════════════════════════════════════════════════════════════════*/
-void                      Adc_MotorSense_init(void);
-void                      Adc_MotorSense_start(void);
-const Adc_PhaseCurrents*  Adc_MotorSense_getCurrents(void);
-const Adc_PhaseVoltages*  Adc_MotorSense_getVoltages(void);
-void                      Adc_MotorSense_allIsr(void);   /**< Called from Isr.c */
+void Adc_MotorSense_init (void);
+void Adc_MotorSense_start (void);
+const Adc_PhaseCurrents* Adc_MotorSense_getCurrents (void);
+const Adc_PhaseVoltages* Adc_MotorSense_getVoltages (void);
+void Adc_MotorSense_allIsr (void); /**< Called from Isr.c */
 
 #endif /* ADC_MOTOR_SENSE_H */

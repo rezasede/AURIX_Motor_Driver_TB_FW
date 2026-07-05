@@ -11,22 +11,28 @@
 #include "Eth_Core.h"
 #include "Adc_MotorSense.h"
 #include <math.h>
+#include "GPIO_LED_Button.h"
 
 #define MONITOR_STM        (&MODULE_CPU2)
 #define TICK_PERIOD_MS     (1u)                 /* base tick */
 
 static IfxStm_CompareConfig s_stmCfg;
-static IfxStm_CompareConfig s_stmCfg;
+static uint32 s_reloadTicks;
 
-/* File-scope in Stm_Monitor.c — NOT on the ISR stack */
+/* File-scope in Stm_Monitor.c */
 static MonitorData s_monitorData;
-static char s_udpBuffer[256];
+static char s_udpBuffer[512u];
+
+extern volatile Adc_PhaseCurrents g_currents;
+extern volatile Adc_PhaseVoltages g_voltages;
 
 IFX_INTERRUPT(stm2MonitorISR, 2, STM_MONITOR_ISR_PRIO)
 {
     /* Re-arm the timer for the next 1 ms tick */
     IfxStm_clearCompareFlag(MONITOR_STM, s_stmCfg.comparator);
-    IfxStm_increaseCompare(MONITOR_STM, s_stmCfg.comparator, s_stmCfg.ticks);
+    IfxStm_increaseCompare(MONITOR_STM, s_stmCfg.comparator, s_reloadTicks);
+
+    toggleLed(LED_1s);
 
     /* (1) Service the Ethernet driver every 1 ms.
      *     Touches MODULE_GETH0 (link monitor / MDIO, RX). */
@@ -42,12 +48,35 @@ IFX_INTERRUPT(stm2MonitorISR, 2, STM_MONITOR_ISR_PRIO)
 
         if (Eth_Core2_isLinkUp())
         {
-            s_monitorData.t = IfxStm_getMicrosecondsFromTicks(IfxStm_get(MONITOR_STM)); /* or a real timestamp */
-            s_monitorData.signals[0].name = "x";
-            s_monitorData.signals[0].value = 1.23f;
-            s_monitorData.signals[1].name = "y";
-            s_monitorData.signals[1].value = -4.56f;
-            s_monitorData.numSignals = 2;
+            s_monitorData.t = IfxStm_getMicrosecondsFromTicks(IfxStm_get(MONITOR_STM)) / 1000; /* or a real timestamp */
+
+            s_monitorData.signals[0].name = "ia";
+            s_monitorData.signals[0].value = g_currents.ia;
+            s_monitorData.signals[1].name = "ib";
+            s_monitorData.signals[1].value = g_currents.ib;
+            s_monitorData.signals[2].name = "ic";
+            s_monitorData.signals[2].value = g_currents.ic;
+
+            s_monitorData.signals[3].name = "va";
+            s_monitorData.signals[3].value = g_voltages.va;
+            s_monitorData.signals[4].name = "vb";
+            s_monitorData.signals[4].value = g_voltages.vb;
+            s_monitorData.signals[5].name = "vc";
+            s_monitorData.signals[5].value = g_voltages.vc;
+
+            s_monitorData.signals[6].name = "vdc";
+            s_monitorData.signals[6].value = g_voltages.vdc;
+
+            s_monitorData.signals[7].name = "diff_a";
+            s_monitorData.signals[7].value = g_currents.raw_diff[0];
+
+            s_monitorData.signals[8].name = "diff_b";
+            s_monitorData.signals[8].value = g_currents.raw_diff[1];
+
+            s_monitorData.signals[9].name = "diff_c";
+            s_monitorData.signals[9].value = g_currents.raw_diff[2];
+
+            s_monitorData.numSignals = 10;
 
             uint32 len = MonitorJson_build(&s_monitorData, s_udpBuffer, sizeof(s_udpBuffer));
             if (len > 0u)
@@ -61,7 +90,6 @@ IFX_INTERRUPT(stm2MonitorISR, 2, STM_MONITOR_ISR_PRIO)
 void StmMonitor_init (void)
 {
     IfxStm_initCompareConfig(&s_stmCfg);
-
     s_stmCfg.comparator = IfxStm_Comparator_0;
     s_stmCfg.comparatorInterrupt = IfxStm_ComparatorInterrupt_ir0;
     s_stmCfg.compareOffset = IfxStm_ComparatorOffset_0;
@@ -71,4 +99,6 @@ void StmMonitor_init (void)
     s_stmCfg.typeOfService = IfxSrc_Tos_cpu2;
 
     IfxStm_initCompare(MONITOR_STM, &s_stmCfg);
+
+    s_reloadTicks = s_stmCfg.ticks; /* snapshot, used by the ISR instead of s_stmCfg.ticks */
 }

@@ -8,7 +8,7 @@
 #include "Ifx_Types.h"
 
 /* Maximale Anzahl an Float-Signalen, die du gleichzeitig senden willst */
-#define MONITOR_MAX_SIGNALS    8
+#define MONITOR_MAX_SIGNALS    50
 
 typedef struct
 {

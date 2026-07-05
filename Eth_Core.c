@@ -380,9 +380,18 @@ static void Eth_Core2_initGethModule (void)
 
 void Eth_Core2_getDefaultConfig (Eth_Core2_Config *cfg)
 {
-    static const Eth_Core2_Config defaultCfg = {.localMac = {0x02u, 0x00u, 0x00u, 0x00u, 0x4Du, 0x70u}, .remoteMac = {
-            0xFFu, 0xFFu, 0xFFu, 0xFFu, 0xFFu, 0xFFu}, .localIp = {192u, 168u, 178u, 100u}, .remoteIp = {255u, 255u,
-            255u, 255u}, .localPort = 9870u, .remotePort = 9870u, };
+    static const Eth_Core2_Config defaultCfg = {.localMac = {0x02u, 0x00u, 0x00u, 0x00u, 0x4Du, 0x70u},
+    /* Keep broadcast MAC since this minimal stack lacks ARP,
+     or change it to your computer's actual MAC address */
+    .remoteMac = {0xFFu, 0xFFu, 0xFFu, 0xFFu, 0xFFu, 0xFFu},
+
+    /* AURIX Board IP (Must be unique on the subnet) */
+    .localIp = {192u, 168u, 178u, 10u},
+
+    /* Computer Static IP */
+    .remoteIp = {192u, 168u, 178u, 100u},
+
+    .localPort = 9870u, .remotePort = 9870u, };
 
     if (cfg != NULL_PTR)
     {

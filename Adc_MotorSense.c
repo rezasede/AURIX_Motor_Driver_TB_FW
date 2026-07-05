@@ -449,9 +449,9 @@ void Adc_MotorSense_allIsr (void)
     g_currents.raw_diff[2] = diff_c;
 
     /*─── Scale to Amperes ───*/
-    g_currents.ia = ADC_DIFF_TO_AMPS(diff_a);
-    g_currents.ib = ADC_DIFF_TO_AMPS(diff_b);
-    g_currents.ic = ADC_DIFF_TO_AMPS(diff_c);
+    g_currents.ia = 0.04540246 * diff_a - 1.074525;
+    g_currents.ib = 0.04535147 * diff_b - 0.9750567;
+    g_currents.ic = 0.04672889 * diff_c - 0.6619926;
 
     /*─────────────────────────────────────────────────────────────────────
      * KIRCHHOFF CHECK: ia + ib + ic ≈ 0 for a balanced 3-phase load.
@@ -461,10 +461,10 @@ void Adc_MotorSense_allIsr (void)
     g_currents.kirchhoff_err = g_currents.ia + g_currents.ib + g_currents.ic;
 
     /*─── Scale voltages ───*/
-    g_voltages.va = ADC_RAW_TO_VOLTS_PHASE(va_raw);
-    g_voltages.vb = ADC_RAW_TO_VOLTS_PHASE(vb_raw);
-    g_voltages.vc = ADC_RAW_TO_VOLTS_PHASE(vc_raw);
-    g_voltages.vdc = ADC_RAW_TO_VOLTS_DC(vdc_raw);
+    g_voltages.va = va_raw;
+    g_voltages.vb = vb_raw;
+    g_voltages.vc = vc_raw;
+    g_voltages.vdc = vdc_raw;
 
     /*─────────────────────────────────────────────────────────────────────
      * SIGNAL APPLICATION LAYER
