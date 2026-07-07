@@ -29,4 +29,6 @@ typedef struct
  */
 uint32 MonitorJson_build(const MonitorData *data, char *buf, uint32 bufLen);
 
+
+
 #endif /* MONITOR_JSON_H_ */

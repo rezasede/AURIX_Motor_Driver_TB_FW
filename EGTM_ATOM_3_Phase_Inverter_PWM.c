@@ -5,17 +5,6 @@
 #include "IfxPort_Pinmap.h"
 #include "math.h"
 
-/* Configuration Parameters */
-#define PWM_FREQ_HZ         20000.0f
-#define START_FREQ_HZ       0.1f           // Starting frequency
-#define END_FREQ_HZ         10.0f          // Target highest frequency
-#define SWEEP_TIME_SEC      100.0f           // Time to reach target in seconds
-#define MAX_DUTY_TICKS      100           // Replace with your timer's 100% period
-
-/* Math Constants */
-#define TWO_PI              6.28318530718f
-#define PHASE_SHIFT_120     2.09439510239f
-
 /* Pre-calculated Sweep Parameters to save CPU cycles in the ISR */
 // Constant used to convert frequency to radians per tick
 #define ANGLE_STEP_COEFF    (TWO_PI / PWM_FREQ_HZ)
@@ -38,48 +27,46 @@ IFX_INTERRUPT(interruptEgtmAtom, 0, ISR_PRIORITY_ATOM);
 
 void interruptEgtmAtom (void)
 {
-    // Static variables retain their state across ISR calls
-    static float phase_angle = 0.0f;
-    static float current_freq = START_FREQ_HZ;
+//    // Static variables retain their state across ISR calls
+//    static float phase_angle = 0.0f;
+//    static float current_freq = START_FREQ_HZ;
+//
+//    // 1. Linear Frequency Sweep (Ramp up)
+//    if (current_freq < END_FREQ_HZ)
+//    {
+//        current_freq += 0;
+//
+//        // Clamp to exact target to avoid floating point overshoot
+//        if (current_freq > END_FREQ_HZ)
+//        {
+//            current_freq = END_FREQ_HZ;
+//        }
+//    }
+//
+//    // 2. Calculate the dynamic angle step for this specific tick
+//    float angle_step = current_freq * ANGLE_STEP_COEFF;
+//
+//    // 3. Advance the phase angle
+//    phase_angle += angle_step;
+//    if (phase_angle >= TWO_PI)
+//    {
+//        phase_angle -= TWO_PI;
+//    }
+//
+//    // 4. Calculate the 3-phase sine values (-1.0 to 1.0)
+//    float sine_R = sinf(phase_angle);
+//    float sine_S = sinf(phase_angle - PHASE_SHIFT_120);
+//    float sine_W = sinf(phase_angle + PHASE_SHIFT_120);
+//
+//    // 5. Scale to Duty Cycle (0% to 95% limit preserved for bootstrap charging)
+//    uint32 duty_R = (uint32) ((sine_R + 1.0f) * 0.475f * MAX_DUTY_TICKS);
+//    uint32 duty_S = (uint32) ((sine_S + 1.0f) * 0.475f * MAX_DUTY_TICKS);
+//    uint32 duty_W = (uint32) ((sine_W + 1.0f) * 0.475f * MAX_DUTY_TICKS);
+//
+//    // 6. Send to the PWM update function
+//    updateEgtmAtom3phInvDuty(duty_R, duty_S, duty_W);
 
-    // 1. Linear Frequency Sweep (Ramp up)
-    if (current_freq < END_FREQ_HZ)
-    {
-        current_freq += FREQ_STEP_PER_TICK;
-
-        // Clamp to exact target to avoid floating point overshoot
-        if (current_freq > END_FREQ_HZ)
-        {
-            current_freq = END_FREQ_HZ;
-        }
-    }
-
-    // 2. Calculate the dynamic angle step for this specific tick
-    float angle_step = current_freq * ANGLE_STEP_COEFF;
-
-    // 3. Advance the phase angle
-    phase_angle += angle_step;
-    if (phase_angle >= TWO_PI)
-    {
-        phase_angle -= TWO_PI;
-    }
-
-    // 4. Calculate the 3-phase sine values (-1.0 to 1.0)
-    float sine_R = sinf(phase_angle);
-    float sine_S = sinf(phase_angle - PHASE_SHIFT_120);
-    float sine_W = sinf(phase_angle + PHASE_SHIFT_120);
-
-    // 5. Scale to Duty Cycle (0% to 95% limit preserved for bootstrap charging)
-    uint32 duty_R = (uint32)((sine_R + 1.0f) * 0.475f * MAX_DUTY_TICKS);
-    uint32 duty_S = (uint32)((sine_S + 1.0f) * 0.475f * MAX_DUTY_TICKS);
-    uint32 duty_W = (uint32)((sine_W + 1.0f) * 0.475f * MAX_DUTY_TICKS);
-
-    // 6. Send to the PWM update function
-    updateEgtmAtom3phInvDuty(duty_R, duty_S, duty_W);
-
-    /* Clear your interrupt flags here if necessary */
 }
-
 
 void IfxEgtm_periodEventFunction (void *data)
 {

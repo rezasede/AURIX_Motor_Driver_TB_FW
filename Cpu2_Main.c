@@ -17,10 +17,6 @@
 #include "Stm_Monitor.h"
 #include "GPIO_LED_Button.h"
 
-extern volatile boolean g_sendJsonTrigger; /* Aus dem Monitor-File */
-static char udpBuffer[256];
-static MonitorData myData;
-
 extern IfxCpu_syncEvent g_cpuSyncEvent;
 extern volatile boolean g_cpu0InitDone;
 
@@ -44,10 +40,9 @@ void core2_main (void)
         sendUART("ETH FAIL\r\n", 10);
     }
 
-    uint32 fcx = __mfcr(CPU_FCX); /* free CSA list head  (0xFE38) */
-    uint32 lcx = __mfcr(CPU_LCX); /* CSA list limit      (0xFE3C) */
-    uint32 biv = __mfcr(CPU_BIV); /* interrupt vector base (0xFE20) */
-
+    __mfcr(CPU_FCX); /* free CSA list head  (0xFE38) */
+    __mfcr(CPU_LCX); /* CSA list limit      (0xFE3C) */
+    __mfcr(CPU_BIV); /* interrupt vector base (0xFE20) */
 
     initLED();
 

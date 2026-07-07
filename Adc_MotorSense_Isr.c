@@ -38,10 +38,5 @@
  *══════════════════════════════════════════════════════════════════════════*/
 IFX_INTERRUPT(Adc_MotorSense_allIsr_handler, 0, IFX_INTPRIO_ADC_ALL)
 {
-    /*
-     * Debug toggle — measures ISR period and jitter on a scope.
-     * Remove in production to save ~10 ns per cycle.
-     */
-
     Adc_MotorSense_allIsr();
 }

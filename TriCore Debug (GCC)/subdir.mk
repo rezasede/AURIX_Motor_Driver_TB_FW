@@ -20,7 +20,9 @@ C_SRCS += \
 ../GPIO_LED_Button.c \
 ../Monitor_Json.c \
 ../Stm_Monitor.c \
-../UserFunctions.c 
+../UserFunctions.c \
+../encoder_calib.c \
+../encoder_egtm.c 
 
 LSL_SRCS += \
 ../Lcf_Gcc_Tricore_Tc.lsl 
@@ -42,7 +44,9 @@ C_DEPS += \
 ./GPIO_LED_Button.d \
 ./Monitor_Json.d \
 ./Stm_Monitor.d \
-./UserFunctions.d 
+./UserFunctions.d \
+./encoder_calib.d \
+./encoder_egtm.d 
 
 OBJS += \
 ./ASCLIN_UART.o \
@@ -61,7 +65,9 @@ OBJS += \
 ./GPIO_LED_Button.o \
 ./Monitor_Json.o \
 ./Stm_Monitor.o \
-./UserFunctions.o 
+./UserFunctions.o \
+./encoder_calib.o \
+./encoder_egtm.o 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -76,7 +82,7 @@ OBJS += \
 clean: clean--2e-
 
 clean--2e-:
-	-$(RM) ./ASCLIN_UART.d ./ASCLIN_UART.o ./Adc_MotorSense.d ./Adc_MotorSense.o ./Adc_MotorSense_Isr.d ./Adc_MotorSense_Isr.o ./Control_Loops.d ./Control_Loops.o ./Cpu0_Main.d ./Cpu0_Main.o ./Cpu1_Main.d ./Cpu1_Main.o ./Cpu2_Main.d ./Cpu2_Main.o ./Cpu3_Main.d ./Cpu3_Main.o ./Cpu4_Main.d ./Cpu4_Main.o ./Cpu5_Main.d ./Cpu5_Main.o ./EGTM_ATOM_3_Phase_Inverter_PWM.d ./EGTM_ATOM_3_Phase_Inverter_PWM.o ./Eth_Core.d ./Eth_Core.o ./EthernetLib.d ./EthernetLib.o ./GPIO_LED_Button.d ./GPIO_LED_Button.o ./Monitor_Json.d ./Monitor_Json.o ./Stm_Monitor.d ./Stm_Monitor.o ./UserFunctions.d ./UserFunctions.o
+	-$(RM) ./ASCLIN_UART.d ./ASCLIN_UART.o ./Adc_MotorSense.d ./Adc_MotorSense.o ./Adc_MotorSense_Isr.d ./Adc_MotorSense_Isr.o ./Control_Loops.d ./Control_Loops.o ./Cpu0_Main.d ./Cpu0_Main.o ./Cpu1_Main.d ./Cpu1_Main.o ./Cpu2_Main.d ./Cpu2_Main.o ./Cpu3_Main.d ./Cpu3_Main.o ./Cpu4_Main.d ./Cpu4_Main.o ./Cpu5_Main.d ./Cpu5_Main.o ./EGTM_ATOM_3_Phase_Inverter_PWM.d ./EGTM_ATOM_3_Phase_Inverter_PWM.o ./Eth_Core.d ./Eth_Core.o ./EthernetLib.d ./EthernetLib.o ./GPIO_LED_Button.d ./GPIO_LED_Button.o ./Monitor_Json.d ./Monitor_Json.o ./Stm_Monitor.d ./Stm_Monitor.o ./UserFunctions.d ./UserFunctions.o ./encoder_calib.d ./encoder_calib.o ./encoder_egtm.d ./encoder_egtm.o
 
 .PHONY: clean--2e-
 

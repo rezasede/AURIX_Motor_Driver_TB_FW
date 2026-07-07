@@ -1,9 +1,7 @@
 #ifndef EGTM_ATOM_3_PHASE_INVERTER_PWM_H_
 #define EGTM_ATOM_3_PHASE_INVERTER_PWM_H_
 
-
 #include "Ifx_Types.h"
-
 
 #define NUM_OF_CHANNELS         (3)
 #define PWM_FREQUENCY           (20.0E3)
@@ -20,8 +18,19 @@
 #define PHASE_V_DUTY            (50.0f)
 #define PHASE_W_DUTY            (50.0f)
 
-void initEgtmAtom3phInv(void);
+/* Configuration Parameters */
+#define PWM_FREQ_HZ         20000.0f
+#define START_FREQ_HZ       0.3f           // Starting frequency
+#define END_FREQ_HZ         10.0f          // Target highest frequency
+#define SWEEP_TIME_SEC      100.0f           // Time to reach target in seconds
+#define MAX_DUTY_TICKS      100           // Replace with your timer's 100% period
+
+/* Math Constants */
+#define TWO_PI              6.28318530718f
+#define PHASE_SHIFT_120     2.09439510239f
+
+void initEgtmAtom3phInv (void);
 void updateEgtmAtom3phInvDuty (uint32 Duty_R, uint32 Duty_S, uint32 Duty_W);
-void startPWMinEGTM(void);
+void startPWMinEGTM (void);
 
 #endif

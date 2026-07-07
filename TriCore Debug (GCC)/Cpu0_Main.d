@@ -186,7 +186,7 @@ Cpu0_Main.o: ../Cpu0_Main.c \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\External\phy\include/phy/dp83825i.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\External\phy\include/phy/phy.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\External\pdl\include/pdl/ifx_macro.h \
- ../EthernetLib.h
+ ../EthernetLib.h ../encoder_calib.h
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Ifx_Types.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Compilers.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Configurations/Ifx_Cfg.h:
@@ -376,3 +376,4 @@ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\External\phy\include/phy/dp
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\External\phy\include/phy/phy.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\External\pdl\include/pdl/ifx_macro.h:
 ../EthernetLib.h:
+../encoder_calib.h:

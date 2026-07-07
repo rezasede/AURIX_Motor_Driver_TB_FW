@@ -56,10 +56,25 @@
 
 #include "EthernetLib.h"
 
+#include "encoder_calib.h"
+
 IFX_ALIGN(4) IfxCpu_syncEvent g_cpuSyncEvent = 0;
 
 volatile boolean g_cpu0InitDone = FALSE;
 long long int timeoutwhile = 0;
+bool angleValid;
+
+static volatile EncoderAlignState alignState = ENC_ALIGN_IDLE; /* ISR->main */
+
+static void alignApplyVector (void)
+{
+    updateEgtmAtom3phInvDuty(50, 0, 0);
+}
+
+static void alignReleaseVector (void)
+{
+    updateEgtmAtom3phInvDuty(0, 0, 0);
+}
 
 void core0_main (void)
 {
@@ -87,8 +102,39 @@ void core0_main (void)
 
     init_GPIOs();                   // GPIO initial
 
-    while (1)
+    Encoder_Egtm_init();                          // hardware counting starts
+
+    EncoderCalib_setData(&default_cal);
+
+    EncoderCalibration cal;
+
+
+    if (EncoderCalib_setData(&cal))
     {
     }
+    else
+    {
+        /* No/corrupt calibration: run the one-time alignment. */
+        EncoderAlignConfig acfg = {.applyVector = alignApplyVector, .releaseVector = alignReleaseVector, .rampTimeS =
+                1.0f, .settleTimeS = 0.5f, .standstillRadS = 0.05f, /* mech rad/s                 */
+        .polePairs = 7};
+        EncoderCalib_startAlignment(&acfg);
+
+    }
+
+    while (1)
+    {
+        alignState = EncoderCalib_alignmentTask(0.001);
+
+        if (alignState == ENC_ALIGN_DONE)
+        {
+            EncoderCalibration cal;
+            EncoderCalib_getData(&cal); /* <- zToDAxisCounts is in here now */
+        }
+
+       Delay(1);
+
+    }
+
 }
 

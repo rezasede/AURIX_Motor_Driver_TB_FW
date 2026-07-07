@@ -13,6 +13,8 @@
 #include <math.h>
 #include "GPIO_LED_Button.h"
 
+#include "encoder_calib.h"
+
 #define MONITOR_STM        (&MODULE_CPU2)
 #define TICK_PERIOD_MS     (1u)                 /* base tick */
 
@@ -76,7 +78,10 @@ IFX_INTERRUPT(stm2MonitorISR, 2, STM_MONITOR_ISR_PRIO)
             s_monitorData.signals[9].name = "diff_c";
             s_monitorData.signals[9].value = g_currents.raw_diff[2];
 
-            s_monitorData.numSignals = 10;
+            s_monitorData.signals[10].name = "theta";
+            s_monitorData.signals[10].value = (int32_t) 0;
+
+            s_monitorData.numSignals = 11;
 
             uint32 len = MonitorJson_build(&s_monitorData, s_udpBuffer, sizeof(s_udpBuffer));
             if (len > 0u)
