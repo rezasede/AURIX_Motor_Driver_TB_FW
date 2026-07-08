@@ -55,7 +55,7 @@ Cpu2_Main.o: ../Cpu2_Main.c \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxSmm_reg.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxSmm_regdef.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore\Wtu\Std/IfxWtu.h \
- ../Adc_MotorSense.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/Adc_MotorSense.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Adc/Std/IfxAdc.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/_Impl/IfxAdc_cfg.h \
@@ -98,9 +98,14 @@ Cpu2_Main.o: ../Cpu2_Main.c \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_Impl\TC4Dx/IfxEgtm_cfg_TC4Dx.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxEgtm_reg.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxEgtm_regdef.h \
- ../EGTM_ATOM_3_Phase_Inverter_PWM.h ../ASCLIN_UART.h ../UserFunctions.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/EGTM_ATOM_3_Phase_Inverter_PWM.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/ASCLIN_UART.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Monitor/UserFunctions.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Service\CpuGeneric\SysSe\Bsp/Bsp.h \
- ../Eth_Core.h ../Monitor_Json.h ../Stm_Monitor.h ../GPIO_LED_Button.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/Eth_Core.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Monitor/Monitor_Json.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Monitor/Stm_Monitor.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/GPIO_LED_Button.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\Port\Std/IfxPort.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Boards\KIT_TC4D7_LITE/pin.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/IfxPort_PinMap.h \
@@ -200,7 +205,7 @@ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricor
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxSmm_reg.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxSmm_regdef.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore\Wtu\Std/IfxWtu.h:
-../Adc_MotorSense.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/Adc_MotorSense.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Adc/Std/IfxAdc.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/_Impl/IfxAdc_cfg.h:
@@ -243,14 +248,14 @@ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGen
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_Impl\TC4Dx/IfxEgtm_cfg_TC4Dx.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxEgtm_reg.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxEgtm_regdef.h:
-../EGTM_ATOM_3_Phase_Inverter_PWM.h:
-../ASCLIN_UART.h:
-../UserFunctions.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/EGTM_ATOM_3_Phase_Inverter_PWM.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/ASCLIN_UART.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Monitor/UserFunctions.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Service\CpuGeneric\SysSe\Bsp/Bsp.h:
-../Eth_Core.h:
-../Monitor_Json.h:
-../Stm_Monitor.h:
-../GPIO_LED_Button.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/Eth_Core.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Monitor/Monitor_Json.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Monitor/Stm_Monitor.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/GPIO_LED_Button.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\Port\Std/IfxPort.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Boards\KIT_TC4D7_LITE/pin.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/IfxPort_PinMap.h:

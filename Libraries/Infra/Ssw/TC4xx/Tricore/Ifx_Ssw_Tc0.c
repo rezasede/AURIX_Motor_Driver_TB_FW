@@ -78,7 +78,7 @@ IFX_SSW_USED static void __Core0_start(void);
 #ifndef DEVICE_TC45X
 IFX_SSW_USED IFX_SSW_NOINLINE void Ifx_Ssw_disableVirtualization_Cpu0(void);
 #endif /* #ifndef DEVICE_TC45X */
-IFX_SSW_COMMON_LINKER_SYMBOLS();
+IFX_SSW_COMMON_LINKER_SYMBOLS(); // @suppress("Unused variable declaration in file scope")
 IFX_SSW_CORE_LINKER_SYMBOLS(0);
 
 

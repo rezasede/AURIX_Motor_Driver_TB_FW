@@ -20,8 +20,8 @@ SECONDARY_SIZE :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
-. \
 Configurations \
+. \
 External/pdl \
 External/phy \
 Libraries/Infra/Ipc/Tricore/ipc/src \
@@ -75,4 +75,7 @@ Libraries/oneeye_lib/cy/pdl \
 Libraries/oneeye_lib \
 Libraries/oneeye_lib/xmc/xmcdaveapp \
 Libraries/oneeye_lib/xmc/xmclib \
+UserLibs/Control \
+UserLibs/Monitor \
+UserLibs/Peripherals \
 

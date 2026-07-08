@@ -8,6 +8,9 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include UserLibs/Peripherals/subdir.mk
+-include UserLibs/Monitor/subdir.mk
+-include UserLibs/Control/subdir.mk
 -include Libraries/oneeye_lib/xmc/xmclib/subdir.mk
 -include Libraries/oneeye_lib/xmc/xmcdaveapp/subdir.mk
 -include Libraries/oneeye_lib/cy/pdl/subdir.mk
