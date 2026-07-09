@@ -12,16 +12,19 @@
 #include "UserFunctions.h"
 #include "EGTM_ATOM_3_Phase_Inverter_PWM.h"
 
+#include <stdint.h>
+#include <stdbool.h>
+
 /*==============================================================================
  * Calibration data — the NVM image
  *============================================================================*/
 
-const EncoderCalibration default_cal = {.magic = 0x45435631,   // 1162040881 (ASCII: "ECV1")
-        .zToDAxisCounts = 3897,         // 0x00000F39
+const EncoderCalibration default_cal = {.magic = 1162040881,   // 1162040881 (ASCII: "ECV1")
+        .zToDAxisCounts = 1113,         // 0x00000F39
         .direction = 1,            // \x01
         .polePairs = 7,            // \x07 (7 pole pairs = 14 poles)
         .reserved = {0, 0},       // (\x00, \x00)
-        .crc = 0x54E318D7    // 1424169175
+        .crc = 2249190550    // 1424169175
         };
 
 /*==============================================================================
@@ -35,9 +38,9 @@ const EncoderCalibration default_cal = {.magic = 0x45435631,   // 1162040881 (AS
  *  */
 static volatile EncoderAlignState alignState = ENC_ALIGN_IDLE; /* ISR->main */
 
-static void alignApplyVector (void)
+static void alignApplyVector (float duty)
 {
-    updateEgtmAtom3phInvDuty(50, 0, 0);
+    updateEgtmAtom3phInvDuty((uint32_t) duty, 0, 0);
 }
 
 static void alignReleaseVector (void)
@@ -45,11 +48,16 @@ static void alignReleaseVector (void)
     updateEgtmAtom3phInvDuty(0, 0, 0);
 }
 
+volatile int32_t dZlog[32];
+volatile uint32_t dZn = 0;
+int32_t last = 0;
+bool have = false;
+
 void calibrationProcess (void)
 {
     /* No/corrupt calibration: run the one-time alignment. */
-    EncoderAlignConfig acfg = {.applyVector = alignApplyVector, .releaseVector = alignReleaseVector, .rampTimeS = 1.0f,
-            .settleTimeS = 0.5f, .standstillRadS = 0.05f, /* mech rad/s                 */
+    EncoderAlignConfig acfg = {.applyVector = alignApplyVector, .releaseVector = alignReleaseVector, .rampTimeS = 0.2f,
+            .settleTimeS = 2.0f, .standstillRadS = 0.05f, /* mech rad/s                 */
             .polePairs = MotorPolePairs};
     EncoderCalib_startAlignment(&acfg);
 
@@ -265,13 +273,13 @@ EncoderAlignState EncoderCalib_alignmentTask (float periodSeconds)
                 s.astate = ENC_ALIGN_SETTLE;
                 s.at = 0.0f;
             }
-            s.acfg.applyVector(); /* forced theta_e = 0          */
+            s.acfg.applyVector(r * 100.0); /* forced theta_e = 0          */
             break;
         }
 
         case ENC_ALIGN_SETTLE :
         {
-            s.acfg.applyVector();
+            s.acfg.applyVector(100.0);
             float w = Encoder_Egtm_updateSpeed(periodSeconds); /* mech rad/s    */
             if ((w > -s.acfg.standstillRadS) && (w < s.acfg.standstillRadS))
             {

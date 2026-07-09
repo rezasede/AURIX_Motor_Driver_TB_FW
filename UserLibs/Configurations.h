@@ -4,6 +4,8 @@
 #ifndef CONFIGURATIONS_H_
 #define CONFIGURATIONS_H_
 
+#define PWM_FREQUENCY  20.0E3
+#define PWM_Period 1/PWM_FREQUENCY
 #define ENC_CAL    0
 #define MotorPolePairs 7
 

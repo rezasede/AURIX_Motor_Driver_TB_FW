@@ -191,7 +191,8 @@ Cpu0_Main.o: ../Cpu0_Main.c \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/EthernetLib.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/encoder_egtm.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/encoder_calib.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs/Configurations.h
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs/Configurations.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Control/FOC.h
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Ifx_Types.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Compilers.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Configurations/Ifx_Cfg.h:
@@ -385,3 +386,4 @@ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/Ethern
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/encoder_egtm.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/encoder_calib.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs/Configurations.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Control/FOC.h:

@@ -28,8 +28,6 @@
  */
 
 #include "Adc_MotorSense.h"
-#include "Dma/Std/IfxDma.h"
-#include "IfxCpu.h"
 
 /*══════════════════════════════════════════════════════════════════════════
  * MODULE-LEVEL OBJECTS
@@ -311,6 +309,10 @@ static void prv_initUnifiedGroup (void)
      * g_grpAll.sourceAddress for use in the ISR re-arm.
      *────────────────────────────────────────────────────────────────────*/
     IfxAdc_Tmadc_initGroup(&g_grpAll, &grpCfg);
+
+    g_grpAll.sourceAddress = (uint32*) &MODULE_ADC.TMADC[0].AW0.RES[0].U;
+    IfxDma_setChannelSourceAddress(&MODULE_DMA0, ADC_DMA_CHANNEL, (const void*) g_grpAll.sourceAddress);
+
 }
 
 /*══════════════════════════════════════════════════════════════════════════
@@ -437,17 +439,6 @@ void Adc_MotorSense_allIsr (void)
     const sint16 diff_b = (sint16) ib_p - (sint16) ib_n;
     const sint16 diff_c = (sint16) ic_p - (sint16) ic_n;
 
-    /*─── Store raw values (debug, scope, common-mode monitoring) ───*/
-    g_currents.raw_p[0] = (sint16) ia_p;
-    g_currents.raw_p[1] = (sint16) ib_p;
-    g_currents.raw_p[2] = (sint16) ic_p;
-    g_currents.raw_n[0] = (sint16) ia_n;
-    g_currents.raw_n[1] = (sint16) ib_n;
-    g_currents.raw_n[2] = (sint16) ic_n;
-    g_currents.raw_diff[0] = diff_a;
-    g_currents.raw_diff[1] = diff_b;
-    g_currents.raw_diff[2] = diff_c;
-
     /*─── Scale to Amperes ───*/
     g_currents.ia = 0.04540246 * diff_a - 1.074525;
     g_currents.ib = 0.04535147 * diff_b - 0.9750567;
@@ -461,10 +452,10 @@ void Adc_MotorSense_allIsr (void)
     g_currents.kirchhoff_err = g_currents.ia + g_currents.ib + g_currents.ic;
 
     /*─── Scale voltages ───*/
-    g_voltages.va = va_raw;
-    g_voltages.vb = vb_raw;
-    g_voltages.vc = vc_raw;
-    g_voltages.vdc = vdc_raw;
+    g_voltages.va = 0.01524064 * va_raw - 0.02286095;
+    g_voltages.vb = 0.01524064 * vb_raw - 0.02286095;
+    g_voltages.vc = 0.01524064 * vc_raw - 0.02286095;
+    g_voltages.vdc = 0.01524064 * vdc_raw - 0.02286095;
 
     /*─────────────────────────────────────────────────────────────────────
      * SIGNAL APPLICATION LAYER

@@ -55,7 +55,8 @@
 #include "Egtm/Trigger/IfxEgtm_Trigger.h"
 #include "Dma/Dma/IfxDma_Dma.h"
 #include "EGTM_ATOM_3_Phase_Inverter_PWM.h"
-
+#include "Dma/Std/IfxDma.h"
+#include "IfxCpu.h"
 /*══════════════════════════════════════════════════════════════════════════
  * TMADC MODULE
  *══════════════════════════════════════════════════════════════════════════*/

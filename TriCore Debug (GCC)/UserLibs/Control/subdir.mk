@@ -4,13 +4,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../UserLibs/Control/Control_Loops.c 
+../UserLibs/Control/Control_Loops.c \
+../UserLibs/Control/FOC.c 
 
 C_DEPS += \
-./UserLibs/Control/Control_Loops.d 
+./UserLibs/Control/Control_Loops.d \
+./UserLibs/Control/FOC.d 
 
 OBJS += \
-./UserLibs/Control/Control_Loops.o 
+./UserLibs/Control/Control_Loops.o \
+./UserLibs/Control/FOC.o 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -25,7 +28,7 @@ UserLibs/Control/%.o: ../UserLibs/Control/%.c UserLibs/Control/subdir.mk
 clean: clean-UserLibs-2f-Control
 
 clean-UserLibs-2f-Control:
-	-$(RM) ./UserLibs/Control/Control_Loops.d ./UserLibs/Control/Control_Loops.o
+	-$(RM) ./UserLibs/Control/Control_Loops.d ./UserLibs/Control/Control_Loops.o ./UserLibs/Control/FOC.d ./UserLibs/Control/FOC.o
 
 .PHONY: clean-UserLibs-2f-Control
 

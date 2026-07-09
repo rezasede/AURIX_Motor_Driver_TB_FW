@@ -54,7 +54,7 @@ extern "C" {
 
 /** Encoder line count (A/B pulses per mechanical revolution). */
 #ifndef ENC_PULSES_PER_REV
-#define ENC_PULSES_PER_REV      (1024u)
+#define ENC_PULSES_PER_REV      (1200u)
 #endif
 
 /** Counts per mechanical revolution with x4 decoding. */

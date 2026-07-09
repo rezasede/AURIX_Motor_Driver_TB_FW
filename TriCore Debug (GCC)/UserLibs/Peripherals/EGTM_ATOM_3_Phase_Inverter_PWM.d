@@ -90,7 +90,73 @@ UserLibs/Peripherals/EGTM_ATOM_3_Phase_Inverter_PWM.o: \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/IfxPort_Pinmap.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/Ifx_PinMap.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/TC4Dx/IfxPort_PinMap_TC4Dx_BGA292_COM.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/IfxPort_PinMap.h
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/IfxPort_PinMap.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Control/Control_Loops.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Service\CpuGeneric\SysSe\Bsp/Bsp.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore/Stm/Std/IfxStm.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore/_Impl/IfxStm_cfg.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore\_Impl\TC4Dx/IfxStm_cfg_TC4Dx.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs/Configurations.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/encoder_calib.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/EGTM_ATOM_3_Phase_Inverter_PWM.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/encoder_egtm.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Control/FOC.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/Adc_MotorSense.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Adc/Std/IfxAdc.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/_Impl/IfxAdc_cfg.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_Impl\TC4Dx/IfxAdc_cfg_TC4Dx.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/_PinMap/IfxAdc_PinMap.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxAdc_reg.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxAdc_regdef.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/_PinMap/TC4Dx/IfxAdc_PinMap_TC4Dx_BGA292_COM.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/IfxAdc_PinMap.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxAdc_bf.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Service\CpuGeneric/SysSe/Bsp/Bsp.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Dma/Dma/IfxDma_Dma.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Dma/Std/IfxDma.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/_Impl/IfxDma_cfg.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_Impl\TC4Dx/IfxDma_cfg_TC4Dx.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxDma_reg.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxDma_regdef.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxDma_bf.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore/Stm/Timer/IfxStm_Timer.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Service\CpuGeneric/StdIf/IfxStdIf_Timer.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Service\CpuGeneric/StdIf/IfxStdIf.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Egtm/Trigger/IfxEgtm_Trigger.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/EGTM_ATOM_3_Phase_Inverter_PWM.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore\Cpu\Std/IfxCpu.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/GPIO_LED_Button.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Boards\KIT_TC4D7_LITE/pin.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/IfxAsclin_PinMap.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxAsclin_reg.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxAsclin_regdef.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/TC4Dx/IfxAsclin_PinMap_TC4Dx_BGA292_COM.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/IfxGeth_PinMap.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Geth/Std/IfxGeth.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/_Impl/IfxGeth_cfg.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_Impl\TC4Dx/IfxGeth_cfg_TC4Dx.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxGeth_reg.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxGeth_regdef.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxGeth_bf.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/TC4Dx/IfxGeth_PinMap_TC4Dx_BGA292_COM.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore\_PinMap/IfxCan_PinMap.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore/_Impl/IfxCan_cfg.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore\_Impl\TC4Dx/IfxCan_cfg_TC4Dx.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxCan_reg.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxCan_regdef.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore\_PinMap/Ifx_PinMap.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore\_PinMap/TC4Dx/IfxCan_PinMap_TC4Dx_BGA292_COM.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore\_PinMap/IfxScu_PinMap.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore\_PinMap/TC4Dx/IfxScu_PinMap_TC4Dx_BGA292_COM.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore\_PinMap/IfxI2c_PinMap.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxI2c_reg.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxI2c_regdef.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore\_PinMap/TC4Dx/IfxI2c_PinMap_TC4Dx_BGA292_COM.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore\_PinMap/IfxQspi_PinMap.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxQspi_reg.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxQspi_regdef.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore\_PinMap/TC4Dx/IfxQspi_PinMap_TC4Dx_BGA292_COM.h
 ../UserLibs/Peripherals/EGTM_ATOM_3_Phase_Inverter_PWM.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Ifx_Types.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Compilers.h:
@@ -182,3 +248,69 @@ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGen
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/Ifx_PinMap.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/TC4Dx/IfxPort_PinMap_TC4Dx_BGA292_COM.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/IfxPort_PinMap.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Control/Control_Loops.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Service\CpuGeneric\SysSe\Bsp/Bsp.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore/Stm/Std/IfxStm.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore/_Impl/IfxStm_cfg.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore\_Impl\TC4Dx/IfxStm_cfg_TC4Dx.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs/Configurations.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/encoder_calib.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/EGTM_ATOM_3_Phase_Inverter_PWM.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/encoder_egtm.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Control/FOC.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/Adc_MotorSense.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Adc/Std/IfxAdc.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/_Impl/IfxAdc_cfg.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_Impl\TC4Dx/IfxAdc_cfg_TC4Dx.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/_PinMap/IfxAdc_PinMap.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxAdc_reg.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxAdc_regdef.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/_PinMap/TC4Dx/IfxAdc_PinMap_TC4Dx_BGA292_COM.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/IfxAdc_PinMap.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxAdc_bf.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Service\CpuGeneric/SysSe/Bsp/Bsp.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Dma/Dma/IfxDma_Dma.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Dma/Std/IfxDma.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/_Impl/IfxDma_cfg.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_Impl\TC4Dx/IfxDma_cfg_TC4Dx.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxDma_reg.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxDma_regdef.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxDma_bf.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore/Stm/Timer/IfxStm_Timer.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Service\CpuGeneric/StdIf/IfxStdIf_Timer.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Service\CpuGeneric/StdIf/IfxStdIf.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Egtm/Trigger/IfxEgtm_Trigger.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/EGTM_ATOM_3_Phase_Inverter_PWM.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore\Cpu\Std/IfxCpu.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/GPIO_LED_Button.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Boards\KIT_TC4D7_LITE/pin.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/IfxAsclin_PinMap.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxAsclin_reg.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxAsclin_regdef.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/TC4Dx/IfxAsclin_PinMap_TC4Dx_BGA292_COM.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/IfxGeth_PinMap.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Geth/Std/IfxGeth.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/_Impl/IfxGeth_cfg.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_Impl\TC4Dx/IfxGeth_cfg_TC4Dx.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxGeth_reg.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxGeth_regdef.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxGeth_bf.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/TC4Dx/IfxGeth_PinMap_TC4Dx_BGA292_COM.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore\_PinMap/IfxCan_PinMap.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore/_Impl/IfxCan_cfg.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore\_Impl\TC4Dx/IfxCan_cfg_TC4Dx.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxCan_reg.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxCan_regdef.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore\_PinMap/Ifx_PinMap.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore\_PinMap/TC4Dx/IfxCan_PinMap_TC4Dx_BGA292_COM.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore\_PinMap/IfxScu_PinMap.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore\_PinMap/TC4Dx/IfxScu_PinMap_TC4Dx_BGA292_COM.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore\_PinMap/IfxI2c_PinMap.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxI2c_reg.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxI2c_regdef.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore\_PinMap/TC4Dx/IfxI2c_PinMap_TC4Dx_BGA292_COM.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore\_PinMap/IfxQspi_PinMap.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxQspi_reg.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxQspi_regdef.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore\_PinMap/TC4Dx/IfxQspi_PinMap_TC4Dx_BGA292_COM.h:

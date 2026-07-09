@@ -107,7 +107,7 @@ typedef struct
      *  current. ratio ramps 0->1 during the alignment. Implement as:
      *  Id* = ratio * I_align, Iq* = 0, with the Park transforms fed the
      *  FORCED angle \p angleU32 (not the encoder angle!). */
-    void (*applyVector) (void);
+    void (*applyVector) (float duty);
 
     /** Release the inverter (Id*=Iq*=0 / PWM off). */
     void (*releaseVector) (void);

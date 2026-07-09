@@ -195,12 +195,10 @@ static struct
  * Helpers
  *============================================================================*/
 
-
-static inline int32_t signExtend24(uint32_t v)
+static inline int32_t signExtend24 (uint32_t v)
 {
-    return ((int32_t)(v << 8)) >> 8;
+    return ((int32_t) (v << 8)) >> 8;
 }
-
 
 //static inline int32_t signExtend24(uint32_t v)
 //{
@@ -217,7 +215,6 @@ static inline int32_t signExtend24(uint32_t v)
 //    /* Positive numbers (0 to 8,388,607) return exactly as they are */
 //    return (int32_t)v;
 //}
-
 
 /* Read REV_CNT and fold the delta into the 32-bit accumulator. */
 static int32_t updatePosition (void)

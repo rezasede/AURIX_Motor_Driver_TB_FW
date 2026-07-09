@@ -147,7 +147,13 @@ UserLibs/Monitor/Stm_Monitor.o: ../UserLibs/Monitor/Stm_Monitor.c \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Egtm/Std/IfxEgtm_Tom.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Egtm/Std/IfxEgtm_Tim.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/TC4Dx/IfxEgtm_PinMap_TC4Dx_BGA292_COM.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/encoder_calib.h
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Control/Control_Loops.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Service\CpuGeneric\SysSe\Bsp/Bsp.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs/Configurations.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/encoder_calib.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/EGTM_ATOM_3_Phase_Inverter_PWM.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/encoder_egtm.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Control/FOC.h
 ../UserLibs/Monitor/Stm_Monitor.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Ifx_Types.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Compilers.h:
@@ -296,4 +302,10 @@ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGen
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Egtm/Std/IfxEgtm_Tom.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Egtm/Std/IfxEgtm_Tim.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/TC4Dx/IfxEgtm_PinMap_TC4Dx_BGA292_COM.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Control/Control_Loops.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Service\CpuGeneric\SysSe\Bsp/Bsp.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs/Configurations.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/encoder_calib.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/EGTM_ATOM_3_Phase_Inverter_PWM.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/encoder_egtm.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Control/FOC.h:

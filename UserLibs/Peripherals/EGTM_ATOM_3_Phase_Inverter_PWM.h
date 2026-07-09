@@ -4,7 +4,6 @@
 #include "Ifx_Types.h"
 
 #define NUM_OF_CHANNELS         (3)
-#define PWM_FREQUENCY           (20.0E3)
 #define ISR_PRIORITY_ATOM       (20)
 
 #define PHASE_U_HS              &IfxEgtm_ATOM0_0_TOUT64_P20_8_OUT
@@ -14,23 +13,12 @@
 #define PHASE_W_HS              &IfxEgtm_ATOM0_2_TOUT68_P20_12_OUT
 #define PHASE_W_LS              &IfxEgtm_ATOM0_2N_TOUT69_P20_13_OUT
 
-#define PHASE_U_DUTY            (50.0f)
-#define PHASE_V_DUTY            (50.0f)
-#define PHASE_W_DUTY            (50.0f)
-
-/* Configuration Parameters */
-#define PWM_FREQ_HZ         20000.0f
-#define START_FREQ_HZ       0.3f           // Starting frequency
-#define END_FREQ_HZ         10.0f          // Target highest frequency
-#define SWEEP_TIME_SEC      100.0f           // Time to reach target in seconds
-#define MAX_DUTY_TICKS      100           // Replace with your timer's 100% period
-
-/* Math Constants */
-#define TWO_PI              6.28318530718f
-#define PHASE_SHIFT_120     2.09439510239f
+#define PHASE_U_DUTY            (0.0f)
+#define PHASE_V_DUTY            (0.0f)
+#define PHASE_W_DUTY            (0.0f)
 
 void initEgtmAtom3phInv (void);
-void updateEgtmAtom3phInvDuty (uint32 Duty_R, uint32 Duty_S, uint32 Duty_W);
+void updateEgtmAtom3phInvDuty (uint32 Duty_a, uint32 Duty_b, uint32 Duty_c);
 void startPWMinEGTM (void);
 
 #endif

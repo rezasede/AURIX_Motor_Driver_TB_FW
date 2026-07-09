@@ -4,10 +4,8 @@
 #include "IfxPort.h"
 #include "IfxPort_Pinmap.h"
 #include "math.h"
-
-/* Pre-calculated Sweep Parameters to save CPU cycles in the ISR */
-// Constant used to convert frequency to radians per tick
-#define ANGLE_STEP_COEFF    (TWO_PI / PWM_FREQ_HZ)
+#include "Control_Loops.h"
+#include "Configurations.h"
 
 // How much the frequency increases per 20kHz PWM tick
 #define FREQ_STEP_PER_TICK  ((END_FREQ_HZ - START_FREQ_HZ) / (SWEEP_TIME_SEC * PWM_FREQ_HZ))
@@ -27,44 +25,8 @@ IFX_INTERRUPT(interruptEgtmAtom, 0, ISR_PRIORITY_ATOM);
 
 void interruptEgtmAtom (void)
 {
-//    // Static variables retain their state across ISR calls
-//    static float phase_angle = 0.0f;
-//    static float current_freq = START_FREQ_HZ;
-//
-//    // 1. Linear Frequency Sweep (Ramp up)
-//    if (current_freq < END_FREQ_HZ)
-//    {
-//        current_freq += 0;
-//
-//        // Clamp to exact target to avoid floating point overshoot
-//        if (current_freq > END_FREQ_HZ)
-//        {
-//            current_freq = END_FREQ_HZ;
-//        }
-//    }
-//
-//    // 2. Calculate the dynamic angle step for this specific tick
-//    float angle_step = current_freq * ANGLE_STEP_COEFF;
-//
-//    // 3. Advance the phase angle
-//    phase_angle += angle_step;
-//    if (phase_angle >= TWO_PI)
-//    {
-//        phase_angle -= TWO_PI;
-//    }
-//
-//    // 4. Calculate the 3-phase sine values (-1.0 to 1.0)
-//    float sine_R = sinf(phase_angle);
-//    float sine_S = sinf(phase_angle - PHASE_SHIFT_120);
-//    float sine_W = sinf(phase_angle + PHASE_SHIFT_120);
-//
-//    // 5. Scale to Duty Cycle (0% to 95% limit preserved for bootstrap charging)
-//    uint32 duty_R = (uint32) ((sine_R + 1.0f) * 0.475f * MAX_DUTY_TICKS);
-//    uint32 duty_S = (uint32) ((sine_S + 1.0f) * 0.475f * MAX_DUTY_TICKS);
-//    uint32 duty_W = (uint32) ((sine_W + 1.0f) * 0.475f * MAX_DUTY_TICKS);
-//
-//    // 6. Send to the PWM update function
-//    updateEgtmAtom3phInvDuty(duty_R, duty_S, duty_W);
+
+    mainSWLoop();   //main Switching loop
 
 }
 
@@ -220,11 +182,11 @@ void startPWMinEGTM (void)
 }
 
 /* This function update duty cycles */
-void updateEgtmAtom3phInvDuty (uint32 Duty_R, uint32 Duty_S, uint32 Duty_W)
+void updateEgtmAtom3phInvDuty (uint32 Duty_a, uint32 Duty_b, uint32 Duty_c)
 {
-    g_egtmAtom3phInv.dutyCycles[0] = Duty_R;
-    g_egtmAtom3phInv.dutyCycles[1] = Duty_S;
-    g_egtmAtom3phInv.dutyCycles[2] = Duty_W;
+    g_egtmAtom3phInv.dutyCycles[0] = Duty_a;
+    g_egtmAtom3phInv.dutyCycles[1] = Duty_b;
+    g_egtmAtom3phInv.dutyCycles[2] = Duty_c;
 
     /* Update duty of all configured channels to requested values immediately */
     IfxEgtm_Pwm_updateChannelsDutyImmediate(&g_egtmAtom3phInv.pwm, (float32*) g_egtmAtom3phInv.dutyCycles);

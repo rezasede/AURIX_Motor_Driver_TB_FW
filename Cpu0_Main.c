@@ -60,6 +60,7 @@
 #include "encoder_calib.h"
 
 #include "Configurations.h"
+#include "FOC.h"
 
 IFX_ALIGN(4) IfxCpu_syncEvent g_cpuSyncEvent = 0;
 volatile boolean g_cpu0InitDone = FALSE;
@@ -83,9 +84,9 @@ void core0_main (void)
     IfxCpu_waitEvent(&g_cpuSyncEvent, 1);
     g_cpu0InitDone = TRUE; /* Signal CPU2 */
 
-    startPWMinEGTM();               // PWM start
-
     init_GPIOs();                   // GPIO initial
+
+    startPWMinEGTM();               // PWM start
 
     Encoder_Egtm_init();            // hardware counting starts
 
@@ -93,6 +94,8 @@ void core0_main (void)
         calibrationProcess();
     else
         EncoderCalib_setData(&default_cal);
+
+    Foc_init();
 
     while (1)
     {
