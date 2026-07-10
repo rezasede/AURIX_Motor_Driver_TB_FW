@@ -181,7 +181,7 @@ void EncoderCalib_getData (EncoderCalibration *cal)
  * Public API — runtime angle
  *============================================================================*/
 
-void EncoderCalib_service (void)
+bool EncoderCalib_service (void)
 {
     bool newZ = Encoder_Egtm_service();
 
@@ -196,8 +196,10 @@ void EncoderCalib_service (void)
             s.refCount = pz + s.cal.zToDAxisCounts;
             s.refValid = true;
             s.zAnchored = true;
+            return true;
         }
     }
+    return false;
 }
 
 uint32_t EncoderCalib_getElecAngle (bool *valid)

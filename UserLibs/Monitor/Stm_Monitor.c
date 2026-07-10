@@ -65,9 +65,16 @@ IFX_INTERRUPT(stm2MonitorISR, 2, STM_MONITOR_ISR_PRIO)
             s_monitorData.signals[4].value = g_voltages.vb;
             s_monitorData.signals[5].name = "vc";
             s_monitorData.signals[5].value = g_voltages.vc;
-
             s_monitorData.signals[6].name = "vdc";
             s_monitorData.signals[6].value = g_voltages.vdc;
+
+            s_monitorData.signals[7].name = "Id";
+            s_monitorData.signals[7].value = g_foc.iDq.d;
+            s_monitorData.signals[8].name = "Iq";
+            s_monitorData.signals[8].value = g_foc.iDq.q;
+
+            s_monitorData.signals[9].name = "Status";
+            s_monitorData.signals[9].value = (uint16) CTRL_S;
 
             s_monitorData.signals[10].name = "theta";
             s_monitorData.signals[10].value = (uint32_t) theta;

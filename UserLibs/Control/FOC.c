@@ -6,7 +6,6 @@
  */
 
 #include "foc.h"
-#include "Configurations.h"
 #include "Control_Loops.h"
 
 /*==============================================================================
@@ -290,6 +289,8 @@ void Foc_init (void)
     g_foc.iqRef = 0.0f;
     g_foc.forcedAngleEn = false;
     g_foc.forcedAngleU32 = 0u;
+
+    DapTune_init(&DAP_IF);
 
     Foc_disable();
     CTRL_S = initial;

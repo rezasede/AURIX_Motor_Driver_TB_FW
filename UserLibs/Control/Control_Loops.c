@@ -13,14 +13,14 @@
  */
 
 #include "Control_Loops.h"
-#include "Adc_MotorSense.h"
 
 bool angleValid;
-uint32_t theta;
 float speed;
 uint16 CTRL_S = initial;
-uint32_t thetaE;
+uint32_t theta;
 FocAbc duty;
+
+DapTune_Params DAP_IF;
 
 void mainSWLoop (void)
 {
@@ -55,36 +55,36 @@ void mainSWLoop (void)
             break;
 
         case waitZ :
-
-            volatile uint32 dbg_res[10];
-            volatile uint32 dbg_cfg[4];
-
-            for (int i = 0; i < 10; i++)
-                dbg_res[i] = MODULE_ADC.TMADC[0].AW0.RES[i].U;
-            dbg_cfg[0] = MODULE_ADC.TMADC[0].CH[1].CFG.U; /* Vdc */
-            dbg_cfg[1] = MODULE_ADC.TMADC[0].CH[3].CFG.U; /* Vc  */
-            dbg_cfg[2] = MODULE_ADC.TMADC[0].CH[5].CFG.U; /* Vb  */
-            dbg_cfg[3] = MODULE_ADC.TMADC[0].CH[7].CFG.U; /* Va reference */
-
-            if (Encoder_Egtm_getPositionAtZ(&angleValid))
+            if (EncoderCalib_service())
             {
                 CTRL_S = running;
-                Foc_setCurrentSetpoints(0, 1.0);    //setpoints for FOC
+                Foc_setCurrentSetpoints(0, 0);    //set-points for FOC
             }
             break;
 
         case running :
+
+            if (DapTune_read(&DAP_IF)) /* if something received by GUI*/
+            {
+                Foc_setCurrentSetpoints(DAP_IF.idRef_A, DAP_IF.iqRef_A); //set-points for FOC
+                FocPi_init(&g_foc.piD, DAP_IF.kpD, DAP_IF.kiD);
+                FocPi_init(&g_foc.piQ, DAP_IF.kpQ, DAP_IF.kiQ);
+            }
+
             /*  encoder: position -> electrical angle + speed                      */
             EncoderCalib_service();
-            thetaE = EncoderCalib_getElecAngle(&angleValid);
-            float omegaE = EncoderCalib_getElecSpeed(PWM_Period) * (float) MotorPolePairs;
+            theta = EncoderCalib_getElecAngle(&angleValid);
+            speed = EncoderCalib_getElecSpeed(PWM_Period) * (float) MotorPolePairs;
 
             /*  the whole FOC pipeline                                             */
-            Foc_isrStep(g_currents.ia, g_currents.ib, g_voltages.vdc, thetaE, omegaE, &duty);
+            Foc_isrStep(g_currents.ia, g_currents.ib, g_voltages.vdc, theta, speed, &duty);
 
             /* into the PWM compare SHADOW registers; hardware transfers them at  */
-            /*    the next counter valley (t = 10 us in the timeline above)          */
-            updateEgtmAtom3phInvDuty(duty.a, duty.b, duty.c);
+            /*    the next counter valley (t = 10 us in the time-line above)          */
+            updateEgtmAtom3phInvDuty(duty.a * 100.0, duty.b * 100.0, duty.c * 100.0);
+
+            g_dapTune.monitor.idMeas_A = g_foc.iDq.d;
+            g_dapTune.monitor.iqMeas_A = g_foc.iDq.q;
 
             break;
 

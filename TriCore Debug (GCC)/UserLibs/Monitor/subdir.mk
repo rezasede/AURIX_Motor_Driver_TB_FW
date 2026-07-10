@@ -6,17 +6,20 @@
 C_SRCS += \
 ../UserLibs/Monitor/Monitor_Json.c \
 ../UserLibs/Monitor/Stm_Monitor.c \
-../UserLibs/Monitor/UserFunctions.c 
+../UserLibs/Monitor/UserFunctions.c \
+../UserLibs/Monitor/dap_tune.c 
 
 C_DEPS += \
 ./UserLibs/Monitor/Monitor_Json.d \
 ./UserLibs/Monitor/Stm_Monitor.d \
-./UserLibs/Monitor/UserFunctions.d 
+./UserLibs/Monitor/UserFunctions.d \
+./UserLibs/Monitor/dap_tune.d 
 
 OBJS += \
 ./UserLibs/Monitor/Monitor_Json.o \
 ./UserLibs/Monitor/Stm_Monitor.o \
-./UserLibs/Monitor/UserFunctions.o 
+./UserLibs/Monitor/UserFunctions.o \
+./UserLibs/Monitor/dap_tune.o 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -31,7 +34,7 @@ UserLibs/Monitor/%.o: ../UserLibs/Monitor/%.c UserLibs/Monitor/subdir.mk
 clean: clean-UserLibs-2f-Monitor
 
 clean-UserLibs-2f-Monitor:
-	-$(RM) ./UserLibs/Monitor/Monitor_Json.d ./UserLibs/Monitor/Monitor_Json.o ./UserLibs/Monitor/Stm_Monitor.d ./UserLibs/Monitor/Stm_Monitor.o ./UserLibs/Monitor/UserFunctions.d ./UserLibs/Monitor/UserFunctions.o
+	-$(RM) ./UserLibs/Monitor/Monitor_Json.d ./UserLibs/Monitor/Monitor_Json.o ./UserLibs/Monitor/Stm_Monitor.d ./UserLibs/Monitor/Stm_Monitor.o ./UserLibs/Monitor/UserFunctions.d ./UserLibs/Monitor/UserFunctions.o ./UserLibs/Monitor/dap_tune.d ./UserLibs/Monitor/dap_tune.o
 
 .PHONY: clean-UserLibs-2f-Monitor
 

@@ -24,6 +24,8 @@
 
 #include <stdint.h>
 #include <stdbool.h>
+#include "Configurations.h"
+#include "dap_tune.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -54,14 +56,17 @@ typedef struct
 {
     float a, b, c;
 } FocAbc;
+
 typedef struct
 {
     float alpha, beta;
 } FocAb;
+
 typedef struct
 {
     float d, q;
 } FocDq;
+
 typedef struct
 {
     float s, c;

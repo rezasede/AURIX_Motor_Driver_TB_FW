@@ -1,58 +1,72 @@
 <root version="2.66.0">
     <signals>
-        <var name="bb" type="group" offset="0" access="read-write">
+        <var name="g_dapTune" type="group" offset="0" access="read-write" model-update-value-enabled="true">
             <item-configuration>
-                <title><![CDATA[BB in]]></title>
+                <title><![CDATA[g_dapTune]]></title>
             </item-configuration>
-            <var name="in" type="uint32" offset="0" access="read-write" default="0">
+            <var name="edit" type="group" offset="0" access="read-write" model-update-value-enabled="true">
                 <item-configuration>
-                    <title><![CDATA[BB in]]></title>
+                    <title><![CDATA[edit]]></title>
                 </item-configuration>
+                <var name="kpD" type="float" offset="0" access="read-write" default="0" model-update-value-enabled="true">
+                    <item-configuration>
+                        <title><![CDATA[kpD]]></title>
+                    </item-configuration>
+                </var>
+                <var name="kiD" type="float" offset="0" access="read-write" default="0" model-update-value-enabled="true">
+                    <item-configuration>
+                        <title><![CDATA[kiD]]></title>
+                    </item-configuration>
+                </var>
+                <var name="kpQ" type="float" offset="0" access="read-write" default="0" model-update-value-enabled="true">
+                    <item-configuration>
+                        <title><![CDATA[kpQ]]></title>
+                    </item-configuration>
+                </var>
+                <var name="kiQ" type="float" offset="0" access="read-write" default="0" model-update-value-enabled="true">
+                    <item-configuration>
+                        <title><![CDATA[kiQ]]></title>
+                    </item-configuration>
+                </var>
+                <var name="idRef_A" type="float" offset="0" access="read-write" default="0" model-update-value-enabled="true">
+                    <item-configuration>
+                        <title><![CDATA[idRef_A]]></title>
+                    </item-configuration>
+                </var>
+                <var name="iqRef_A" type="float" offset="0" access="read-write" default="0" model-update-value-enabled="true">
+                    <item-configuration>
+                        <title><![CDATA[iqRef_A]]></title>
+                    </item-configuration>
+                </var>
             </var>
-            <var name="out" type="uint32" offset="0" access="read-write" default="0">
+            <var name="apply" type="uint32" offset="0" access="read-write" default="0">
                 <item-configuration>
-                    <title><![CDATA[BB out]]></title>
+                    <title><![CDATA[apply]]></title>
                 </item-configuration>
             </var>
         </var>
     </signals>
     <layout>
-        <pushButton>
+        <lineEdit auto-connect="g_dapTune.edit.kpD" enabled="enabled"/>
+        <lineEdit auto-connect="g_dapTune.edit.kiD"/>
+        <lineEdit auto-connect="g_dapTune.edit.kpQ"/>
+        <lineEdit auto-connect="g_dapTune.edit.kiQ"/>
+        <lineEdit auto-connect="g_dapTune.edit.idRef_A"/>
+        <lineEdit auto-connect="g_dapTune.edit.iqRef_A"/>
+        <pushButton auto-connect="g_dapTune.apply" update-method="on-request" checkable="true">
             <item-configuration>
-                <title><![CDATA[UDP Interface]]></title>
-                <on-click><![CDATA[{show.connection.ui}]]></on-click>
+                <id><![CDATA[Apply]]></id>
+                <title><![CDATA[Apply]]></title>
             </item-configuration>
         </pushButton>
-        <barGraph title="Graph" bar-width-percent="25" min="0" max="25" tick-inc-major="2" tick-inc-minor="1" marker-threshold-1="0.5" marker-title-1="TR1" marker-threshold-2="2" marker-title-2="TR2">
-            <item-configuration>
-                <title><![CDATA[Graph]]></title>
-            </item-configuration>
-        </barGraph>
     </layout>
     <interface>
         <item-configuration>
             <id><![CDATA[das-itf]]></id>
         </item-configuration>
-        <port plugin="PCom_Core::udpClient" bind-address="" bind-port="65000" address="192.168.178.198" port="65000" connect="true"/>
-        <messages>
-            <message dir="tx" stream="true" interval="0.001" send-on-new-data="true">
-                <item-configuration>
-                    <title><![CDATA[0xFE]]></title>
-                </item-configuration>
-                <field name="bb.out" bit-pos="0" buffer="512"/>
-            </message>
-            <message stream="true">
-                <item-configuration>
-                    <title><![CDATA[0xFF]]></title>
-                </item-configuration>
-                <field name="bb.in" bit-pos="0"/>
-            </message>
-        </messages>
+        <port plugin="PCom_DAS::DAS" connect="true" system-key="{ADS}"/>
     </interface>
+    <protocolEngine/>
     <config/>
-    <protocolEngine>
-        <protocol name="BB-core" plugin="PProtocol_Core::bb" data-in="bb.in" data-out="bb.out" timeout="2000" min-message-send-interval="0">
-            <target local-port="255" remote-port="255" signal-in="" signal-out="" tx-buffer-length="100" forward="true" send-parent-value="false"/>
-        </protocol>
-    </protocolEngine>
+    <debugBox elf-path="../TriCore Debug (GCC)/Motor_Driver.elf" watches="g_dapTune" com-interface-id="" title="" id=""/>
 </root>

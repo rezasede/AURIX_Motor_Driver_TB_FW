@@ -80,7 +80,7 @@ void EncoderCalib_getData (EncoderCalibration *cal);
  *        Encoder_Egtm_service() and, when a Z pulse is seen, re-anchors the
  *        electrical angle reference to Z using zToDAxisCounts.
  */
-void EncoderCalib_service (void);
+bool EncoderCalib_service (void);
 
 /**
  * \brief Absolute electrical rotor angle, u32 format (2^32 = one electrical

@@ -75,6 +75,7 @@ UserLibs/Control/Control_Loops.o: ../UserLibs/Control/Control_Loops.c \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/EGTM_ATOM_3_Phase_Inverter_PWM.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/encoder_egtm.h \
  ../UserLibs/Control/FOC.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Monitor/dap_tune.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/Adc_MotorSense.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Adc/Std/IfxAdc.h \
@@ -225,6 +226,7 @@ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/encode
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/EGTM_ATOM_3_Phase_Inverter_PWM.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/encoder_egtm.h:
 ../UserLibs/Control/FOC.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Monitor/dap_tune.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Peripherals/Adc_MotorSense.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Adc/Tmadc/IfxAdc_Tmadc.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Adc/Std/IfxAdc.h:

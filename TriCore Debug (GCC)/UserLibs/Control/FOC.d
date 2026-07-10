@@ -1,6 +1,7 @@
 UserLibs/Control/FOC.o: ../UserLibs/Control/FOC.c \
  ../UserLibs/Control/foc.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs/Configurations.h \
+ C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Monitor/dap_tune.h \
  ../UserLibs/Control/Control_Loops.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Service\CpuGeneric\SysSe\Bsp/Bsp.h \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Configurations/Ifx_Cfg.h \
@@ -152,6 +153,7 @@ UserLibs/Control/FOC.o: ../UserLibs/Control/FOC.c \
  C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/TC4Dx/IfxEgtm_PinMap_TC4Dx_BGA292_COM.h
 ../UserLibs/Control/foc.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs/Configurations.h:
+C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\UserLibs\Monitor/dap_tune.h:
 ../UserLibs/Control/Control_Loops.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Service\CpuGeneric\SysSe\Bsp/Bsp.h:
 C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Configurations/Ifx_Cfg.h:

@@ -28,8 +28,10 @@
 #include "Ifx_Cfg.h"
 #include "IfxCpu.h"
 #include "IfxWtu.h"
+#include "dap_tune.h"
+#include "UserFunctions.h"
 
-void core1_main(void)
+void core1_main (void)
 {
     IfxCpu_enableInterrupts();
     
@@ -38,7 +40,11 @@ void core1_main(void)
      */
     IfxWtu_disableCpuWatchdog(IfxWtu_getCpuWatchdogPassword());
     
-    while(1)
+    while (1)
     {
+
+        DapTune_task();
+        Delay(1);
+
     }
 }
