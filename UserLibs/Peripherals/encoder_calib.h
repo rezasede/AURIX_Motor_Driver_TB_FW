@@ -38,6 +38,9 @@ extern "C" {
 
 #define ENCODER_CALIB_MAGIC   0x45435631u   /* "ECV1" */
 
+#define SPD_WIN_MS   1u                                   /* window length in ms */
+#define SPD_WIN      ((uint32_t)PWM_FREQUENCY / 1000u * SPD_WIN_MS)
+
 typedef struct
 {
     uint32_t magic; /* ENCODER_CALIB_MAGIC                         */
@@ -60,6 +63,8 @@ extern const EncoderCalibration default_cal; // Declaration only
  * Runtime API (call from the SAME context as the encoder driver,
  * i.e. your current-loop / control task)
  *============================================================================*/
+
+float EncoderCalib_getElecSpeedFiltered (float periodSeconds);
 
 /**
  * \brief Install calibration data (typically loaded from DFLASH at boot).
@@ -92,6 +97,8 @@ uint32_t EncoderCalib_getElecAngle (bool *valid);
 /** \brief Electrical angular velocity in u32-angle per call period is simply
  *         the delta of getElecAngle(); helper in float rad/s: */
 float EncoderCalib_getElecSpeed (float periodSeconds);
+
+bool EncoderZanchorStatus (void);
 
 /*==============================================================================
  * One-time / power-up alignment (DC alignment method)

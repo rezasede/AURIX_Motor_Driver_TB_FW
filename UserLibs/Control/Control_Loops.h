@@ -22,6 +22,8 @@ extern float speed;
 extern uint16 CTRL_S;
 extern FocAbc duty;
 
+extern int32_t AUX1;
+
 extern volatile Adc_PhaseCurrents g_currents;
 extern volatile Adc_PhaseVoltages g_voltages;
 

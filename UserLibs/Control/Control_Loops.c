@@ -21,6 +21,9 @@ uint32_t theta;
 FocAbc duty;
 
 DapTune_Params DAP_IF;
+uint16 SWDebounce = 0;
+
+int32_t AUX1;
 
 void mainSWLoop (void)
 {
@@ -34,6 +37,8 @@ void mainSWLoop (void)
         return;
     }
 
+    EncoderCalib_service();
+
     /*------------------------------------------------------------------------*/
     /* The Main State Machine                                                 */
     /*------------------------------------------------------------------------*/
@@ -42,7 +47,12 @@ void mainSWLoop (void)
         case initial :
             if (IfxPort_getPinState(BUTTONOB.port, BUTTONOB.pinIndex) == 0) //Switch on the board
             {
-                CTRL_S = waitZ;
+                SWDebounce++;
+                if (SWDebounce > 15000)
+                {
+                    CTRL_S = waitZ;
+                    SWDebounce = 0;
+                }
             }
             break;
 
@@ -55,7 +65,7 @@ void mainSWLoop (void)
             break;
 
         case waitZ :
-            if (EncoderCalib_service())
+            if (EncoderZanchorStatus())
             {
                 CTRL_S = running;
                 Foc_setCurrentSetpoints(0, 0);    //set-points for FOC
@@ -63,6 +73,17 @@ void mainSWLoop (void)
             break;
 
         case running :
+
+            if (IfxPort_getPinState(BUTTONOB.port, BUTTONOB.pinIndex) == 0) //Switch on the board
+            {
+                SWDebounce++;
+                if (SWDebounce > 1000)
+                {
+                    updateEgtmAtom3phInvDuty(0, 0, 0);
+                    CTRL_S = initial;
+                    break;
+                }
+            }
 
             if (DapTune_read(&DAP_IF)) /* if something received by GUI*/
             {
@@ -72,9 +93,8 @@ void mainSWLoop (void)
             }
 
             /*  encoder: position -> electrical angle + speed                      */
-            EncoderCalib_service();
             theta = EncoderCalib_getElecAngle(&angleValid);
-            speed = EncoderCalib_getElecSpeed(PWM_Period) * (float) MotorPolePairs;
+            speed = EncoderCalib_getElecSpeedFiltered(PWM_Period);
 
             /*  the whole FOC pipeline                                             */
             Foc_isrStep(g_currents.ia, g_currents.ib, g_voltages.vdc, theta, speed, &duty);

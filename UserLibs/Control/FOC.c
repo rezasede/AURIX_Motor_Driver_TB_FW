@@ -273,14 +273,8 @@ void Foc_init (void)
         sinLut[i] = initSin(TWO_PI * (float) i / (float) SINLUT_SIZE);
     }
 
-    /* Gains from plant inversion:
-     *   Kp = 2*pi*f_c*L          -> f_c = Kp/(2*pi*L)
-     *   Ki = Kp * R/L            -> controller zero cancels plant pole R/L
-     * Numbers: L=120uH, R=0.25R, f_c=4.5kHz
-     *   Kp = 2*pi*4500*120e-6 = 3.39 V/A
-     *   Ki = 3.39 * 0.25/120e-6 = 7069 V/(A*s)                               */
-    float kp = TWO_PI * FOC_FC_HZ * FOC_LS_H;
-    float ki = kp * (FOC_RS_OHM / FOC_LS_H);
+    float kp = 0.3;
+    float ki = 0.4;
 
     FocPi_init(&g_foc.piD, kp, ki);
     FocPi_init(&g_foc.piQ, kp, ki);

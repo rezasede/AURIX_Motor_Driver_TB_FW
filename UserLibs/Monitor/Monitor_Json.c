@@ -6,38 +6,38 @@
 
 uint32 MonitorJson_build(const MonitorData *data, char *buf, uint32 bufLen)
 {
-    int printed;
-    uint32 currentLen = 0;
+    int    printed;
+    uint32 len = 0u;
 
-    /* 1. Start des JSON-Objekts und Zeitstempel schreiben */
-    printed = snprintf(buf, bufLen, "{\"t\":%llu", (unsigned long long)data->t);
-
-    if (printed < 0 || (uint32)printed >= bufLen) return 0u;
-    currentLen += (uint32)printed;
-
-    /* 2. Alle aktiven Signale aus dem Array hinzufügen */
-    for (uint32 i = 0; i < data->numSignals; i++)
+    /* 1. Open object, timestamp in seconds with us resolution */
+    printed = snprintf(buf, bufLen, "{\"t\":%.6f", data->t);
+    if ((printed < 0) || ((uint32)printed >= bufLen))
     {
-        /* Wichtig: Wenn das Limit erreicht ist, stoppen */
-        if (i >= MONITOR_MAX_SIGNALS) break;
+        return 0u;
+    }
+    len += (uint32)printed;
 
-        /* snprintf startet immer am aktuellen Ende des Puffers (buf + currentLen) */
-        printed = snprintf(buf + currentLen, bufLen - currentLen,
+    /* 2. Append all active signals */
+    for (uint32 i = 0u; (i < data->numSignals) && (i < MONITOR_MAX_SIGNALS); i++)
+    {
+        printed = snprintf(buf + len, bufLen - len,
                            ",\"%s\":%.3f",
                            data->signals[i].name,
-                           (double)data->signals[i].value);
-
-        if (printed < 0 || (uint32)printed >= (bufLen - currentLen))
+                           (float64)data->signals[i].value);
+        if ((printed < 0) || ((uint32)printed >= (bufLen - len)))
         {
-            return 0u; /* Überlaufschutz */
+            return 0u;   /* overflow guard */
         }
-        currentLen += (uint32)printed;
+        len += (uint32)printed;
     }
 
-    /* 3. JSON-Objekt schließen */
-    printed = snprintf(buf + currentLen, bufLen - currentLen, "}");
-    if (printed < 0 || (uint32)printed >= (bufLen - currentLen)) return 0u;
-    currentLen += (uint32)printed;
+    /* 3. Close object */
+    printed = snprintf(buf + len, bufLen - len, "}");
+    if ((printed < 0) || ((uint32)printed >= (bufLen - len)))
+    {
+        return 0u;
+    }
+    len += (uint32)printed;
 
-    return currentLen;
+    return len;
 }

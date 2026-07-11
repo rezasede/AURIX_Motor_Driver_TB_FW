@@ -1,34 +1,50 @@
 /**
  * \file Monitor_Json.h
- * \brief Flexibler JSON-Serializer für AURIX TC4D (ohne malloc)
+ * \brief Flexible JSON serializer for AURIX TC4x (no malloc).
+ *        Output: {"t":<sec>,"name":value,...}
  */
 #ifndef MONITOR_JSON_H_
 #define MONITOR_JSON_H_
 
 #include "Ifx_Types.h"
 
-/* Maximale Anzahl an Float-Signalen, die du gleichzeitig senden willst */
-#define MONITOR_MAX_SIGNALS    50
+#define MONITOR_MAX_SIGNALS     (32u)
 
 typedef struct
 {
-    const char *name;  /* Der JSON-Schlüssel, z.B. "x", "y", "v_bus" */
-    float value;       /* Der Wert */
+    const char *name;                /* JSON key, e.g. "ia" */
+    float32     value;
 } JsonSignal;
 
 typedef struct
 {
-    uint64 t;                                      /* Zeitstempel (immer dabei) */
-    JsonSignal signals[MONITOR_MAX_SIGNALS];       /* Array für deine Variablen */
-    uint32 numSignals;                             /* Wie viele Signale sind aktuell aktiv? */
+    float64    t;                    /* timestamp [s] (PlotJuggler) */
+    uint32     numSignals;
+    JsonSignal signals[MONITOR_MAX_SIGNALS];
 } MonitorData;
 
+/** Reset the signal list. Call before adding signals each message. */
+static inline void MonitorJson_reset(MonitorData *d, float64 t_seconds)
+{
+    d->t = t_seconds;
+    d->numSignals = 0u;
+}
+
+/** Append one named signal. Ignores overflow beyond MONITOR_MAX_SIGNALS. */
+static inline void MonitorJson_add(MonitorData *d, const char *name, float32 v)
+{
+    if (d->numSignals < MONITOR_MAX_SIGNALS)
+    {
+        d->signals[d->numSignals].name  = name;
+        d->signals[d->numSignals].value = v;
+        d->numSignals++;
+    }
+}
+
 /**
- * \brief Erstellt einen JSON-String aus den dynamischen Daten.
- * \return Anzahl der geschriebenen Bytes, oder 0 bei Fehler/Überlauf.
+ * \brief  Build the JSON string.
+ * \return Bytes written, or 0 on error/overflow.
  */
 uint32 MonitorJson_build(const MonitorData *data, char *buf, uint32 bufLen);
-
-
 
 #endif /* MONITOR_JSON_H_ */

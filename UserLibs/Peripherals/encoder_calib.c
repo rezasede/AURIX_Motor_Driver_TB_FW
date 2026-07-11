@@ -154,6 +154,20 @@ static void computeK (uint8_t polePairs)
  * Public API — data handling
  *============================================================================*/
 
+float EncoderCalib_getElecSpeedFiltered (float periodSeconds)
+{
+    static uint32_t hist[SPD_WIN];
+    static uint8_t idx = 0;
+
+    uint32_t now = s.lastElecAngle; /* set by getElecAngle() */
+    int32_t d = (int32_t) (now - hist[idx]); /* delta over SPD_WIN samples */
+    hist[idx] = now;
+    idx = (idx + 1u) % SPD_WIN;
+
+    return (float) d * 1.46291808e-9f /* 2*pi / 2^32 */
+    / ((float) SPD_WIN * periodSeconds);
+}
+
 bool EncoderCalib_setData (const EncoderCalibration *cal)
 {
     s.calValid = false;
@@ -237,6 +251,14 @@ float EncoderCalib_getElecSpeed (float periodSeconds)
     last = now;
     return ((float) delta * 1.46291808e-9f) /* 2*pi / 2^32                 */
     / periodSeconds;
+}
+
+bool EncoderZanchorStatus (void)
+{
+    if (s.zAnchored)
+        return true;
+    else
+        return false;
 }
 
 /*==============================================================================
