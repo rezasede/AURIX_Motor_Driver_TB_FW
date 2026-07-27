@@ -1,24 +1,24 @@
 Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutSincosF32.o: \
  ../Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutSincosF32.c \
  ../Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutSincosF32.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Service\CpuGeneric/SysSe/Math/Ifx_Cf32.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore/Cpu/Std/IfxCpu_Intrinsics.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Ifx_Types.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Compilers.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Configurations/Ifx_Cfg.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/CompilerGcc.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Platform_Types.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Ifx_TypesGcc.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore/Cpu/Std/IfxCpu_IntrinsicsGcc.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Service\CpuGeneric/SysSe/Math/Ifx_Cf32.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\Tricore/Cpu/Std/IfxCpu_Intrinsics.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Ifx_Types.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Compilers.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Configurations/Ifx_Cfg.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/CompilerGcc.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Platform_Types.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Ifx_TypesGcc.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\Tricore/Cpu/Std/IfxCpu_IntrinsicsGcc.h \
  ../Libraries/Service/CpuGeneric/SysSe/Math/Ifx_Lut.h
 ../Libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutSincosF32.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Service\CpuGeneric/SysSe/Math/Ifx_Cf32.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore/Cpu/Std/IfxCpu_Intrinsics.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Ifx_Types.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Compilers.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Configurations/Ifx_Cfg.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/CompilerGcc.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Platform_Types.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Ifx_TypesGcc.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore/Cpu/Std/IfxCpu_IntrinsicsGcc.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Service\CpuGeneric/SysSe/Math/Ifx_Cf32.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\Tricore/Cpu/Std/IfxCpu_Intrinsics.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Ifx_Types.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Compilers.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Configurations/Ifx_Cfg.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/CompilerGcc.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Platform_Types.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Ifx_TypesGcc.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\Tricore/Cpu/Std/IfxCpu_IntrinsicsGcc.h:
 ../Libraries/Service/CpuGeneric/SysSe/Math/Ifx_Lut.h:

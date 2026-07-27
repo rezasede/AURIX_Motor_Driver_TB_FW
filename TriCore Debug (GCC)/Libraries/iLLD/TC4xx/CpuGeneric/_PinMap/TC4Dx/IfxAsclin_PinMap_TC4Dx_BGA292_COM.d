@@ -1,78 +1,78 @@
 Libraries/iLLD/TC4xx/CpuGeneric/_PinMap/TC4Dx/IfxAsclin_PinMap_TC4Dx_BGA292_COM.o: \
  ../Libraries/iLLD/TC4xx/CpuGeneric/_PinMap/TC4Dx/IfxAsclin_PinMap_TC4Dx_BGA292_COM.c \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/Ifx_PinMap.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Configurations/Ifx_Cfg.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/Ifx_PinMap.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Configurations/Ifx_Cfg.h \
  ../Libraries/iLLD/TC4xx/CpuGeneric/_PinMap/TC4Dx/IfxAsclin_PinMap_TC4Dx_BGA292_COM.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/IfxAsclin_PinMap.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/Ifx_PinMap.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxAsclin_reg.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxAsclin_regdef.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/Ifx_TypesReg.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Port/Std/IfxPort.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/_Impl/IfxPort_cfg.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_Impl\TC4Dx/IfxPort_cfg_TC4Dx.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Ifx_Types.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Compilers.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/CompilerGcc.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Platform_Types.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Ifx_TypesGcc.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxPort_reg.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxPort_regdef.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxPort_bf.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Ap/Std/IfxApProt.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/_Impl/IfxAp_cfg.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_Impl\TC4Dx/IfxAp_cfg_TC4Dx.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore/Cpu/Std/IfxCpu_Intrinsics.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore/Cpu/Std/IfxCpu_IntrinsicsGcc.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxCpu_reg.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxCpu_regdef.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxLmu_reg.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxLmu_regdef.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\Ap/IfxProt_bf.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\Ap/IfxProt_reg.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\Ap/IfxProt_regdef.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/Ifx_TypesReg.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Ap/Std/IfxApApu.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\Ap/IfxAccen_bf.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\Ap/IfxAccen_reg.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\Ap/IfxAccen_regdef.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Ap/Std/IfxApProt.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/TC4Dx/IfxAsclin_PinMap_TC4Dx_BGA292_COM.h
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/Ifx_PinMap.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Configurations/Ifx_Cfg.h:
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/IfxAsclin_PinMap.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/Ifx_PinMap.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/IfxAsclin_reg.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/IfxAsclin_regdef.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/Ifx_TypesReg.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric/Port/Std/IfxPort.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric/_Impl/IfxPort_cfg.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric\_Impl\TC4Dx/IfxPort_cfg_TC4Dx.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Ifx_Types.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Compilers.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/CompilerGcc.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Platform_Types.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Ifx_TypesGcc.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/IfxPort_reg.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/IfxPort_regdef.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/IfxPort_bf.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric/Ap/Std/IfxApProt.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric/_Impl/IfxAp_cfg.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric\_Impl\TC4Dx/IfxAp_cfg_TC4Dx.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\Tricore/Cpu/Std/IfxCpu_Intrinsics.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\Tricore/Cpu/Std/IfxCpu_IntrinsicsGcc.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/IfxCpu_reg.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/IfxCpu_regdef.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/IfxLmu_reg.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/IfxLmu_regdef.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric\Ap/IfxProt_bf.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric\Ap/IfxProt_reg.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric\Ap/IfxProt_regdef.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/Ifx_TypesReg.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric/Ap/Std/IfxApApu.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric\Ap/IfxAccen_bf.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric\Ap/IfxAccen_reg.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric\Ap/IfxAccen_regdef.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric/Ap/Std/IfxApProt.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/TC4Dx/IfxAsclin_PinMap_TC4Dx_BGA292_COM.h
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/Ifx_PinMap.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Configurations/Ifx_Cfg.h:
 ../Libraries/iLLD/TC4xx/CpuGeneric/_PinMap/TC4Dx/IfxAsclin_PinMap_TC4Dx_BGA292_COM.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/IfxAsclin_PinMap.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/Ifx_PinMap.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxAsclin_reg.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxAsclin_regdef.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/Ifx_TypesReg.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Port/Std/IfxPort.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/_Impl/IfxPort_cfg.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_Impl\TC4Dx/IfxPort_cfg_TC4Dx.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Ifx_Types.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Compilers.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/CompilerGcc.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Platform_Types.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Ifx_TypesGcc.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxPort_reg.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxPort_regdef.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxPort_bf.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Ap/Std/IfxApProt.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/_Impl/IfxAp_cfg.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_Impl\TC4Dx/IfxAp_cfg_TC4Dx.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore/Cpu/Std/IfxCpu_Intrinsics.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore/Cpu/Std/IfxCpu_IntrinsicsGcc.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxCpu_reg.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxCpu_regdef.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxLmu_reg.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxLmu_regdef.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\Ap/IfxProt_bf.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\Ap/IfxProt_reg.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\Ap/IfxProt_regdef.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/Ifx_TypesReg.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Ap/Std/IfxApApu.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\Ap/IfxAccen_bf.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\Ap/IfxAccen_reg.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\Ap/IfxAccen_regdef.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/Ap/Std/IfxApProt.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/TC4Dx/IfxAsclin_PinMap_TC4Dx_BGA292_COM.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/IfxAsclin_PinMap.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/Ifx_PinMap.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/IfxAsclin_reg.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/IfxAsclin_regdef.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/Ifx_TypesReg.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric/Port/Std/IfxPort.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric/_Impl/IfxPort_cfg.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric\_Impl\TC4Dx/IfxPort_cfg_TC4Dx.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Ifx_Types.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Compilers.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/CompilerGcc.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Platform_Types.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Ifx_TypesGcc.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/IfxPort_reg.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/IfxPort_regdef.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/IfxPort_bf.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric/Ap/Std/IfxApProt.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric/_Impl/IfxAp_cfg.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric\_Impl\TC4Dx/IfxAp_cfg_TC4Dx.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\Tricore/Cpu/Std/IfxCpu_Intrinsics.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\Tricore/Cpu/Std/IfxCpu_IntrinsicsGcc.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/IfxCpu_reg.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/IfxCpu_regdef.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/IfxLmu_reg.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/IfxLmu_regdef.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric\Ap/IfxProt_bf.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric\Ap/IfxProt_reg.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric\Ap/IfxProt_regdef.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/Ifx_TypesReg.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric/Ap/Std/IfxApApu.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric\Ap/IfxAccen_bf.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric\Ap/IfxAccen_reg.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric\Ap/IfxAccen_regdef.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric/Ap/Std/IfxApProt.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric\_PinMap/TC4Dx/IfxAsclin_PinMap_TC4Dx_BGA292_COM.h:

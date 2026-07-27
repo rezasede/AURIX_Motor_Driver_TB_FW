@@ -1,18 +1,18 @@
 Libraries/Service/CpuGeneric/SysSe/Bsp/Ifx_illdAssert.o: \
  ../Libraries/Service/CpuGeneric/SysSe/Bsp/Ifx_illdAssert.c \
  ../Libraries/Service/CpuGeneric/SysSe/Bsp/Ifx_illdAssert.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Service\CpuGeneric/_Utilities/Ifx_Assert.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Configurations/Ifx_Cfg.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Ifx_Types.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Compilers.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/CompilerGcc.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Platform_Types.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Ifx_TypesGcc.h
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Service\CpuGeneric/_Utilities/Ifx_Assert.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Configurations/Ifx_Cfg.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Ifx_Types.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Compilers.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/CompilerGcc.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Platform_Types.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Ifx_TypesGcc.h
 ../Libraries/Service/CpuGeneric/SysSe/Bsp/Ifx_illdAssert.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Service\CpuGeneric/_Utilities/Ifx_Assert.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Configurations/Ifx_Cfg.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Ifx_Types.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Compilers.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/CompilerGcc.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Platform_Types.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Ifx_TypesGcc.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Service\CpuGeneric/_Utilities/Ifx_Assert.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Configurations/Ifx_Cfg.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Ifx_Types.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Compilers.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/CompilerGcc.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Platform_Types.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Ifx_TypesGcc.h:

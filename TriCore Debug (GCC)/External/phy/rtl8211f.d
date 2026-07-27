@@ -1,7 +1,7 @@
 External/phy/rtl8211f.o: ../External/phy/rtl8211f.c \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\External\phy\include/phy/rtl8211f.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\External\phy\include/phy/phy.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\External\pdl\include/pdl/ifx_macro.h
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\External\phy\include/phy/rtl8211f.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\External\phy\include/phy/phy.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\External\pdl\include/pdl/ifx_macro.h:
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\External\phy\include/phy/rtl8211f.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\External\phy\include/phy/phy.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\External\pdl\include/pdl/ifx_macro.h
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\External\phy\include/phy/rtl8211f.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\External\phy\include/phy/phy.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\External\pdl\include/pdl/ifx_macro.h:

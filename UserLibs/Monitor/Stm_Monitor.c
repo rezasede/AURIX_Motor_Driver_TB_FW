@@ -1,8 +1,10 @@
 /**
  * \file Stm_Monitor.c
  * \brief Single STM interrupt on CPU2, period = PWM period.
- *        Sampling is lossless: every tick pushes one sample into the ring
- *        and drains up to MON_MAX_SENDS_PER_TICK samples out as JSON UDP.
+ *          every tick : sample -> ring; drain max ONE packet -> UDP
+ *          every 1 ms : Ethernet housekeeping only
+ *        Wrap-proof re-arm: a slow tick drops samples (counted),
+ *        it can never park the compare in the past (8.6 s STM coma).
  *        All GETH access happens in this one context — no concurrency.
  */
 #include "Stm_Monitor.h"
@@ -21,7 +23,7 @@
 /* Local configuration                                                 */
 /* ------------------------------------------------------------------ */
 #define MONITOR_STM     (&MODULE_CPU2)
-#define TICKS_PER_MS    ((uint32)(1e-3 / (PWM_Period) + 0.5))  /* 50us -> 20 */
+#define TICKS_PER_MS    ((uint32)(1e-3 / (PWM_Period) + 0.5))
 #define UDP_BUF_SIZE    (512u)
 
 /* ------------------------------------------------------------------ */
@@ -29,9 +31,12 @@
 /* ------------------------------------------------------------------ */
 static IfxStm_CompareConfig s_stmCfg;
 static uint32               s_reloadTicks;
+static uint32               s_nextCmp;        /* next compare value (we own it) */
 static MonitorData          s_monitorData;
 static char                 s_udpBuffer[UDP_BUF_SIZE];
-static uint32               s_msgCounter = 0u;   /* "n" — PC-side loss check */
+static uint32               s_msgCounter = 0u;
+
+volatile uint32 g_monMissedTicks = 0u;        /* ISR overruns; must stay 0 */
 
 MonRing g_monRing;
 
@@ -44,7 +49,7 @@ extern volatile Adc_PhaseVoltages g_voltages;
 static inline void Mon_push(const MonSample *s);
 static void        Mon_drainJson(uint32 maxSends);
 #if MON_USE_BINARY_BULK
-static void        Mon_drainAndSendBinary(void);
+static void        Mon_sendOnePacketBinary(boolean flushPartial);
 #endif
 
 /* ------------------------------------------------------------------ */
@@ -52,10 +57,19 @@ static void        Mon_drainAndSendBinary(void);
 /* ------------------------------------------------------------------ */
 IFX_INTERRUPT(stm2MonitorISR, 2, STM_MONITOR_ISR_PRIO)
 {
+    /* ---- CHANGE 1: wrap-proof re-arm ---- */
     IfxStm_clearCompareFlag(MONITOR_STM, s_stmCfg.comparator);
-    IfxStm_increaseCompare(MONITOR_STM, s_stmCfg.comparator, s_reloadTicks);
 
-    /* ---- every tick: snapshot into ring (never skipped) ---- */
+    uint32 now = (uint32)IfxStm_get(MONITOR_STM);
+    s_nextCmp += s_reloadTicks;
+    while ((sint32)(s_nextCmp - now) <= 0)     /* compare already in the past? */
+    {
+        s_nextCmp += s_reloadTicks;            /* skip forward, count the loss */
+        g_monMissedTicks++;
+    }
+    IfxStm_updateCompare(MONITOR_STM, s_stmCfg.comparator, s_nextCmp);
+
+    /* ---- every tick: snapshot into ring ---- */
     MonSample s;
     s.t_us   = IfxStm_getMicrosecondsFromTicks(IfxStm_get(MONITOR_STM));
     s.ia     = g_currents.ia;
@@ -69,38 +83,39 @@ IFX_INTERRUPT(stm2MonitorISR, 2, STM_MONITOR_ISR_PRIO)
     s.iq     = g_foc.iDq.q;
     s.theta  = (float32)theta;
     s.speed  = speed;
+    s.AUX1   = (float32)AUX1;
     s.status = (uint32)CTRL_S;
-    s.AUX1 = (int32_t)AUX1;
     Mon_push(&s);
 
-    /* ---- every tick: drain a little (spread load, lossless) ---- */
+    /* ---- 1 ms divider (evaluated first, used below) ---- */
+    static uint32 msDiv = 0u;
+    boolean msTick = FALSE;
+    if (++msDiv >= TICKS_PER_MS)
+    {
+        msDiv  = 0u;
+        msTick = TRUE;
+    }
+
+    /* ---- CHANGE 2: drain max ONE packet per tick, spread the load ---- */
     if (Eth_Core2_isLinkUp())
     {
 #if MON_USE_BINARY_BULK
-        /* binary path drains in the 1 ms slot below instead */
+        /* send when a full packet is ready; on the 1 ms tick also flush
+         * a partial packet so latency stays <= ~1 ms */
+        Mon_sendOnePacketBinary(msTick);
 #else
         Mon_drainJson(MON_MAX_SENDS_PER_TICK);
 #endif
     }
-
-    /* ---- every 1 ms: Ethernet housekeeping ---- */
-    static uint32 msDiv = 0u;
-    if (++msDiv >= TICKS_PER_MS)
+    else
     {
-        msDiv = 0u;
+        g_monRing.rd = g_monRing.wr;           /* no link -> discard */
+    }
 
+    /* ---- every 1 ms: Ethernet housekeeping ONLY ---- */
+    if (msTick)
+    {
         Eth_Core2_service1ms();
-
-        if (Eth_Core2_isLinkUp())
-        {
-#if MON_USE_BINARY_BULK
-            Mon_drainAndSendBinary();
-#endif
-        }
-        else
-        {
-            g_monRing.rd = g_monRing.wr;    /* no link -> discard */
-        }
 
         static uint32 secDiv = 0u;
         if (++secDiv >= 1000u)
@@ -135,6 +150,7 @@ static void Mon_drainJson(uint32 maxSends)
         MonitorJson_add(&s_monitorData, "iq",    s->iq);
         MonitorJson_add(&s_monitorData, "theta", s->theta);
         MonitorJson_add(&s_monitorData, "speed", s->speed);
+        MonitorJson_add(&s_monitorData, "AUX1",  s->AUX1);
         MonitorJson_add(&s_monitorData, "status",(float32)s->status);
 
         uint32 len = MonitorJson_build(&s_monitorData, s_udpBuffer, sizeof(s_udpBuffer));
@@ -146,7 +162,7 @@ static void Mon_drainJson(uint32 maxSends)
 }
 
 /* ------------------------------------------------------------------ */
-/* Binary bulk path (full rate, ~4x less bandwidth, needs PC bridge)   */
+/* Binary bulk path: at most ONE packet per call                       */
 /* ------------------------------------------------------------------ */
 #if MON_USE_BINARY_BULK
 
@@ -158,33 +174,41 @@ typedef struct
     uint16 sampleSize;   /* = sizeof(MonSample)        */
 } MonPktHeader;
 
-#define SAMPLES_PER_PKT (28u)   /* 12 + 28*52 = 1468 B < MTU */
+/* auto-fit to MTU: 1472 B UDP payload minus header */
+#define SAMPLES_PER_PKT  ((uint16)((1472u - sizeof(MonPktHeader)) / sizeof(MonSample)))
 
 static uint32 s_seq = 0u;
 static uint8  s_pkt[sizeof(MonPktHeader) + SAMPLES_PER_PKT * sizeof(MonSample)];
 
-static void Mon_drainAndSendBinary(void)
+/**
+ * Send at most one packet. If flushPartial is FALSE, only send when a
+ * full SAMPLES_PER_PKT is available (max efficiency). If TRUE, also
+ * send whatever is pending (bounds latency to the 1 ms tick).
+ */
+static void Mon_sendOnePacketBinary(boolean flushPartial)
 {
-    while (g_monRing.rd != g_monRing.wr)
+    uint32 filled = (g_monRing.wr - g_monRing.rd) & MON_RING_MASK;
+
+    if (filled == 0u)                            return;
+    if (!flushPartial && (filled < SAMPLES_PER_PKT)) return;
+
+    MonPktHeader *h   = (MonPktHeader *)s_pkt;
+    MonSample    *dst = (MonSample *)(s_pkt + sizeof(MonPktHeader));
+    uint16        n   = 0u;
+
+    while ((n < SAMPLES_PER_PKT) && (g_monRing.rd != g_monRing.wr))
     {
-        MonPktHeader *h   = (MonPktHeader *)s_pkt;
-        MonSample    *dst = (MonSample *)(s_pkt + sizeof(MonPktHeader));
-        uint16        n   = 0u;
-
-        while ((n < SAMPLES_PER_PKT) && (g_monRing.rd != g_monRing.wr))
-        {
-            dst[n++]     = g_monRing.buf[g_monRing.rd];
-            g_monRing.rd = (g_monRing.rd + 1u) & MON_RING_MASK;
-        }
-
-        h->magic      = 0x4D4F4E31u;
-        h->seq        = s_seq++;
-        h->count      = n;
-        h->sampleSize = (uint16)sizeof(MonSample);
-
-        Eth_Core2_sendUdp((char *)s_pkt,
-                          sizeof(MonPktHeader) + n * sizeof(MonSample));
+        dst[n++]     = g_monRing.buf[g_monRing.rd];
+        g_monRing.rd = (g_monRing.rd + 1u) & MON_RING_MASK;
     }
+
+    h->magic      = 0x4D4F4E31u;
+    h->seq        = s_seq++;
+    h->count      = n;
+    h->sampleSize = (uint16)sizeof(MonSample);
+
+    Eth_Core2_sendUdp((char *)s_pkt,
+                      sizeof(MonPktHeader) + n * sizeof(MonSample));
 }
 #endif /* MON_USE_BINARY_BULK */
 
@@ -202,7 +226,7 @@ static inline void Mon_push(const MonSample *s)
         return;
     }
     g_monRing.buf[wr] = *s;
-    __dsync();                          /* data lands before index   */
+    __dsync();
     g_monRing.wr = next;
 }
 
@@ -223,5 +247,10 @@ void StmMonitor_init(void)
     IfxStm_initCompare(MONITOR_STM, &s_stmCfg);
 
     s_reloadTicks = s_stmCfg.ticks;
+    s_nextCmp = (uint32)IfxStm_get(MONITOR_STM) + s_reloadTicks;
 
+    if (TICKS_PER_MS == 0u)
+    {
+        while (1) { /* macro/units error — halt */ }
+    }
 }

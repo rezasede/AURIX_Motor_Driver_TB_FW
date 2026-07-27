@@ -66,12 +66,14 @@ void initEgtmAtom3phInv (void)
     output[2].outputMode = IfxPort_OutputMode_pushPull;
     output[2].padDriver = IfxPort_PadDriver_cmosAutomotiveSpeed1;
 
-    dtmConfig[0].deadTime.rising = 75e-9f;
-    dtmConfig[0].deadTime.falling = 75e-9f;
-    dtmConfig[1].deadTime.rising = 75e-9f;
-    dtmConfig[1].deadTime.falling = 75e-9f;
-    dtmConfig[2].deadTime.rising = 75e-9f;
-    dtmConfig[2].deadTime.falling = 75e-9f;
+    dtmConfig[0].deadTime.rising = PWM_DeadTime_Rise;
+    dtmConfig[0].deadTime.falling = PWM_DeadTime_Fall;
+
+    dtmConfig[1].deadTime.rising = PWM_DeadTime_Rise;
+    dtmConfig[1].deadTime.falling = PWM_DeadTime_Fall;
+
+    dtmConfig[2].deadTime.rising = PWM_DeadTime_Rise;
+    dtmConfig[2].deadTime.falling = PWM_DeadTime_Fall;
 
     interruptConfig.mode = IfxEgtm_IrqMode_pulseNotify;
     interruptConfig.isrProvider = IfxSrc_Tos_cpu0;

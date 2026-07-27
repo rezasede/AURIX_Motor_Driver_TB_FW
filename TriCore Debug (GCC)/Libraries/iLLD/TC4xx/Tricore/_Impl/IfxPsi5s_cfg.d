@@ -1,24 +1,24 @@
 Libraries/iLLD/TC4xx/Tricore/_Impl/IfxPsi5s_cfg.o: \
  ../Libraries/iLLD/TC4xx/Tricore/_Impl/IfxPsi5s_cfg.c \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Configurations/Ifx_Cfg.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Configurations/Ifx_Cfg.h \
  ../Libraries/iLLD/TC4xx/Tricore/_Impl/IfxPsi5s_cfg.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore\_Impl\TC4Dx/IfxPsi5s_cfg_TC4Dx.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Ifx_Types.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Compilers.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/CompilerGcc.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Platform_Types.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Ifx_TypesGcc.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxPsi5s_reg.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxPsi5s_regdef.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/Ifx_TypesReg.h
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Configurations/Ifx_Cfg.h:
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\Tricore\_Impl\TC4Dx/IfxPsi5s_cfg_TC4Dx.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Ifx_Types.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Compilers.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/CompilerGcc.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Platform_Types.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Ifx_TypesGcc.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/IfxPsi5s_reg.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/IfxPsi5s_regdef.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/Ifx_TypesReg.h
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Configurations/Ifx_Cfg.h:
 ../Libraries/iLLD/TC4xx/Tricore/_Impl/IfxPsi5s_cfg.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore\_Impl\TC4Dx/IfxPsi5s_cfg_TC4Dx.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Ifx_Types.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Compilers.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/CompilerGcc.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Platform_Types.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Ifx_TypesGcc.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxPsi5s_reg.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxPsi5s_regdef.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/Ifx_TypesReg.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\Tricore\_Impl\TC4Dx/IfxPsi5s_cfg_TC4Dx.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Ifx_Types.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Compilers.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/CompilerGcc.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Platform_Types.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Ifx_TypesGcc.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/IfxPsi5s_reg.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/IfxPsi5s_regdef.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/Ifx_TypesReg.h:

@@ -72,6 +72,7 @@ typedef struct
 } MonRing;
 
 extern MonRing g_monRing;
+extern volatile uint32 g_monMissedTicks;
 
 /* ------------------------------------------------------------------ */
 /* API                                                                 */

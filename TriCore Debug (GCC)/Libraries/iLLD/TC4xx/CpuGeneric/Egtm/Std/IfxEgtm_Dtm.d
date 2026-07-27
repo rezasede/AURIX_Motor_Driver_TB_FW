@@ -1,32 +1,32 @@
 Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Std/IfxEgtm_Dtm.o: \
  ../Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Std/IfxEgtm_Dtm.c \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Configurations/Ifx_Cfg.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Configurations/Ifx_Cfg.h \
  ../Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Std/IfxEgtm_Dtm.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/_Impl/IfxEgtm_cfg.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_Impl\TC4Dx/IfxEgtm_cfg_TC4Dx.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Ifx_Types.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Compilers.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/CompilerGcc.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Platform_Types.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Ifx_TypesGcc.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxEgtm_reg.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxEgtm_regdef.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/Ifx_TypesReg.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore/Cpu/Std/IfxCpu_Intrinsics.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore/Cpu/Std/IfxCpu_IntrinsicsGcc.h \
- C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxEgtm_bf.h
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Configurations/Ifx_Cfg.h:
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric/_Impl/IfxEgtm_cfg.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric\_Impl\TC4Dx/IfxEgtm_cfg_TC4Dx.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Ifx_Types.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Compilers.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/CompilerGcc.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Platform_Types.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Ifx_TypesGcc.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/IfxEgtm_reg.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/IfxEgtm_regdef.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/Ifx_TypesReg.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\Tricore/Cpu/Std/IfxCpu_Intrinsics.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\Tricore/Cpu/Std/IfxCpu_IntrinsicsGcc.h \
+ D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/IfxEgtm_bf.h
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Configurations/Ifx_Cfg.h:
 ../Libraries/iLLD/TC4xx/CpuGeneric/Egtm/Std/IfxEgtm_Dtm.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric/_Impl/IfxEgtm_cfg.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\CpuGeneric\_Impl\TC4Dx/IfxEgtm_cfg_TC4Dx.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Ifx_Types.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Compilers.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/CompilerGcc.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Platform_Types.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Platform\Compilers/Ifx_TypesGcc.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxEgtm_reg.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxEgtm_regdef.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/Ifx_TypesReg.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore/Cpu/Std/IfxCpu_Intrinsics.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\iLLD\TC4xx\Tricore/Cpu/Std/IfxCpu_IntrinsicsGcc.h:
-C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\Libraries\Infra\Sfr\TC4Dx/IfxEgtm_bf.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric/_Impl/IfxEgtm_cfg.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\CpuGeneric\_Impl\TC4Dx/IfxEgtm_cfg_TC4Dx.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Ifx_Types.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Compilers.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/CompilerGcc.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Platform_Types.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Platform\Compilers/Ifx_TypesGcc.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/IfxEgtm_reg.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/IfxEgtm_regdef.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/Ifx_TypesReg.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\Tricore/Cpu/Std/IfxCpu_Intrinsics.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\iLLD\TC4xx\Tricore/Cpu/Std/IfxCpu_IntrinsicsGcc.h:
+D:\Projects\GitHub\AURIX_Motor_Driver_FW\Libraries\Infra\Sfr\TC4Dx/IfxEgtm_bf.h:

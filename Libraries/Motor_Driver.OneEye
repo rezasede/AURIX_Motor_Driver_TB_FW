@@ -68,5 +68,5 @@
     </interface>
     <protocolEngine/>
     <config/>
-    <debugBox elf-path="C:\Users\rezas\AURIX-v1.10.28-workspace\Motor_Driver\TriCore Debug (GCC)\Motor_Driver.elf" watches="g_dapTune" com-interface-id="" title="" id=""/>
+    <debugBox elf-path="D:\Projects\GitHub\AURIX_Motor_Driver_FW\TriCore Debug (GCC)\Motor_Driver.elf" watches="g_dapTune" com-interface-id="" title="" id=""/>
 </root>
